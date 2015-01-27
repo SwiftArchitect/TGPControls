@@ -15,18 +15,17 @@ Ideal to represent steps.
 TGPControls are **AutoLayout** ready, support **iOS 8** `IB Designable` and `IB Inspectable` properties, yet runs as far back as iOS 7.
 
 ##Fully Customizable
-![image](https://cloud.githubusercontent.com/assets/4073988/5909892/7fdc091e-a569-11e4-906b-da0f185a1b91.png)
 
-![custom](https://cloud.githubusercontent.com/assets/4073988/5912951/19788d6a-a590-11e4-9e0c-57a79cb5d020.gif)
+![alphabetslider](https://cloud.githubusercontent.com/assets/4073988/5912297/c3f21bb2-a586-11e4-8eb1-a1f930ccbdd5.gif)
 
 Control everything about the slider or its labels, starting with colors and fonts, including track and ticks shape, and thumb shadows.
 All computations regarding range and sizing and handled automatically.
 Use the two classes in tandem to create stunning new controls, which can be resized dynamically, to intergrate beautifully into your application.
 
-![alphabetslider](https://cloud.githubusercontent.com/assets/4073988/5912297/c3f21bb2-a586-11e4-8eb1-a1f930ccbdd5.gif)
+![onoff](https://cloud.githubusercontent.com/assets/4073988/5912516/36af8006-a58a-11e4-91bf-03ef24476645.gif)
+
 Most customization can be done in **Interface Builder** and require **0 coding**.
 
-![onoff](https://cloud.githubusercontent.com/assets/4073988/5912516/36af8006-a58a-11e4-91bf-03ef24476645.gif)
 
 ##How to integrate
 Using [CocoaPods](http://cocoapods.org/?q=TGPControls)
@@ -95,7 +94,7 @@ You can then use TGPCamelLabels on top of other UI elements with no ill effet.
 
 ![image](https://cloud.githubusercontent.com/assets/4073988/5910599/b775b6e8-a570-11e4-9846-d990ca0f8c9c.png)
 
-###Complete example
+###Code example
 ```
 #import "ViewController.h"
 #import "TGPDiscreteSlider.h"
@@ -155,3 +154,8 @@ You can then use TGPCamelLabels on top of other UI elements with no ill effet.
 
 @end
 ```
+###Customization example
+
+![image](https://cloud.githubusercontent.com/assets/4073988/5909892/7fdc091e-a569-11e4-906b-da0f185a1b91.png)
+
+![custom](https://cloud.githubusercontent.com/assets/4073988/5912951/19788d6a-a590-11e4-9e0c-57a79cb5d020.gif)
