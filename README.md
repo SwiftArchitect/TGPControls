@@ -1,12 +1,12 @@
 # TGPControls
 ##TGPDiscreteSlider
-![image](https://cloud.githubusercontent.com/assets/4073988/5906889/fd99471e-a54f-11e4-8805-31df14795e9b.png)
+![ticksdemo](https://cloud.githubusercontent.com/assets/4073988/5912371/144aaf24-a588-11e4-9a22-42832eb2c235.gif)
 
 A slider with discrete steps, discrete range, with customizable track, thumb and ticks.
 Ideal to select steps.
 
 ##TGPCamelLabels
-![image](https://cloud.githubusercontent.com/assets/4073988/5906924/35aadc26-a550-11e4-87bb-c79c717ee95d.png)
+![camellabels2](https://cloud.githubusercontent.com/assets/4073988/5912454/15774398-a589-11e4-8f08-18c9c7b59871.gif)
 
 A set of animated labels representing a selection. Can be used alone or in conjunction with a UIControl.
 Ideal to represent steps.
@@ -17,16 +17,16 @@ TGPControls are **AutoLayout** ready, support **iOS 8** `IB Designable` and `IB 
 ##Fully Customizable
 ![image](https://cloud.githubusercontent.com/assets/4073988/5909892/7fdc091e-a569-11e4-906b-da0f185a1b91.png)
 
+![custom](https://cloud.githubusercontent.com/assets/4073988/5912951/19788d6a-a590-11e4-9e0c-57a79cb5d020.gif)
+
 Control everything about the slider or its labels, starting with colors and fonts, including track and ticks shape, and thumb shadows.
 All computations regarding range and sizing and handled automatically.
 Use the two classes in tandem to create stunning new controls, which can be resized dynamically, to intergrate beautifully into your application.
 
-![image](https://cloud.githubusercontent.com/assets/4073988/5910059/1806d10a-a56b-11e4-83ce-1d1909411305.png)
-
+![alphabetslider](https://cloud.githubusercontent.com/assets/4073988/5912297/c3f21bb2-a586-11e4-8eb1-a1f930ccbdd5.gif)
 Most customization can be done in **Interface Builder** and require **0 coding**.
 
-![image](https://cloud.githubusercontent.com/assets/4073988/5910084/6fff8f8c-a56b-11e4-9bb4-3cf4c7e2708b.png)
-
+![onoff](https://cloud.githubusercontent.com/assets/4073988/5912516/36af8006-a58a-11e4-91bf-03ef24476645.gif)
 
 ##How to integrate
 Using [CocoaPods](http://cocoapods.org/?q=TGPControls)
@@ -57,7 +57,7 @@ This makes TGPDiscreteSlider predictable. it is guarantied to always fit snuggly
 ```
 That's all, and all you need to create this control:
 
-![image](https://cloud.githubusercontent.com/assets/4073988/5910644/3add72b4-a571-11e4-992c-c667d1e9682a.png)
+![complete](https://cloud.githubusercontent.com/assets/4073988/5912616/26cf1b0a-a58b-11e4-92f7-f9dbcd53c413.gif)
 
 Change tickStyle, trackStyle, thumbStyle to be one of:
 - `ComponentStyleIOS` = 0
