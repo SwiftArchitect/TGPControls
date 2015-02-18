@@ -50,6 +50,7 @@
 		DC101D6B1A75749600ECCF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC101D7A1A75756300ECCF80 /* TGPControls_License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = TGPControls_License.txt; sourceTree = "<group>"; };
 		DC101D7B1A75756300ECCF80 /* TGPControls.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = TGPControls.podspec; sourceTree = "<group>"; };
+		DC28A54D1A947704003C9405 /* TGPControlsTicksProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGPControlsTicksProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +77,7 @@
 			children = (
 				DC0468E51A7596690084DE3E /* TGPCamelLabels.h */,
 				DC0468E61A7596690084DE3E /* TGPCamelLabels.m */,
+				DC28A54D1A947704003C9405 /* TGPControlsTicksProtocol.h */,
 				DC0468E81A7596930084DE3E /* TGPDiscreteSlider.h */,
 				DC0468E91A7596930084DE3E /* TGPDiscreteSlider.m */,
 				DC0468DF1A75962E0084DE3E /* TGPCamelLabels7.h */,

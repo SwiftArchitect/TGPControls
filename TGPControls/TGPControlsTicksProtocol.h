@@ -1,7 +1,7 @@
-//    @file:    TGPCamelLabels7.h
+//    @file:    TGPControlsTicksProtocol.h
 //    @project: TGPControls
 //
-//    @history: Created July 4th, 2014 (Independence Day)
+//    @history: Created November 27, 2014 (Thanksgiving Day)
 //    @author:  Xavier Schott
 //              mailto://xschott@gmail.com
 //              http://thegothicparty.com
@@ -28,23 +28,7 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
-#import "TGPControlsTicksProtocol.h"
-
-@interface TGPCamelLabels7 : UIControl <TGPControlsTicksProtocol>
-
-@property (nonatomic) NSUInteger tickCount; // Only used if [labels count] < 1
-@property (nonatomic) CGFloat ticksDistance;
-@property (nonatomic) NSUInteger value;
-
-@property (nonatomic) NSString * upFontName;
-@property (nonatomic) CGFloat upFontSize;
-@property (nonatomic) UIColor * upFontColor;
-
-@property (nonatomic) NSString * downFontName;
-@property (nonatomic) CGFloat downFontSize;
-@property (nonatomic) UIColor * downFontColor;
-
-@property (nonatomic) NSArray * names; // Will dictate the number of ticks
-
+@protocol TGPControlsTicksProtocol<NSObject>
+@required
+-(void)tgpTicksDistanceChanged:(CGFloat)ticksDistance sender:(id)sender;
 @end

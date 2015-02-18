@@ -128,6 +128,14 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     return _intValue;           // calculated property, with a float-to-int adapter
 }
 
+// When bounds change, recalculate layout
+- (void)setBounds:(CGRect)bounds
+{
+    [super setBounds:bounds];
+    [self layoutTrack];
+    [self setNeedsDisplay];
+}
+
 #pragma mark UIControl
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -351,8 +359,10 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
         const CGFloat originX = (thumbWidth / 2) + (CGFloat)(trackLength * ratio);
         [self.ticksAbscisses addObject: [NSValue valueWithCGPoint:CGPointMake(originX, trackY)]];
     }
-
     [self layoutThumb];
+    
+    // If we have a TGPDiscreteSliderTicksListener (such as TGPCamelLabels), broadcast new spacing
+    [self.ticksListener tgpTicksDistanceChanged:self.ticksDistance sender:self];
 }
 
 - (void)layoutThumb {

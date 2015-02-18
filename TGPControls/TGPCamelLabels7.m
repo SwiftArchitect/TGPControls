@@ -118,6 +118,14 @@
     return self;
 }
 
+// When bounds change, recalculate layout
+- (void)setBounds:(CGRect)bounds
+{
+    [super setBounds:bounds];
+    [self layoutTrack];
+    [self setNeedsDisplay];
+}
+
 // clickthrough
 -(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
     for (UIView *view in self.subviews) {
@@ -127,7 +135,7 @@
     return NO;
 }
 
-#pragma mark TGPCamelSlider
+#pragma mark TGPCamelLabels
 
 - (void)initProperties {
     _ticksDistance = 44.0;
@@ -282,4 +290,10 @@
     [aView setAlpha:alpha];
 }
 
+#pragma mark - TGPControlsTicksProtocol
+
+-(void)tgpTicksDistanceChanged:(CGFloat)ticksDistance sender:(id)sender
+{
+    self.ticksDistance = ticksDistance;
+}
 @end

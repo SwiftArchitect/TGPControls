@@ -29,6 +29,7 @@
 //    THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "TGPControlsTicksProtocol.h"
 
 @interface TGPDiscreteSlider7 :
 
@@ -60,6 +61,8 @@ typedef NS_ENUM(int, ComponentStyle) {
 @property (nonatomic) UIColor * thumbColor;
 @property (nonatomic) CGFloat thumbShadowRadius;
 @property (nonatomic) CGSize thumbShadowOffset;
+
+@property (nonatomic, weak) NSObject<TGPControlsTicksProtocol> * ticksListener;
 
 // AKA: UISlider value (as CGFloat for compatibility with UISlider API, but expected to contain integers)
 @property (nonatomic) CGFloat minimumValue;
