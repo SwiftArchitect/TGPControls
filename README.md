@@ -95,6 +95,11 @@ You can then use TGPCamelLabels on top of other UI elements with no ill effet.
 ![image](https://cloud.githubusercontent.com/assets/4073988/5910599/b775b6e8-a570-11e4-9846-d990ca0f8c9c.png)
 
 ###Code example
+
+See **TGPControlsDemo** projects:
+ 1. `TGPControlsDemo` (iOS 8 + Swift + IBInspectable)
+ 2. `TGPControlsDemo7` (iOS 7 + ObjC) projects.
+
 ```
 #import "ViewController.h"
 #import "TGPDiscreteSlider.h"
@@ -127,9 +132,9 @@ You can then use TGPCamelLabels on top of other UI elements with no ill effet.
                                   @"N",@"O",@"P",@"Q",@"R",@"S", @"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
     self.switch1Camel.names = @[@"OFF", @"ON"];
 
-    // Match the ticks spacing exactly
-    self.alphabetLabels.ticksDistance = self.alphabetSlider.ticksDistance;
-    self.oneTo10Labels.ticksDistance = self.oneTo10Slider.ticksDistance;
+    // Automatically track tick spacing changes
+    self.alphabetSlider.ticksListener = self.alphabetLabels;
+    self.oneTo10Slider.ticksListener = self.oneTo10Labels;
 }
 
 #pragma mark TGPDiscreteSlider
