@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A506FFB267F7DB477E7645C6 /* libPods-TGPControlsDemo7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CF5B835790FE83208A2032 /* libPods-TGPControlsDemo7.a */; };
+		DC74B6791A901699001DC526 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC74B6781A901699001DC526 /* main.m */; };
+		DC74B67C1A901699001DC526 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC74B67B1A901699001DC526 /* AppDelegate.m */; };
+		DC74B67F1A901699001DC526 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC74B67E1A901699001DC526 /* ViewController.m */; };
+		DC74B6821A901699001DC526 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC74B6801A901699001DC526 /* Main.storyboard */; };
+		DC74B6841A901699001DC526 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC74B6831A901699001DC526 /* Images.xcassets */; };
+		DC74B6871A901699001DC526 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC74B6851A901699001DC526 /* LaunchScreen.xib */; };
+		DC74B6931A901699001DC526 /* TGPControlsDemo7Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC74B6921A901699001DC526 /* TGPControlsDemo7Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC74B68D1A901699001DC526 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC74B66B1A901699001DC526 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC74B6721A901699001DC526;
+			remoteInfo = TGPControlsDemo7;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3227B7F26D7BFA5B9536A0DB /* Pods-TGPControlsDemo7.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo7.release.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo7/Pods-TGPControlsDemo7.release.xcconfig"; sourceTree = "<group>"; };
+		9D6EC9A4396AF16D62F320EE /* Pods-TGPControlsDemo7.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo7.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo7/Pods-TGPControlsDemo7.debug.xcconfig"; sourceTree = "<group>"; };
+		C3CF5B835790FE83208A2032 /* libPods-TGPControlsDemo7.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TGPControlsDemo7.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC74B6731A901699001DC526 /* TGPControlsDemo7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TGPControlsDemo7.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC74B6771A901699001DC526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC74B6781A901699001DC526 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DC74B67A1A901699001DC526 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DC74B67B1A901699001DC526 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DC74B67D1A901699001DC526 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DC74B67E1A901699001DC526 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DC74B6811A901699001DC526 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC74B6831A901699001DC526 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DC74B6861A901699001DC526 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DC74B68C1A901699001DC526 /* TGPControlsDemo7Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TGPControlsDemo7Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC74B6911A901699001DC526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC74B6921A901699001DC526 /* TGPControlsDemo7Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TGPControlsDemo7Tests.m; sourceTree = "<group>"; };
+		DCC831371A9017670047F142 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC74B6701A901699001DC526 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A506FFB267F7DB477E7645C6 /* libPods-TGPControlsDemo7.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC74B6891A901699001DC526 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2BAC7104A1110CC622B002A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3CF5B835790FE83208A2032 /* libPods-TGPControlsDemo7.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC74B66A1A901699001DC526 = {
+			isa = PBXGroup;
+			children = (
+				DCC831371A9017670047F142 /* Podfile */,
+				DC74B6751A901699001DC526 /* TGPControlsDemo7 */,
+				DC74B68F1A901699001DC526 /* TGPControlsDemo7Tests */,
+				DC74B6741A901699001DC526 /* Products */,
+				EA8C94FA4563F0443C64E897 /* Pods */,
+				2BAC7104A1110CC622B002A7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DC74B6741A901699001DC526 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC74B6731A901699001DC526 /* TGPControlsDemo7.app */,
+				DC74B68C1A901699001DC526 /* TGPControlsDemo7Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC74B6751A901699001DC526 /* TGPControlsDemo7 */ = {
+			isa = PBXGroup;
+			children = (
+				DC74B67A1A901699001DC526 /* AppDelegate.h */,
+				DC74B67B1A901699001DC526 /* AppDelegate.m */,
+				DC74B67D1A901699001DC526 /* ViewController.h */,
+				DC74B67E1A901699001DC526 /* ViewController.m */,
+				DC74B6801A901699001DC526 /* Main.storyboard */,
+				DC74B6831A901699001DC526 /* Images.xcassets */,
+				DC74B6851A901699001DC526 /* LaunchScreen.xib */,
+				DC74B6761A901699001DC526 /* Supporting Files */,
+			);
+			path = TGPControlsDemo7;
+			sourceTree = "<group>";
+		};
+		DC74B6761A901699001DC526 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC74B6771A901699001DC526 /* Info.plist */,
+				DC74B6781A901699001DC526 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC74B68F1A901699001DC526 /* TGPControlsDemo7Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DC74B6921A901699001DC526 /* TGPControlsDemo7Tests.m */,
+				DC74B6901A901699001DC526 /* Supporting Files */,
+			);
+			path = TGPControlsDemo7Tests;
+			sourceTree = "<group>";
+		};
+		DC74B6901A901699001DC526 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC74B6911A901699001DC526 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA8C94FA4563F0443C64E897 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D6EC9A4396AF16D62F320EE /* Pods-TGPControlsDemo7.debug.xcconfig */,
+				3227B7F26D7BFA5B9536A0DB /* Pods-TGPControlsDemo7.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC74B6721A901699001DC526 /* TGPControlsDemo7 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC74B6961A901699001DC526 /* Build configuration list for PBXNativeTarget "TGPControlsDemo7" */;
+			buildPhases = (
+				FEE5971EB6029A24184C34B2 /* Check Pods Manifest.lock */,
+				DC74B66F1A901699001DC526 /* Sources */,
+				DC74B6701A901699001DC526 /* Frameworks */,
+				DC74B6711A901699001DC526 /* Resources */,
+				CEF1711B486B1BADB4F115FF /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TGPControlsDemo7;
+			productName = TGPControlsDemo7;
+			productReference = DC74B6731A901699001DC526 /* TGPControlsDemo7.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC74B68B1A901699001DC526 /* TGPControlsDemo7Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC74B6991A901699001DC526 /* Build configuration list for PBXNativeTarget "TGPControlsDemo7Tests" */;
+			buildPhases = (
+				DC74B6881A901699001DC526 /* Sources */,
+				DC74B6891A901699001DC526 /* Frameworks */,
+				DC74B68A1A901699001DC526 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC74B68E1A901699001DC526 /* PBXTargetDependency */,
+			);
+			name = TGPControlsDemo7Tests;
+			productName = TGPControlsDemo7Tests;
+			productReference = DC74B68C1A901699001DC526 /* TGPControlsDemo7Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC74B66B1A901699001DC526 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = TheGothicParty;
+				TargetAttributes = {
+					DC74B6721A901699001DC526 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					DC74B68B1A901699001DC526 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = DC74B6721A901699001DC526;
+					};
+				};
+			};
+			buildConfigurationList = DC74B66E1A901699001DC526 /* Build configuration list for PBXProject "TGPControlsDemo7" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC74B66A1A901699001DC526;
+			productRefGroup = DC74B6741A901699001DC526 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC74B6721A901699001DC526 /* TGPControlsDemo7 */,
+				DC74B68B1A901699001DC526 /* TGPControlsDemo7Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC74B6711A901699001DC526 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC74B6821A901699001DC526 /* Main.storyboard in Resources */,
+				DC74B6871A901699001DC526 /* LaunchScreen.xib in Resources */,
+				DC74B6841A901699001DC526 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC74B68A1A901699001DC526 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CEF1711B486B1BADB4F115FF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TGPControlsDemo7/Pods-TGPControlsDemo7-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEE5971EB6029A24184C34B2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC74B66F1A901699001DC526 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC74B67F1A901699001DC526 /* ViewController.m in Sources */,
+				DC74B67C1A901699001DC526 /* AppDelegate.m in Sources */,
+				DC74B6791A901699001DC526 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC74B6881A901699001DC526 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC74B6931A901699001DC526 /* TGPControlsDemo7Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC74B68E1A901699001DC526 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC74B6721A901699001DC526 /* TGPControlsDemo7 */;
+			targetProxy = DC74B68D1A901699001DC526 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC74B6801A901699001DC526 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC74B6811A901699001DC526 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DC74B6851A901699001DC526 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC74B6861A901699001DC526 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC74B6941A901699001DC526 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC74B6951A901699001DC526 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC74B6971A901699001DC526 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D6EC9A4396AF16D62F320EE /* Pods-TGPControlsDemo7.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TGPControlsDemo7/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DC74B6981A901699001DC526 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3227B7F26D7BFA5B9536A0DB /* Pods-TGPControlsDemo7.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TGPControlsDemo7/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DC74B69A1A901699001DC526 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TGPControlsDemo7Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TGPControlsDemo7.app/TGPControlsDemo7";
+			};
+			name = Debug;
+		};
+		DC74B69B1A901699001DC526 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TGPControlsDemo7Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TGPControlsDemo7.app/TGPControlsDemo7";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC74B66E1A901699001DC526 /* Build configuration list for PBXProject "TGPControlsDemo7" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC74B6941A901699001DC526 /* Debug */,
+				DC74B6951A901699001DC526 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC74B6961A901699001DC526 /* Build configuration list for PBXNativeTarget "TGPControlsDemo7" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC74B6971A901699001DC526 /* Debug */,
+				DC74B6981A901699001DC526 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC74B6991A901699001DC526 /* Build configuration list for PBXNativeTarget "TGPControlsDemo7Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC74B69A1A901699001DC526 /* Debug */,
+				DC74B69B1A901699001DC526 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC74B66B1A901699001DC526 /* Project object */;
+}
