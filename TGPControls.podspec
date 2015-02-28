@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TGPControls"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Custom Awesome iOS Controls."
 
   s.description  = <<-DESC
@@ -68,7 +68,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/arquebuse/TGPControls.git", :tag => "v0.0.2" }
+  s.source       = { :git => "https://github.com/arquebuse/TGPControls.git", :tag => "v0.0.3" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
