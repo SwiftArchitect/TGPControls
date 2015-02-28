@@ -48,26 +48,26 @@ typedef NS_ENUM(int, ComponentStyle) {
     ComponentStyleImage
 };
 
-@property (nonatomic) ComponentStyle tickStyle;
-@property (nonatomic) CGSize tickSize;
-@property (nonatomic) int tickCount;
+@property (nonatomic, assign) ComponentStyle tickStyle;
+@property (nonatomic, assign) CGSize tickSize;
+@property (nonatomic, assign) int tickCount;
 @property (nonatomic, readonly) CGFloat ticksDistance;
 
-@property (nonatomic) ComponentStyle trackStyle;
-@property (nonatomic) CGFloat trackThickness;
+@property (nonatomic, assign) ComponentStyle trackStyle;
+@property (nonatomic, assign) CGFloat trackThickness;
 
-@property (nonatomic) ComponentStyle thumbStyle;
-@property (nonatomic) CGSize thumbSize;
-@property (nonatomic) UIColor * thumbColor;
-@property (nonatomic) CGFloat thumbShadowRadius;
-@property (nonatomic) CGSize thumbShadowOffset;
+@property (nonatomic, assign) ComponentStyle thumbStyle;
+@property (nonatomic, assign) CGSize thumbSize;
+@property (nonatomic, strong) UIColor * thumbColor;
+@property (nonatomic, assign) CGFloat thumbShadowRadius;
+@property (nonatomic, assign) CGSize thumbShadowOffset;
 
 @property (nonatomic, weak) NSObject<TGPControlsTicksProtocol> * ticksListener;
 
 // AKA: UISlider value (as CGFloat for compatibility with UISlider API, but expected to contain integers)
-@property (nonatomic) CGFloat minimumValue;
-@property (nonatomic) CGFloat value;
+@property (nonatomic, assign) CGFloat minimumValue;
+@property (nonatomic, assign) CGFloat value;
 
-@property (nonatomic) int incrementValue;
+@property (nonatomic, assign) int incrementValue;
 
 @end

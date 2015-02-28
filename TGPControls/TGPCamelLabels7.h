@@ -33,18 +33,18 @@
 
 @interface TGPCamelLabels7 : UIControl <TGPControlsTicksProtocol>
 
-@property (nonatomic) NSUInteger tickCount; // Only used if [labels count] < 1
-@property (nonatomic) CGFloat ticksDistance;
-@property (nonatomic) NSUInteger value;
+@property (nonatomic, assign) NSUInteger tickCount; // Only used if [labels count] < 1
+@property (nonatomic, assign) CGFloat ticksDistance;
+@property (nonatomic, assign) NSUInteger value;
 
-@property (nonatomic) NSString * upFontName;
-@property (nonatomic) CGFloat upFontSize;
-@property (nonatomic) UIColor * upFontColor;
+@property (nonatomic, strong) NSString * upFontName;
+@property (nonatomic, assign) CGFloat upFontSize;
+@property (nonatomic, strong) UIColor * upFontColor;
 
-@property (nonatomic) NSString * downFontName;
-@property (nonatomic) CGFloat downFontSize;
-@property (nonatomic) UIColor * downFontColor;
+@property (nonatomic, strong) NSString * downFontName;
+@property (nonatomic, assign) CGFloat downFontSize;
+@property (nonatomic, strong) UIColor * downFontColor;
 
-@property (nonatomic) NSArray * names; // Will dictate the number of ticks
+@property (nonatomic, strong) NSArray * names; // Will dictate the number of ticks
 
 @end
