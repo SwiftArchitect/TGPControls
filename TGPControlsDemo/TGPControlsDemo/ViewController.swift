@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         self.switch1Camel.names = ["OFF", "ON"]
         self.switch2Camel.names = ["O", "l"]
         
-        // Match the ticks spacing exactly
+        // Automatically track tick spacing changes
         self.alphabetSlider.ticksListener = self.alphabetLabels
         self.oneTo10Slider.ticksListener = self.oneTo10Labels
     }
