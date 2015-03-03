@@ -120,7 +120,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 - (void)setValue:(CGFloat)value {
     const unsigned int nonZeroIncrement = ((0 == _incrementValue) ? 1 : _incrementValue);
     const int rootValue = ((value - self.minimumValue) / nonZeroIncrement);
-    _intValue = self.minimumValue + (rootValue * nonZeroIncrement);
+    _intValue = self.minimumValue + (int)(rootValue * nonZeroIncrement);
     [self layoutTrack];
 }
 
@@ -267,76 +267,78 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 }
 
 - (void)drawThumb {
-    const CGSize thumbSizeForStyle = [self thumbSizeIncludingShadow];
-    const CGFloat thumbWidth = thumbSizeForStyle.width;
-    const CGFloat thumbHeight = thumbSizeForStyle.height;
-    const CGRect rectangle = CGRectMake(self.thumbAbscisse - (thumbWidth / 2),
-                                        (self.frame.size.height - thumbHeight)/2,
-                                        thumbWidth,
-                                        thumbHeight);
-
-    const CGFloat shadowRadius = ((self.thumbStyle == ComponentStyleIOS)
-                                  ? iOSThumbShadowRadius
-                                  : self.thumbShadowRadius);
-    const CGSize shadowOffset = ((self.thumbStyle == ComponentStyleIOS)
-                                 ? iosThumbShadowOffset
-                                 : self.thumbShadowOffset);
-
-    self.thumbLayer.frame = ((shadowRadius != 0.0)  // Ignore offset if there is no shadow
-                             ? CGRectInset(rectangle,
-                                           shadowRadius + shadowOffset.width,
-                                           shadowRadius + shadowOffset.height)
-                             : CGRectInset(rectangle, shadowRadius, shadowRadius));
-
-    switch(self.thumbStyle) {
-        case ComponentStyleRounded: // A rounded thumb is circular
-            self.thumbLayer.backgroundColor = [self.thumbColor CGColor];
-            self.thumbLayer.borderColor = [[UIColor clearColor] CGColor];
-            self.thumbLayer.borderWidth = 0.0;
-            self.thumbLayer.cornerRadius = self.thumbLayer.frame.size.width/2;
-            self.thumbLayer.allowsEdgeAntialiasing = YES;
-            break;
-
-        case ComponentStyleRectangular:
-            self.thumbLayer.backgroundColor = [self.thumbColor CGColor];
-            self.thumbLayer.borderColor = [[UIColor clearColor] CGColor];
-            self.thumbLayer.borderWidth = 0.0;
-            self.thumbLayer.cornerRadius = 0.0;
-            self.thumbLayer.allowsEdgeAntialiasing = NO;
-            break;
-
-        case ComponentStyleInvisible:
-            self.thumbLayer.backgroundColor = [[UIColor clearColor] CGColor];
-            self.thumbLayer.cornerRadius = 0.0;
-            break;
-
-        case ComponentStyleIOS:
-        default:
-            self.thumbLayer.backgroundColor = [[UIColor whiteColor] CGColor];
-            self.thumbLayer.borderColor = [[UIColor colorWithHue:0 saturation: 0 brightness: 0.8 alpha: 1]
-                                           CGColor];
-            self.thumbLayer.borderWidth = 0.5;
-            self.thumbLayer.cornerRadius = self.thumbLayer.frame.size.width/2;
-            self.thumbLayer.allowsEdgeAntialiasing = YES;
-            break;
-    }
-
-    // Shadow
-    if(shadowRadius != 0.0) {
+    if( self.value >= self.minimumValue) {  // Feature: hide the thumb when below range
+        const CGSize thumbSizeForStyle = [self thumbSizeIncludingShadow];
+        const CGFloat thumbWidth = thumbSizeForStyle.width;
+        const CGFloat thumbHeight = thumbSizeForStyle.height;
+        const CGRect rectangle = CGRectMake(self.thumbAbscisse - (thumbWidth / 2),
+                                            (self.frame.size.height - thumbHeight)/2,
+                                            thumbWidth,
+                                            thumbHeight);
+        
+        const CGFloat shadowRadius = ((self.thumbStyle == ComponentStyleIOS)
+                                      ? iOSThumbShadowRadius
+                                      : self.thumbShadowRadius);
+        const CGSize shadowOffset = ((self.thumbStyle == ComponentStyleIOS)
+                                     ? iosThumbShadowOffset
+                                     : self.thumbShadowOffset);
+        
+        self.thumbLayer.frame = ((shadowRadius != 0.0)  // Ignore offset if there is no shadow
+                                 ? CGRectInset(rectangle,
+                                               shadowRadius + shadowOffset.width,
+                                               shadowRadius + shadowOffset.height)
+                                 : CGRectInset(rectangle, shadowRadius, shadowRadius));
+        
+        switch(self.thumbStyle) {
+            case ComponentStyleRounded: // A rounded thumb is circular
+                self.thumbLayer.backgroundColor = [self.thumbColor CGColor];
+                self.thumbLayer.borderColor = [[UIColor clearColor] CGColor];
+                self.thumbLayer.borderWidth = 0.0;
+                self.thumbLayer.cornerRadius = self.thumbLayer.frame.size.width/2;
+                self.thumbLayer.allowsEdgeAntialiasing = YES;
+                break;
+                
+            case ComponentStyleRectangular:
+                self.thumbLayer.backgroundColor = [self.thumbColor CGColor];
+                self.thumbLayer.borderColor = [[UIColor clearColor] CGColor];
+                self.thumbLayer.borderWidth = 0.0;
+                self.thumbLayer.cornerRadius = 0.0;
+                self.thumbLayer.allowsEdgeAntialiasing = NO;
+                break;
+                
+            case ComponentStyleInvisible:
+                self.thumbLayer.backgroundColor = [[UIColor clearColor] CGColor];
+                self.thumbLayer.cornerRadius = 0.0;
+                break;
+                
+            case ComponentStyleIOS:
+            default:
+                self.thumbLayer.backgroundColor = [[UIColor whiteColor] CGColor];
+                self.thumbLayer.borderColor = [[UIColor colorWithHue:0 saturation: 0 brightness: 0.8 alpha: 1]
+                                               CGColor];
+                self.thumbLayer.borderWidth = 0.5;
+                self.thumbLayer.cornerRadius = self.thumbLayer.frame.size.width/2;
+                self.thumbLayer.allowsEdgeAntialiasing = YES;
+                break;
+        }
+        
+        // Shadow
+        if(shadowRadius != 0.0) {
 #if TARGET_INTERFACE_BUILDER
-        self.thumbLayer.shadowOffset = CGSizeMake(shadowOffset.width, -shadowOffset.height);
+            self.thumbLayer.shadowOffset = CGSizeMake(shadowOffset.width, -shadowOffset.height);
 #else // !TARGET_INTERFACE_BUILDER
-        self.thumbLayer.shadowOffset = shadowOffset;
+            self.thumbLayer.shadowOffset = shadowOffset;
 #endif // TARGET_INTERFACE_BUILDER
-
-        self.thumbLayer.shadowRadius = shadowRadius;
-        self.thumbLayer.shadowColor = [[UIColor blackColor] CGColor];
-        self.thumbLayer.shadowOpacity = 0.15;
-    } else {
-        self.thumbLayer.shadowRadius = 0.0;
-        self.thumbLayer.shadowOffset = CGSizeZero;
-        self.thumbLayer.shadowColor = [[UIColor clearColor] CGColor];
-        self.thumbLayer.shadowOpacity = 0.0;
+            
+            self.thumbLayer.shadowRadius = shadowRadius;
+            self.thumbLayer.shadowColor = [[UIColor blackColor] CGColor];
+            self.thumbLayer.shadowOpacity = 0.15;
+        } else {
+            self.thumbLayer.shadowRadius = 0.0;
+            self.thumbLayer.shadowOffset = CGSizeZero;
+            self.thumbLayer.shadowColor = [[UIColor clearColor] CGColor];
+            self.thumbLayer.shadowOpacity = 0.0;
+        }
     }
 }
 
