@@ -46,5 +46,6 @@
 @property (nonatomic, strong) UIColor * downFontColor;
 
 @property (nonatomic, strong) NSArray * names; // Will dictate the number of ticks
+@property (nonatomic, assign) NSTimeInterval animationDuration;
 
 @end

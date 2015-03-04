@@ -60,7 +60,7 @@
 
 - (void)setValue:(NSUInteger)value {
     _value = value;
-    [self dockEffect:.15];
+    [self dockEffect:self.animationDuration];
 }
 
 - (void)setUpFontName:(NSString *)upFontName {
@@ -154,6 +154,8 @@
     _dnLabels = [NSMutableArray array];
 
     _lastValue = NSNotFound;    // Never tapped
+    _animationDuration = 0.15;
+
     [self layoutTrack];
 }
 
