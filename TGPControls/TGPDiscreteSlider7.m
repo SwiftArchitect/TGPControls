@@ -457,8 +457,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 
 - (void)moveThumbToTick:(unsigned int)tick {
     const unsigned int nonZeroIncrement = ((0 == self.incrementValue) ? 1 : self.incrementValue);
-    _intValue = self.minimumValue + (tick * nonZeroIncrement);
-    [self sendActionsForControlEvents];
+    int intValue = self.minimumValue + (tick * nonZeroIncrement);
+    if( intValue != _intValue) {
+        _intValue = intValue;
+        [self sendActionsForControlEvents];
+    }
 
     [self layoutThumb];
     [self setNeedsDisplay];
@@ -473,8 +476,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 
     const unsigned int tick = [self pickTickFromSliderPosition:self.thumbAbscisse];
     const unsigned int nonZeroIncrement = ((0 == self.incrementValue) ? 1 : self.incrementValue);
-    _intValue = self.minimumValue + (tick * nonZeroIncrement);
-    [self sendActionsForControlEvents];
+    int intValue = self.minimumValue + (tick * nonZeroIncrement);
+    if( intValue != _intValue) {
+        _intValue = intValue;
+        [self sendActionsForControlEvents];
+    }
 
     [self setNeedsDisplay];
 }
