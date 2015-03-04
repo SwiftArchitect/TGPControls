@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TGPControls"
-  s.version      = "0.1.2"
-  s.summary      = "Custom Awesome iOS Controls."
+  s.version      = "0.1.3"
+  s.summary      = "Custom Awesome iOS Controls: Animated discrete slider, animated labels"
 
   s.description  = <<-DESC
                    Provide an iOS looking UISlider with discrete, controlable steps
@@ -68,7 +68,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/arquebuse/TGPControls.git", :tag => "v0.1.2" }
+  s.source       = { :git => "https://github.com/arquebuse/TGPControls.git", :tag => "v0.1.3" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
