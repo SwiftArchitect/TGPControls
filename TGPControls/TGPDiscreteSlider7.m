@@ -99,6 +99,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     [self layoutTrack];
 }
 
+- (void)setTicksListener:(NSObject<TGPControlsTicksProtocol> *)ticksListener {
+    _ticksListener = ticksListener;
+    [self.ticksListener tgpTicksDistanceChanged:self.ticksDistance sender:self];
+}
+
 - (void)setIncrementValue:(int)incrementValue {
     _incrementValue = incrementValue;
     if(0 == incrementValue) {
