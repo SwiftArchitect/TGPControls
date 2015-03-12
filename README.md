@@ -14,11 +14,20 @@ Ideal to represent steps.
 ##Compatibility
 TGPControls are **AutoLayout** ready, support **iOS 8** `IB Designable` and `IB Inspectable` properties, yet runs as far back as iOS 7.
 
+![imagessliderdemo](https://cloud.githubusercontent.com/assets/4073988/6628373/183c7452-c8c2-11e4-9a63-107805bc0cc4.gif)
+
+|Copyright disclaimer|
+|:---|
+|The above slider is inspired by [National Parks by National Geographic](https://itunes.apple.com/us/app/national-parks-by-national/id518426085?mt=8) iPhone App.|
+|National Parks iPhone App is developped by [Rally Interactive LLC](http://rallyinteractive.com).|
+|The above image, styling, appearance and look & feel all [Copyright &copy; 2015 National Geographic Society](http://www.nationalgeographic.com).|
+|TGPControls is *not* associated with National Geographic Society, Rally Interactive LLC or any of it's subsidiaries.|
+
 ##Fully Customizable
 
 ![alphabetslider](https://cloud.githubusercontent.com/assets/4073988/5912297/c3f21bb2-a586-11e4-8eb1-a1f930ccbdd5.gif)
 
-Control everything about the slider or its labels, starting with colors and fonts, including track and ticks shape, and thumb shadows.
+Control everything about the slider or its labels, starting with colors, images and fonts, including track and ticks shape, and thumb shadows.
 All computations regarding range and sizing and handled automatically.
 Use the two classes in tandem to create stunning new controls, which can be resized dynamically, to intergrate beautifully into your application.
 
