@@ -39,12 +39,14 @@ IB_DESIGNABLE
 
 @property (nonatomic) IBInspectable int trackStyle;
 @property (nonatomic) IBInspectable CGFloat trackThickness;
+@property (nonatomic) IBInspectable NSString * trackImage;
 
 @property (nonatomic) IBInspectable int thumbStyle;
 @property (nonatomic) IBInspectable CGSize thumbSize;
 @property (nonatomic) IBInspectable UIColor * thumbColor;
 @property (nonatomic) IBInspectable CGFloat thumbSRadius;
 @property (nonatomic) IBInspectable CGSize thumbSOffset;
+@property (nonatomic) IBInspectable NSString * thumbImage;
 
 // AKA: UISlider value (as CGFloat for compatibility with UISlider API, but expected to contain integers)
 @property (nonatomic) IBInspectable CGFloat minimumValue;

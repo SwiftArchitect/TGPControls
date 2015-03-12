@@ -67,10 +67,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 - (CGFloat)ticksDistance {
     NSAssert1(self.tickCount > 1, @"2 ticks minimum %d", self.tickCount);
     const unsigned int segments = MAX(1, self.tickCount - 1);
-    const CGFloat thumbWidth = [self thumbSizeIncludingShadow].width;
-    const double trackLength = (double)(self.frame.size.width - thumbWidth);
-
-    return (CGFloat) (trackLength / segments);
+    return (self.trackRectangle.size.width / segments);
 }
 
 - (void)setTrackStyle:(ComponentStyle)trackStyle {
@@ -83,6 +80,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     [self layoutTrack];
 }
 
+- (void)setTrackImage:(NSString *)trackImage {
+    _trackImage = trackImage;
+    [self layoutTrack];
+}
+
 - (void)setThumbStyle:(ComponentStyle)thumbStyle {
     _thumbStyle = thumbStyle;
     [self layoutTrack];
@@ -91,6 +93,19 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 - (void)setThumbSize:(CGSize)thumbSize {
     _thumbSize.width = MAX(1, thumbSize.width);
     _thumbSize.height = MAX(1, thumbSize.height);
+    [self layoutTrack];
+}
+
+- (void)setThumbImage:(NSString *)thumbImage {
+    _thumbImage = thumbImage;
+
+    // Associate image to layer
+    NSString * imageName = self.thumbImage;
+    if(imageName.length > 0) {
+        UIImage * image = [UIImage imageNamed:imageName]; //[NSBundle bundleForClass:[self class]]
+        self.thumbLayer.contents = (id)image.CGImage;
+    }
+
     [self layoutTrack];
 }
 
@@ -164,6 +179,13 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     [self drawThumb];
 }
 
+- (void)sendActionsForControlEvents {
+    //  Interface builder hides the IBInspectable for UIControl
+#if !TARGET_INTERFACE_BUILDER
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
+#endif // !TARGET_INTERFACE_BUILDER
+}
+
 #pragma mark TGPDiscreteSlider7
 
 - (void)initProperties {
@@ -200,6 +222,13 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     [self layoutTrack];
 }
 
+- (CGRect)centeredRect:(const CGSize)inside within:(const CGRect)outside {
+    return CGRectMake((outside.size.width/2) - (inside.width/2),
+                      (outside.size.height/2) - (inside.height/2),
+                      inside.width,
+                      inside.height);
+}
+
 - (void)drawTrack {
     const CGContextRef ctx = UIGraphicsGetCurrentContext();
 
@@ -209,10 +238,22 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
             CGContextAddRect(ctx, self.trackRectangle);
             break;
 
-
         case ComponentStyleInvisible:
             // Nothing to draw
             break;
+
+        case ComponentStyleImage: {
+            // Draw image if exists
+            NSString * imageName = self.trackImage;
+            if(imageName.length > 0) {
+                UIImage * image = [UIImage imageNamed:imageName]; //[NSBundle bundleForClass:[self class]]
+                if(image) {
+                    CGRect centered = [self centeredRect:image.size within:self.frame];
+                    CGContextDrawImage(ctx, centered, image.CGImage);
+                }
+            }
+            break;
+        }
 
         case ComponentStyleRounded:
         case ComponentStyleIOS:
@@ -273,6 +314,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 
 - (void)drawThumb {
     if( self.value >= self.minimumValue) {  // Feature: hide the thumb when below range
+
         const CGSize thumbSizeForStyle = [self thumbSizeIncludingShadow];
         const CGFloat thumbWidth = thumbSizeForStyle.width;
         const CGFloat thumbHeight = thumbSizeForStyle.height;
@@ -303,6 +345,23 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
                 self.thumbLayer.allowsEdgeAntialiasing = YES;
                 break;
                 
+            case ComponentStyleImage: {
+//                // Draw image if exists
+//                NSString * imageName = self.thumbImage;
+//                if(imageName.length > 0) {
+//                    UIImage * image = [UIImage imageNamed:imageName]; //[NSBundle bundleForClass:[self class]]
+//                    if(image) {
+//                        self.thumbLayer.contents = (id)image.CGImage;
+//                    }
+//                }
+                self.thumbLayer.backgroundColor = [[UIColor clearColor] CGColor];
+                self.thumbLayer.borderColor = [[UIColor clearColor] CGColor];
+                self.thumbLayer.borderWidth = 0.0;
+                self.thumbLayer.cornerRadius = 0.0;
+                self.thumbLayer.allowsEdgeAntialiasing = NO;
+                break;
+            }
+
             case ComponentStyleRectangular:
                 self.thumbLayer.backgroundColor = [self.thumbColor CGColor];
                 self.thumbLayer.borderColor = [[UIColor clearColor] CGColor];
@@ -351,19 +410,31 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     NSAssert1(self.tickCount > 1, @"2 ticks minimum %d", self.tickCount);
     const unsigned int segments = MAX(1, self.tickCount - 1);
     const CGFloat thumbWidth = [self thumbSizeIncludingShadow].width;
-    const double trackLength = (double)(self.frame.size.width - thumbWidth);
 
     // Calculate the track ticks positions
     const CGFloat trackHeight = ((ComponentStyleIOS == self.trackStyle)
                                  ? 2.0
                                  : self.trackThickness);
-    self.trackRectangle = CGRectMake(thumbWidth/2, (self.frame.size.height - trackHeight)/2,
-                                     self.frame.size.width - thumbWidth, trackHeight);
+    CGSize trackSize = CGSizeMake(self.frame.size.width - thumbWidth, trackHeight);
+    if(ComponentStyleImage == self.trackStyle) {
+        NSString * imageName = self.trackImage;
+        if(imageName.length > 0) {
+            UIImage * image = [UIImage imageNamed:imageName]; //[NSBundle bundleForClass:[self class]]
+            if(image) {
+                trackSize.width = image.size.width - thumbWidth;
+            }
+        }
+    }
+
+    self.trackRectangle = CGRectMake((self.frame.size.width - trackSize.width)/2,
+                                     (self.frame.size.height - trackSize.height)/2,
+                                     trackSize.width,
+                                     trackSize.height);
     const CGFloat trackY = self.frame.size.height / 2;
     [self.ticksAbscisses removeAllObjects];
     for( int iterate = 0; iterate <= segments; iterate++) {
         const double ratio = (double)iterate / (double)segments;
-        const CGFloat originX = (thumbWidth / 2) + (CGFloat)(trackLength * ratio);
+        const CGFloat originX = self.trackRectangle.origin.x + (CGFloat)(trackSize.width * ratio);
         [self.ticksAbscisses addObject: [NSValue valueWithCGPoint:CGPointMake(originX, trackY)]];
     }
     [self layoutThumb];
@@ -375,14 +446,12 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 - (void)layoutThumb {
     NSAssert1(self.tickCount > 1, @"2 ticks minimum %d", self.tickCount);
     const unsigned int segments = MAX(1, self.tickCount - 1);
-    const CGFloat thumbWidth = [self thumbSizeIncludingShadow].width;
-    const double trackLength = (double)(self.frame.size.width - thumbWidth);
 
     // Calculate the thumb position
     const unsigned int nonZeroIncrement = ((0 == self.incrementValue) ? 1 : self.incrementValue);
     double thumbRatio = (double)(self.value - self.minimumValue) / (double)(segments * nonZeroIncrement);
     thumbRatio = MAX(0.0, MIN(thumbRatio, 1.0)); // Normalized
-    self.thumbAbscisse = (thumbWidth / 2) + (CGFloat)(trackLength * thumbRatio);
+    self.thumbAbscisse = self.trackRectangle.origin.x + (self.trackRectangle.size.width * thumbRatio);
 }
 
 - (CGSize)thumbSizeIncludingShadow {
@@ -409,18 +478,17 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
                               + (iOSThumbShadowRadius * 2)
                               + (iosThumbShadowOffset.height * 2));
 
+        case ComponentStyleImage: {
+            NSString * imageName = self.thumbImage;
+            if (imageName.length > 0) {
+                return [UIImage imageNamed:imageName].size;
+            }
+            // Fall through
+        }
+
         default:
             return (CGSize){33.0, 33.0};
     }
-}
-
-#pragma mark UIControl
-
-- (void)sendActionsForControlEvents {
-    //  Interface builder hides the IBInspectable for UIControl
-#if !TARGET_INTERFACE_BUILDER
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
-#endif // !TARGET_INTERFACE_BUILDER
 }
 
 #pragma mark Touches
