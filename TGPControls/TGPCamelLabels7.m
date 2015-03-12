@@ -294,8 +294,13 @@
 
 #pragma mark - TGPControlsTicksProtocol
 
--(void)tgpTicksDistanceChanged:(CGFloat)ticksDistance sender:(id)sender
+- (void)tgpTicksDistanceChanged:(CGFloat)ticksDistance sender:(id)sender
 {
     self.ticksDistance = ticksDistance;
+}
+
+- (void)tgpValueChanged:(unsigned int)value
+{
+    self.value = value;
 }
 @end

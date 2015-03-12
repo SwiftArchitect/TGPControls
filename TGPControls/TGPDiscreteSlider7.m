@@ -180,6 +180,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 }
 
 - (void)sendActionsForControlEvents {
+    // Automatic UIControlEventValueChanged notification
+    if([self.ticksListener respondsToSelector:@selector(tgpValueChanged:)]) {
+        [self.ticksListener tgpValueChanged:self.value];
+    }
+
     //  Interface builder hides the IBInspectable for UIControl
 #if !TARGET_INTERFACE_BUILDER
     [self sendActionsForControlEvents:UIControlEventValueChanged];
@@ -457,8 +462,6 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 - (CGSize)thumbSizeIncludingShadow {
     switch (self.thumbStyle) {
         case ComponentStyleInvisible:
-            return CGSizeZero;
-
         case ComponentStyleRectangular:
         case ComponentStyleRounded:
             return ((self.thumbShadowRadius != 0.0)

@@ -29,6 +29,10 @@
 //    THE SOFTWARE.
 
 @protocol TGPControlsTicksProtocol<NSObject>
+
 @required
--(void)tgpTicksDistanceChanged:(CGFloat)ticksDistance sender:(id)sender;
+- (void)tgpTicksDistanceChanged:(CGFloat)ticksDistance sender:(id)sender;
+
+@optional
+- (void)tgpValueChanged:(unsigned int)value;
 @end
