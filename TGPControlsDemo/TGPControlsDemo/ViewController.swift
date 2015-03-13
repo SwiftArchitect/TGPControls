@@ -38,39 +38,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var alphabetLabels: TGPCamelLabels!
     @IBOutlet weak var alphabetSlider: TGPDiscreteSlider!
     
+    @IBOutlet var pictureLabels: TGPCamelLabels!
+    @IBOutlet var pictureSlider: TGPDiscreteSlider!
+
     @IBOutlet weak var switch1Camel: TGPCamelLabels!
     @IBOutlet weak var switch2Camel: TGPCamelLabels!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.oneTo10Slider.addTarget(self, action: "oneTo10SliderValueChanged:", forControlEvents: .ValueChanged)
-        self.alphabetSlider.addTarget(self, action: "alphabetSliderValueChanged:", forControlEvents: .ValueChanged)
         self.alphabetLabels.names = ["A","B","C","D","E","F", "G","H","I","J","K","L","M",
         "N","O","P","Q","R","S", "T","U","V","W","X","Y","Z"]
+        self.pictureLabels.names = ["orient", "occident", "zénith", "nadir", "septentrion", "midi"]
         self.switch1Camel.names = ["OFF", "ON"]
         self.switch2Camel.names = ["O", "l"]
         
-        // Automatically track tick spacing changes
+        // Automatically track tick spacing changes and UIControlEventValueChanged
         self.alphabetSlider.ticksListener = self.alphabetLabels
         self.oneTo10Slider.ticksListener = self.oneTo10Labels
+        self.pictureSlider.ticksListener = self.pictureLabels
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - TGPDiscreteSlider
-    
-    @IBAction func oneTo10SliderValueChanged(sender: TGPDiscreteSlider) {
-        self.oneTo10Labels.value = UInt(sender.value);
-    }
-
-    @IBAction func alphabetSliderValueChanged(sender: TGPDiscreteSlider) {
-        self.alphabetLabels.value = UInt(sender.value)
-    }
-    
     // MARK: - UISwitch
     
     @IBAction func switch1ValueChanged(sender: UISwitch) {

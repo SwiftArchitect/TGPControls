@@ -6,8 +6,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'TGPControlsDemo' do
-    # pod 'TGPControls', :path => '../../TGPControls'
-    pod 'TGPControls', '0.0.2'
+    pod 'TGPControls', :path => '../../TGPControls'
+    # pod 'TGPControls'
 end
 
 target 'TGPControlsDemoTests' do

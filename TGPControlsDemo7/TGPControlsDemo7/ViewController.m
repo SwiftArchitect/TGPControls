@@ -43,6 +43,9 @@
 @property (weak, nonatomic) IBOutlet TGPCamelLabels7 *alphabetLabels;
 @property (weak, nonatomic) IBOutlet TGPDiscreteSlider7 *alphabetSlider;
 
+@property (weak, nonatomic) IBOutlet TGPCamelLabels7 * pictureLabels;
+@property (weak, nonatomic) IBOutlet TGPDiscreteSlider7 * pictureSlider;
+
 @property (weak, nonatomic) IBOutlet TGPCamelLabels7 *switch1Camel;
 @property (weak, nonatomic) IBOutlet TGPCamelLabels7 *switch2Camel;
 @end
@@ -52,34 +55,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.oneTo10Slider addTarget:self
-                           action:@selector(oneTo10SliderValueChanged:)
-                 forControlEvents:UIControlEventValueChanged];
-    [self.alphabetSlider addTarget:self
-                            action:@selector(alphabetSliderValueChanged:)
-                  forControlEvents:UIControlEventValueChanged];
-    
     self.alphabetLabels.names = @[@"A",@"B",@"C",@"D",@"E",@"F", @"G",@"H",@"I",@"J",@"K",@"L",@"M",
                                   @"N",@"O",@"P",@"Q",@"R",@"S", @"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
+    self.pictureLabels.names = @[@"orient", @"occident", @"zénith", @"nadir", @"septentrion", @"midi"];
     self.switch1Camel.names = @[@"OFF", @"ON"];
     self.switch2Camel.names = @[@"O", @"l"];
 
     // Automatically track tick spacing changes
     self.alphabetSlider.ticksListener = self.alphabetLabels;
     self.oneTo10Slider.ticksListener = self.oneTo10Labels;
+    self.pictureSlider.ticksListener = self.pictureLabels;
 }
 
-#pragma mark TGPDiscreteSlider
-
-- (IBAction)oneTo10SliderValueChanged:(TGPDiscreteSlider7 *)sender {
-    [self.oneTo10Labels setValue:sender.value];
-}
-
-- (IBAction)alphabetSliderValueChanged:(TGPDiscreteSlider7 *)sender {
-    [self.alphabetLabels setValue:sender.value];
-}
-
-#pragma mark UISwitch
+#pragma mark - UISwitch
 
 - (IBAction)switch1ValueChanged:(UISwitch *)sender {
     [self.switch1Camel setValue:((sender.isOn) ? 1 : 0)];
