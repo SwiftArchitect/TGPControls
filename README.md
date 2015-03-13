@@ -130,13 +130,6 @@ See **TGPControlsDemo** projects:
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self.oneTo10Slider addTarget:self
-                            action:@selector(oneTo10SliderValueChanged:)
-                  forControlEvents:UIControlEventValueChanged];
-    [self.alphabetSlider addTarget:self
-                              action:@selector(alphabetSliderValueChanged:)
-                    forControlEvents:UIControlEventValueChanged];
-
     self.alphabetLabels.names = @[@"A",@"B",@"C",@"D",@"E",@"F", @"G",@"H",@"I",@"J",@"K",@"L",@"M",
                                   @"N",@"O",@"P",@"Q",@"R",@"S", @"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
     self.switch1Camel.names = @[@"OFF", @"ON"];
@@ -144,16 +137,6 @@ See **TGPControlsDemo** projects:
     // Automatically track tick spacing changes
     self.alphabetSlider.ticksListener = self.alphabetLabels;
     self.oneTo10Slider.ticksListener = self.oneTo10Labels;
-}
-
-#pragma mark TGPDiscreteSlider
-
-- (IBAction)oneTo10SliderValueChanged:(TGPDiscreteSlider *)sender {
-    [self.oneTo10Labels setValue:sender.value];
-}
-
-- (IBAction)alphabetSliderValueChanged:(TGPDiscreteSlider *)sender {
-    [self.alphabetLabels setValue:sender.value];
 }
 
 #pragma mark UISwitch
