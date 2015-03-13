@@ -52,6 +52,8 @@ typedef NS_ENUM(int, ComponentStyle) {
 @property (nonatomic, assign) CGSize tickSize;
 @property (nonatomic, assign) int tickCount;
 @property (nonatomic, readonly) CGFloat ticksDistance;
+@property (nonatomic, strong) NSString * tickImage;
+
 
 @property (nonatomic, assign) ComponentStyle trackStyle;
 @property (nonatomic, assign) CGFloat trackThickness;

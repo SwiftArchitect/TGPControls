@@ -70,6 +70,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     return (self.trackRectangle.size.width / segments);
 }
 
+- (void)setTickImage:(NSString *)tickImage {
+    _tickImage = tickImage;
+    [self layoutTrack];
+}
+
 - (void)setTrackStyle:(ComponentStyle)trackStyle {
     _trackStyle = trackStyle;
     [self layoutTrack];
@@ -227,13 +232,6 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     [self layoutTrack];
 }
 
-- (CGRect)centeredRect:(const CGSize)inside within:(const CGRect)outside {
-    return CGRectMake((outside.size.width/2) - (inside.width/2),
-                      (outside.size.height/2) - (inside.height/2),
-                      inside.width,
-                      inside.height);
-}
-
 - (void)drawTrack {
     const CGContextRef ctx = UIGraphicsGetCurrentContext();
 
@@ -253,7 +251,10 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
             if(imageName.length > 0) {
                 UIImage * image = [UIImage imageNamed:imageName]; //[NSBundle bundleForClass:[self class]]
                 if(image) {
-                    CGRect centered = [self centeredRect:image.size within:self.frame];
+                    CGRect centered = CGRectMake((self.frame.size.width/2) - (image.size.width/2),
+                                                (self.frame.size.height/2) - (image.size.height/2),
+                                                image.size.width,
+                                                image.size.height);
                     CGContextDrawImage(ctx, centered, image.CGImage);
                 }
             }
@@ -292,6 +293,22 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
                         CGContextAddRect(ctx, rectangle);
                         break;
 
+                    case ComponentStyleImage: {
+                        // Draw image if exists
+                        NSString * imageName = self.tickImage;
+                        if(imageName.length > 0) {
+                            UIImage * image = [UIImage imageNamed:imageName]; //[NSBundle bundleForClass:[self class]]
+                            if(image) {
+                                CGRect centered = CGRectMake(rectangle.origin.x + (rectangle.size.width/2) - (image.size.width/2),
+                                                             rectangle.origin.y + (rectangle.size.height/2) - (image.size.height/2),
+                                                             image.size.width,
+                                                             image.size.height);
+                                CGContextDrawImage(ctx, centered, image.CGImage);
+                            }
+                        }
+                        break;
+                    }
+
                     case ComponentStyleInvisible:
                     case ComponentStyleIOS:
                     default:
@@ -300,7 +317,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
                 }
             }
         }
-    } // iOS UISlider does not have ticks
+    } // iOS UISlider aka ComponentStyleIOS does not have ticks
 
     CGContextSetFillColor(ctx, CGColorGetComponents([self.tintColor CGColor]));
     CGContextFillPath(ctx);
@@ -351,14 +368,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
                 break;
                 
             case ComponentStyleImage: {
-//                // Draw image if exists
-//                NSString * imageName = self.thumbImage;
-//                if(imageName.length > 0) {
-//                    UIImage * image = [UIImage imageNamed:imageName]; //[NSBundle bundleForClass:[self class]]
-//                    if(image) {
-//                        self.thumbLayer.contents = (id)image.CGImage;
-//                    }
-//                }
+                // image is set using layer.contents
                 self.thumbLayer.backgroundColor = [[UIColor clearColor] CGColor];
                 self.thumbLayer.borderColor = [[UIColor clearColor] CGColor];
                 self.thumbLayer.borderWidth = 0.0;

@@ -36,6 +36,7 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable int tickStyle;
 @property (nonatomic) IBInspectable CGSize tickSize;
 @property (nonatomic) IBInspectable int tickCount;
+@property (nonatomic) IBInspectable NSString * tickImage;
 
 @property (nonatomic) IBInspectable int trackStyle;
 @property (nonatomic) IBInspectable CGFloat trackThickness;

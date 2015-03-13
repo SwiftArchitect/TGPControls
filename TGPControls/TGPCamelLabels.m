@@ -32,4 +32,14 @@
 
 @implementation TGPCamelLabels
 
+@dynamic tickCount;
+@dynamic ticksDistance;
+@dynamic value;
+@dynamic upFontName;
+@dynamic upFontSize;
+@dynamic upFontColor;
+@dynamic downFontName;
+@dynamic downFontSize;
+@dynamic downFontColor;
+
 @end

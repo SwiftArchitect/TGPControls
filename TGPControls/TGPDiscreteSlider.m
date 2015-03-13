@@ -32,6 +32,21 @@
 
 @implementation TGPDiscreteSlider
 
+@dynamic tickStyle;
+@dynamic tickSize;
+@dynamic tickCount;
+@dynamic tickImage;
+@dynamic trackStyle;
+@dynamic trackThickness;
+@dynamic trackImage;
+@dynamic thumbStyle;
+@dynamic thumbSize;
+@dynamic thumbColor;
+@dynamic thumbImage;
+@dynamic minimumValue;
+@dynamic value;
+@dynamic incrementValue;
+
 #pragma mark properties
 
 - (void)setThumbSRadius:(CGFloat)thumbSRadius {
