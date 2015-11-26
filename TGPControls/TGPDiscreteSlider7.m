@@ -319,7 +319,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
         }
     } // iOS UISlider aka ComponentStyleIOS does not have ticks
 
-    CGContextSetFillColor(ctx, CGColorGetComponents([self.tintColor CGColor]));
+    CGContextSetFillColorWithColor(ctx, [self.tintColor CGColor]);
     CGContextFillPath(ctx);
 
     // For colored track, we overlay a CALayer, which will animate along with the cursor
