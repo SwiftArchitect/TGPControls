@@ -46,6 +46,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var controlEventsLabel: UILabel!
     @IBOutlet weak var dualColorSlider: TGPDiscreteSlider!
+    @IBOutlet weak var stepper: UIStepper!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +86,7 @@ class ViewController: UIViewController {
     }
 
     // MARK: - UIControlEvents
+
     func touchDown(sender: UIControl, event:UIEvent) {
         self.controlEventsLabel.text = "touchDown"
     }
@@ -112,8 +114,15 @@ class ViewController: UIViewController {
     func touchCancel(sender: UIControl, event:UIEvent) {
         self.controlEventsLabel.text = "touchCancel"
     }
-    func valueChanged(sender: UIControl, event:UIEvent) {
+    func valueChanged(sender: TGPDiscreteSlider, event:UIEvent) {
         self.controlEventsLabel.text = "valueChanged"
+        self.stepper.value = Double(sender.value)
+    }
+
+    // MARK: - UIStepper
+
+    @IBAction func stepperValueChanged(sender: UIStepper) {
+        self.dualColorSlider.value = CGFloat(sender.value)
     }
 }
 
