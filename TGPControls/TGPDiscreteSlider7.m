@@ -42,6 +42,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 @property (nonatomic) CALayer * thumbLayer;
 @property (nonatomic) CALayer * colorTrackLayer;
 @property (nonatomic) CGRect trackRectangle;
+@property (nonatomic) BOOL touchedInside;
 @end
 
 @implementation TGPDiscreteSlider7
@@ -189,11 +190,6 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     if([self.ticksListener respondsToSelector:@selector(tgpValueChanged:)]) {
         [self.ticksListener tgpValueChanged:self.value];
     }
-
-    //  Interface builder hides the IBInspectable for UIControl
-#if !TARGET_INTERFACE_BUILDER
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
-#endif // !TARGET_INTERFACE_BUILDER
 }
 
 #pragma mark TGPDiscreteSlider7
@@ -504,29 +500,68 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     }
 }
 
-#pragma mark Touches
+#pragma mark UIResponder
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self touchDown:touches duration:0.1];
+    self.touchedInside = YES;
+
+    [self touchDown:touches animationDuration:0.1];
+    [self sendActionForControlEvent:UIControlEventValueChanged forEvent:event];
+    [self sendActionForControlEvent:UIControlEventTouchDown forEvent:event];
+
+    const UITouch * touch = [touches anyObject];
+    if(nil != touch) {
+        if(touch.tapCount > 1) {
+            [self sendActionForControlEvent:UIControlEventTouchDownRepeat forEvent:event];
+        }
+    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self touchDown:touches duration:0.0];
+    [self touchDown:touches animationDuration:0.0];
+
+    BOOL inside = [self touchesAreInside:touches];
+
+    [self sendActionForControlEvent:UIControlEventValueChanged forEvent:event];
+    // Crossing boundary
+    if(inside != self.touchedInside) {
+        [self sendActionForControlEvent:((inside)
+                                         ? UIControlEventTouchDragEnter
+                                         : UIControlEventTouchDragExit)
+                               forEvent:event];
+        self.touchedInside = inside;
+    }
+    // Drag
+    [self sendActionForControlEvent:((inside)
+                                     ? UIControlEventTouchDragInside
+                                     : UIControlEventTouchDragOutside)
+                           forEvent:event];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [self touchUp:touches];
+
+    [self sendActionForControlEvent:UIControlEventValueChanged forEvent:event];
+    [self sendActionForControlEvent:(([self touchesAreInside:touches])
+                                     ? UIControlEventTouchUpInside
+                                     : UIControlEventTouchUpOutside)
+                           forEvent:event];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     [self touchUp:touches];
+
+    [self sendActionForControlEvent:UIControlEventValueChanged forEvent:event];
+    [self sendActionForControlEvent:UIControlEventTouchCancel forEvent:event];
 }
 
-- (void)touchDown:(NSSet *)touches duration:(NSTimeInterval)duration {
+#pragma mark Touches
+
+- (void)touchDown:(NSSet *)touches animationDuration:(NSTimeInterval)duration {
     const UITouch * touch = [touches anyObject];
     if(nil != touch) {
         const CGPoint location = [touch locationInView:touch.view];
-        [self moveThumbTo:location.x duration:duration];
+        [self moveThumbTo:location.x animationDuration:duration];
     }
 }
 
@@ -537,6 +572,16 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
         const unsigned int tick = [self pickTickFromSliderPosition:location.x];
         [self moveThumbToTick:tick];
     }
+}
+
+- (BOOL)touchesAreInside:(NSSet *)touches {
+    BOOL inside = NO;
+    const UITouch * touch = [touches anyObject];
+    if(nil != touch) {
+        const CGPoint location = [touch locationInView:touch.view];
+        inside = CGRectContainsPoint(touch.view.bounds, location);
+    }
+    return inside;
 }
 
 #pragma mark Notifications
@@ -553,7 +598,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     [self setNeedsDisplay];
 }
 
-- (void)moveThumbTo:(CGFloat)abscisse duration:(CFTimeInterval)duration {
+- (void)moveThumbTo:(CGFloat)abscisse animationDuration:(CFTimeInterval)duration {
     const CGFloat leftMost = CGRectGetMinX(self.trackRectangle);
     const CGFloat rightMost = CGRectGetMaxX(self.trackRectangle);
 
@@ -578,6 +623,21 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     const double ratio = (double)(clampedAbscisse - leftMost) / (double)(rightMost - leftMost);
     const unsigned int segments = MAX(1, self.tickCount - 1);
     return (unsigned int) round( (double)segments * ratio);
+}
+
+- (void)sendActionForControlEvent:(UIControlEvents)controlEvent forEvent:(UIEvent *)event {
+    //  Interface builder hides the IBInspectable for UIControl
+#if !TARGET_INTERFACE_BUILDER
+    for (id target in self.allTargets) {
+        NSArray *actions = [self actionsForTarget:target forControlEvent:controlEvent];
+        for (NSString *action in actions) {
+            [self sendAction:NSSelectorFromString(action)
+                          to:target
+                    forEvent:event];
+
+        }
+    }
+#endif // !TARGET_INTERFACE_BUILDER
 }
 
 #pragma mark - Interface Builder
