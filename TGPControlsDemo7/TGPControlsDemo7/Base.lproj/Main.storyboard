@@ -332,7 +332,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-pU-ocw" userLabel="customSlider4" customClass="TGPDiscreteSlider7">
-                                                <rect key="frame" x="16" y="499" width="343" height="44"/>
+                                                <rect key="frame" x="16" y="499" width="241" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -390,6 +390,12 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" minimumValue="-5" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="dZr-C5-Tpu">
+                                                <rect key="frame" x="265" y="506" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="stepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="GOK-Ua-PMJ"/>
+                                                </connections>
+                                            </stepper>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -401,6 +407,8 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="hbc-OQ-ngs" secondAttribute="trailing" constant="8" id="8wZ-Cr-wjl"/>
                                             <constraint firstItem="Jca-ht-ahJ" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="16" id="CfR-vD-iI4"/>
                                             <constraint firstItem="A6t-OF-SSy" firstAttribute="top" secondItem="hbc-OQ-ngs" secondAttribute="bottom" constant="44" id="DQx-2B-c9h"/>
+                                            <constraint firstItem="dZr-C5-Tpu" firstAttribute="leading" secondItem="QFe-pU-ocw" secondAttribute="trailing" constant="8" symbolic="YES" id="Hkg-kV-7LV"/>
+                                            <constraint firstItem="dZr-C5-Tpu" firstAttribute="trailing" secondItem="eWu-CK-FWW" secondAttribute="trailingMargin" constant="-8" id="Iel-NZ-5uf"/>
                                             <constraint firstItem="hbc-OQ-ngs" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="JYF-px-uat"/>
                                             <constraint firstItem="qEk-TU-odc" firstAttribute="centerX" secondItem="eWu-CK-FWW" secondAttribute="centerX" id="KUF-EC-cLO"/>
                                             <constraint firstItem="QFe-pU-ocw" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="LlO-Vk-bA7"/>
@@ -413,6 +421,7 @@
                                             <constraint firstItem="Jca-ht-ahJ" firstAttribute="top" secondItem="ABG-DJ-HY6" secondAttribute="bottom" constant="8" symbolic="YES" id="Suh-QG-3bx"/>
                                             <constraint firstItem="me6-ut-RSP" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="Tsr-Ui-3E4"/>
                                             <constraint firstItem="A6t-OF-SSy" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" id="UqB-YM-c54"/>
+                                            <constraint firstItem="dZr-C5-Tpu" firstAttribute="centerY" secondItem="QFe-pU-ocw" secondAttribute="centerY" id="VF8-5I-VFd"/>
                                             <constraint firstItem="1wG-kf-nie" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" id="WbT-PJ-Z4t"/>
                                             <constraint firstItem="gID-5d-KDe" firstAttribute="baseline" secondItem="XPd-Af-CYy" secondAttribute="baseline" id="YkN-mo-dau"/>
                                             <constraint firstItem="cr3-Gd-Hq6" firstAttribute="top" secondItem="A6t-OF-SSy" secondAttribute="bottom" constant="8" symbolic="YES" id="Ztk-5o-3a0"/>
@@ -434,7 +443,6 @@
                                             <constraint firstItem="VFm-r7-f2K" firstAttribute="centerX" secondItem="eWu-CK-FWW" secondAttribute="centerX" multiplier="1.33" id="qkg-jD-FiO"/>
                                             <constraint firstItem="ABG-DJ-HY6" firstAttribute="top" secondItem="me6-ut-RSP" secondAttribute="bottom" constant="-16" id="thz-co-HRH"/>
                                             <constraint firstItem="Zr4-IE-ENv" firstAttribute="centerX" secondItem="VFm-r7-f2K" secondAttribute="centerX" id="uZT-Xj-m1Q"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="QFe-pU-ocw" secondAttribute="trailing" constant="8" id="zrP-gN-OYJ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -465,6 +473,7 @@
                         <outlet property="oneTo10Slider" destination="ABG-DJ-HY6" id="4IX-Ms-Fsr"/>
                         <outlet property="pictureLabels" destination="Jca-ht-ahJ" id="LvS-21-T33"/>
                         <outlet property="pictureSlider" destination="qEk-TU-odc" id="UbI-hb-jmT"/>
+                        <outlet property="stepper" destination="dZr-C5-Tpu" id="JLB-gv-fJc"/>
                         <outlet property="switch1Camel" destination="cr3-Gd-Hq6" id="MwF-sx-QsC"/>
                         <outlet property="switch2Camel" destination="Zr4-IE-ENv" id="B2K-uv-vmB"/>
                     </connections>

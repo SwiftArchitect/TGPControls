@@ -51,6 +51,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *controlEventsLabel;
 @property (weak, nonatomic) IBOutlet TGPDiscreteSlider7 *dualColorSlider;
+@property (weak, nonatomic) IBOutlet UIStepper *stepper;
 @end
 
 @implementation ViewController
@@ -121,8 +122,15 @@
 - (void)touchCancel:(UIControl *)sender event:(UIEvent *)event {
     self.controlEventsLabel.text = @"touchCancel";
 }
-- (void)valueChanged:(UIControl *)sender event:(UIEvent *)event {
+- (void)valueChanged:(TGPDiscreteSlider7 *)sender event:(UIEvent *)event {
     self.controlEventsLabel.text = @"valueChanged";
+    self.stepper.value = (double) sender.value;
+}
+
+#pragma mark - UIStepper
+
+- (IBAction)stepperValueChanged:(UIStepper *)sender {
+    self.dualColorSlider.value = (CGFloat) sender.value;
 }
 
 @end
