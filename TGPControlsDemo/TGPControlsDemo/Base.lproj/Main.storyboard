@@ -98,7 +98,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEk-TU-odc" userLabel="pictureSlider" customClass="TGPDiscreteSlider">
-                                                <rect key="frame" x="37.5" y="155" width="300" height="21"/>
+                                                <rect key="frame" x="37" y="155" width="300" height="21"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -325,14 +325,30 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TGPDiscreteSlider variations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPd-Af-CYy" userLabel="L4">
-                                                <rect key="frame" x="8" y="471" width="218" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Variations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPd-Af-CYy" userLabel="L4">
+                                                <rect key="frame" x="8" y="471" width="76" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndg-v1-Tx3" userLabel="customSlider1" customClass="TGPDiscreteSlider">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-pU-ocw" userLabel="customSlider4" customClass="TGPDiscreteSlider">
                                                 <rect key="frame" x="16" y="499" width="343" height="44"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="olU-G4-MUE"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickStyle">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trackStyle">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndg-v1-Tx3" userLabel="customSlider1" customClass="TGPDiscreteSlider">
+                                                <rect key="frame" x="16" y="551" width="343" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="0.33333333333333331" alpha="0.25" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -368,25 +384,16 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-pU-ocw" userLabel="customSlider4" customClass="TGPDiscreteSlider">
-                                                <rect key="frame" x="16" y="551" width="343" height="44"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="olU-G4-MUE"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickStyle">
-                                                        <integer key="value" value="0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="trackStyle">
-                                                        <integer key="value" value="0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UIControlActions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gID-5d-KDe">
+                                                <rect key="frame" x="231" y="471" width="128" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="gID-5d-KDe" secondAttribute="trailing" constant="8" id="0WQ-p6-iER"/>
                                             <constraint firstItem="qag-Wb-5DJ" firstAttribute="top" secondItem="cr3-Gd-Hq6" secondAttribute="bottom" constant="-2" id="1vB-p3-UJF"/>
                                             <constraint firstItem="hbc-OQ-ngs" firstAttribute="top" secondItem="BhH-uE-SaH" secondAttribute="bottom" constant="-35" id="5p4-Ib-Aqy"/>
                                             <constraint firstItem="XPd-Af-CYy" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" id="7en-GF-yv8"/>
@@ -404,11 +411,10 @@
                                             <constraint firstItem="qag-Wb-5DJ" firstAttribute="centerX" secondItem="eWu-CK-FWW" secondAttribute="centerX" multiplier="0.66" id="Qzg-UZ-6cQ"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="Jca-ht-ahJ" secondAttribute="trailing" constant="16" id="RFq-1v-q2h"/>
                                             <constraint firstItem="Jca-ht-ahJ" firstAttribute="top" secondItem="ABG-DJ-HY6" secondAttribute="bottom" constant="8" symbolic="YES" id="Suh-QG-3bx"/>
-                                            <constraint firstItem="Ndg-v1-Tx3" firstAttribute="top" secondItem="XPd-Af-CYy" secondAttribute="bottom" constant="8" symbolic="YES" id="TRz-6s-4Xx"/>
                                             <constraint firstItem="me6-ut-RSP" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="Tsr-Ui-3E4"/>
                                             <constraint firstItem="A6t-OF-SSy" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" id="UqB-YM-c54"/>
                                             <constraint firstItem="1wG-kf-nie" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" id="WbT-PJ-Z4t"/>
-                                            <constraint firstItem="QFe-pU-ocw" firstAttribute="top" secondItem="Ndg-v1-Tx3" secondAttribute="bottom" constant="8" symbolic="YES" id="XRL-nn-wVn"/>
+                                            <constraint firstItem="gID-5d-KDe" firstAttribute="baseline" secondItem="XPd-Af-CYy" secondAttribute="baseline" id="YkN-mo-dau"/>
                                             <constraint firstItem="cr3-Gd-Hq6" firstAttribute="top" secondItem="A6t-OF-SSy" secondAttribute="bottom" constant="8" symbolic="YES" id="Ztk-5o-3a0"/>
                                             <constraint firstItem="1wG-kf-nie" firstAttribute="top" secondItem="qEk-TU-odc" secondAttribute="bottom" constant="44" id="afo-jx-kpZ"/>
                                             <constraint firstItem="Ndg-v1-Tx3" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="czJ-zn-XCo"/>
@@ -419,8 +425,10 @@
                                             <constraint firstItem="XPd-Af-CYy" firstAttribute="top" secondItem="qag-Wb-5DJ" secondAttribute="bottom" constant="44" id="i97-rY-DQL"/>
                                             <constraint firstItem="Zr4-IE-ENv" firstAttribute="centerY" secondItem="VFm-r7-f2K" secondAttribute="centerY" id="ivA-ag-HMK"/>
                                             <constraint firstItem="ABG-DJ-HY6" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="jNz-wq-h0l"/>
+                                            <constraint firstItem="Ndg-v1-Tx3" firstAttribute="top" secondItem="QFe-pU-ocw" secondAttribute="bottom" constant="8" symbolic="YES" id="kOg-ni-91m"/>
                                             <constraint firstItem="me6-ut-RSP" firstAttribute="top" secondItem="hED-uQ-kcm" secondAttribute="bottom" constant="8" symbolic="YES" id="krk-sF-r4n"/>
                                             <constraint firstItem="me6-ut-RSP" firstAttribute="trailing" secondItem="eWu-CK-FWW" secondAttribute="trailingMargin" constant="-8" id="ltM-om-wyk"/>
+                                            <constraint firstItem="QFe-pU-ocw" firstAttribute="top" secondItem="XPd-Af-CYy" secondAttribute="bottom" constant="8" symbolic="YES" id="nLx-CN-xDR"/>
                                             <constraint firstItem="BhH-uE-SaH" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="pQ9-Hh-aXC"/>
                                             <constraint firstItem="BhH-uE-SaH" firstAttribute="top" secondItem="1wG-kf-nie" secondAttribute="bottom" constant="8" symbolic="YES" id="qeV-sc-pdk"/>
                                             <constraint firstItem="VFm-r7-f2K" firstAttribute="centerX" secondItem="eWu-CK-FWW" secondAttribute="centerX" multiplier="1.33" id="qkg-jD-FiO"/>
@@ -439,7 +447,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="0.97174479170000005" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DiV-DE-SKA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Dcr-Df-pfx"/>
                             <constraint firstItem="DiV-DE-SKA" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="P5R-SH-hrO"/>
@@ -451,6 +459,8 @@
                     <connections>
                         <outlet property="alphabetLabels" destination="BhH-uE-SaH" id="kEj-FU-SBG"/>
                         <outlet property="alphabetSlider" destination="hbc-OQ-ngs" id="4ye-LL-oZo"/>
+                        <outlet property="controlEventsLabel" destination="gID-5d-KDe" id="18f-R6-44T"/>
+                        <outlet property="dualColorSlider" destination="QFe-pU-ocw" id="NFB-ao-nad"/>
                         <outlet property="oneTo10Labels" destination="me6-ut-RSP" id="gHh-J9-qc8"/>
                         <outlet property="oneTo10Slider" destination="ABG-DJ-HY6" id="tYZ-qQ-rqW"/>
                         <outlet property="pictureLabels" destination="Jca-ht-ahJ" id="0sr-QZ-fXC"/>
