@@ -48,6 +48,9 @@
 
 @property (weak, nonatomic) IBOutlet TGPCamelLabels7 *switch1Camel;
 @property (weak, nonatomic) IBOutlet TGPCamelLabels7 *switch2Camel;
+
+@property (weak, nonatomic) IBOutlet UILabel *controlEventsLabel;
+@property (weak, nonatomic) IBOutlet TGPDiscreteSlider7 *dualColorSlider;
 @end
 
 @implementation ViewController
@@ -65,6 +68,18 @@
     self.alphabetSlider.ticksListener = self.alphabetLabels;
     self.oneTo10Slider.ticksListener = self.oneTo10Labels;
     self.pictureSlider.ticksListener = self.pictureLabels;
+
+    // UIControlEvents
+    [self.dualColorSlider addTarget:self action:@selector(touchDown:event:) forControlEvents:UIControlEventTouchDown];
+    [self.dualColorSlider addTarget:self action:@selector(touchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
+    [self.dualColorSlider addTarget:self action:@selector(touchDragInside:event:) forControlEvents:UIControlEventTouchDragInside];
+    [self.dualColorSlider addTarget:self action:@selector(touchDragOutside:event:) forControlEvents:UIControlEventTouchDragOutside];
+    [self.dualColorSlider addTarget:self action:@selector(touchDragEnter:event:) forControlEvents:UIControlEventTouchDragEnter];
+    [self.dualColorSlider addTarget:self action:@selector(touchDragExit:event:) forControlEvents:UIControlEventTouchDragExit];
+    [self.dualColorSlider addTarget:self action:@selector(touchUpInside:event:) forControlEvents:UIControlEventTouchUpInside];
+    [self.dualColorSlider addTarget:self action:@selector(touchUpOutside:event:) forControlEvents:UIControlEventTouchUpOutside];
+    [self.dualColorSlider addTarget:self action:@selector(touchCancel:event:) forControlEvents:UIControlEventTouchCancel];
+    [self.dualColorSlider addTarget:self action:@selector(valueChanged:event:) forControlEvents:UIControlEventValueChanged];
 }
 
 #pragma mark - UISwitch
@@ -75,6 +90,39 @@
 
 - (IBAction)switch2TouchUpInside:(UISwitch *)sender {
     [self.switch2Camel setValue:((sender.isOn) ? 1 : 0)];
+}
+
+#pragma mark - UIControlEvents
+
+- (void)touchDown:(UIControl *)sender event:(UIEvent *)event {
+    self.controlEventsLabel.text = @"touchDown";
+}
+- (void)touchDownRepeat:(UIControl *)sender event:(UIEvent *)event {
+    self.controlEventsLabel.text = @"touchDownRepeat";
+}
+- (void)touchDragInside:(UIControl *)sender event:(UIEvent *)event {
+    self.controlEventsLabel.text = @"touchDragInside";
+}
+- (void)touchDragOutside:(UIControl *)sender event:(UIEvent *)event {
+    self.controlEventsLabel.text = @"touchDragOutside";
+}
+- (void)touchDragEnter:(UIControl *)sender event:(UIEvent *)event {
+    self.controlEventsLabel.text = @"touchDragEnter";
+}
+- (void)touchDragExit:(UIControl *)sender event:(UIEvent *)event {
+    self.controlEventsLabel.text = @"touchDragExit";
+}
+- (void)touchUpInside:(UIControl *)sender event:(UIEvent *)event {
+    self.controlEventsLabel.text = @"touchUpInside";
+}
+- (void)touchUpOutside:(UIControl *)sender event:(UIEvent *)event {
+    self.controlEventsLabel.text = @"touchUpOutside";
+}
+- (void)touchCancel:(UIControl *)sender event:(UIEvent *)event {
+    self.controlEventsLabel.text = @"touchCancel";
+}
+- (void)valueChanged:(UIControl *)sender event:(UIEvent *)event {
+    self.controlEventsLabel.text = @"valueChanged";
 }
 
 @end

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,419 +19,454 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TGPDiscreteSlider + TGPCamelLabels" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hED-uQ-kcm">
-                                <rect key="frame" x="16" y="47" width="294" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me6-ut-RSP" userLabel="oneTo10Labels" customClass="TGPCamelLabels7">
-                                <rect key="frame" x="16" y="74" width="343" height="40"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DiV-DE-SKA" userLabel="Scroll">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWu-CK-FWW" userLabel="Content">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TGPDiscreteSlider + TGPCamelLabels" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hED-uQ-kcm" userLabel="L1">
+                                                <rect key="frame" x="8" y="20" width="290.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me6-ut-RSP" userLabel="oneTo10Labels" customClass="TGPCamelLabels7">
+                                                <rect key="frame" x="16" y="48" width="343" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="YPH-7w-2mY"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="ticksDistance">
+                                                        <real key="value" value="33"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="upFontName" value="AvenirNext-Regular"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="downFontName" value="AvenirNext-Regular"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="upFontSize">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="downFontSize">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="upFontColor">
+                                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="downFontColor">
+                                                        <color key="value" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABG-DJ-HY6" userLabel="oneTo10Slider" customClass="TGPDiscreteSlider7">
+                                                <rect key="frame" x="16" y="72" width="343" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Iam-Pd-ib7"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickStyle">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trackStyle">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="incrementValue">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="tickSize">
+                                                        <size key="value" width="1" height="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEk-TU-odc" userLabel="pictureSlider" customClass="TGPDiscreteSlider7">
+                                                <rect key="frame" x="37" y="155" width="300" height="21"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="CKW-ka-PbS"/>
+                                                    <constraint firstAttribute="height" constant="21" id="KGO-gb-nob"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickStyle">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trackStyle">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbStyle">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="tickSize">
+                                                        <size key="value" width="1" height="26"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="incrementValue">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="thumbImage" value="thumb"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tickImage" value="tick"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="trackImage" value="track"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-ht-ahJ" userLabel="pictureLabels" customClass="TGPCamelLabels7">
+                                                <rect key="frame" x="24" y="124" width="327" height="32"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="xdu-yK-lYy"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="ticksDistance">
+                                                        <real key="value" value="55"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="upFontName" value="Futura-CondensedMedium"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="upFontColor">
+                                                        <color key="value" red="0.3411764705882353" green="0.60784313725490191" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="downFontName" value="Futura-CondensedMedium"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="upFontSize">
+                                                        <real key="value" value="17"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="downFontSize">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="downFontColor">
+                                                        <color key="value" red="0.29411764705882354" green="0.35686274509803922" blue="0.43137254901960786" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Layers and transparency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wG-kf-nie" userLabel="L2">
+                                                <rect key="frame" x="8" y="220" width="188.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BhH-uE-SaH" userLabel="alphabetLabels" customClass="TGPCamelLabels7">
+                                                <rect key="frame" x="16" y="248" width="343" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="XdG-yC-sgG"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
+                                                        <integer key="value" value="26"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="ticksDistance">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <integer key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="upFontName" value="AvenirNext-Demibold"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="upFontColor">
+                                                        <color key="value" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="downFontName" value="AvenirNext-Medium"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="upFontSize">
+                                                        <real key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="downFontSize">
+                                                        <real key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="downFontColor">
+                                                        <color key="value" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-OQ-ngs" userLabel="alphabetSlider" customClass="TGPDiscreteSlider7">
+                                                <rect key="frame" x="16" y="253" width="343" height="54"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="54" id="PeU-Hp-weJ"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickStyle">
+                                                        <integer key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
+                                                        <integer key="value" value="26"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trackStyle">
+                                                        <integer key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbStyle">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="thumbSize">
+                                                        <size key="value" width="15" height="28"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
+                                                        <color key="value" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <real key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="incrementValue">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TGPCamelLabels + UISwitch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6t-OF-SSy" userLabel="L3">
+                                                <rect key="frame" x="8" y="351" width="218.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-Gd-Hq6" userLabel="switch1Camel" customClass="TGPCamelLabels7">
+                                                <rect key="frame" x="99" y="380" width="49" height="18"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="18" id="TH0-qP-ycM"/>
+                                                    <constraint firstAttribute="width" constant="49" id="aNz-S2-6qd"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="ticksDistance">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="upFontName" value="AvenirNext-Medium"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="upFontSize">
+                                                        <real key="value" value="11"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="upFontColor">
+                                                        <color key="value" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="downFontName" value="AvenirNext-Medium"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="downFontSize">
+                                                        <real key="value" value="11"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="downFontColor">
+                                                        <color key="value" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.25" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qag-Wb-5DJ" userLabel="switch1">
+                                                <rect key="frame" x="99" y="396" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="switch1ValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="5bc-7D-vJF"/>
+                                                </connections>
+                                            </switch>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFm-r7-f2K" userLabel="switch2">
+                                                <rect key="frame" x="225" y="396" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="switch2TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0xh-oL-8NO"/>
+                                                </connections>
+                                            </switch>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zr4-IE-ENv" userLabel="switch2Camel" customClass="TGPCamelLabels7">
+                                                <rect key="frame" x="225" y="401" width="49" height="20"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="4gv-eK-57q"/>
+                                                    <constraint firstAttribute="width" constant="49" id="geM-TC-hSD"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="ticksDistance">
+                                                        <real key="value" value="22"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="upFontName" value="AvenirNext-Regular"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="upFontSize">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="upFontColor">
+                                                        <color key="value" red="0.2627450980392157" green="0.83137254901960789" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="downFontColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="downFontName" value="AvenirNext-Regular"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="downFontSize">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Variations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPd-Af-CYy" userLabel="L4">
+                                                <rect key="frame" x="8" y="471" width="76" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-pU-ocw" userLabel="customSlider4" customClass="TGPDiscreteSlider7">
+                                                <rect key="frame" x="16" y="499" width="343" height="44"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="olU-G4-MUE"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickStyle">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trackStyle">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndg-v1-Tx3" userLabel="customSlider1" customClass="TGPDiscreteSlider7">
+                                                <rect key="frame" x="16" y="551" width="343" height="44"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" white="0.33333333333333331" alpha="0.25" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="pL3-9o-4QO"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickStyle">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="tickSize">
+                                                        <size key="value" width="14" height="14"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
+                                                        <integer key="value" value="11"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trackStyle">
+                                                        <integer key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbStyle">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="thumbSize">
+                                                        <size key="value" width="44" height="44"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
+                                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbShadowRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="thumbShadowOffset">
+                                                        <size key="value" width="0.0" height="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UIControlActions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gID-5d-KDe">
+                                                <rect key="frame" x="231" y="471" width="128" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="gID-5d-KDe" secondAttribute="trailing" constant="8" id="0WQ-p6-iER"/>
+                                            <constraint firstItem="qag-Wb-5DJ" firstAttribute="top" secondItem="cr3-Gd-Hq6" secondAttribute="bottom" constant="-2" id="1vB-p3-UJF"/>
+                                            <constraint firstItem="hbc-OQ-ngs" firstAttribute="top" secondItem="BhH-uE-SaH" secondAttribute="bottom" constant="-35" id="5p4-Ib-Aqy"/>
+                                            <constraint firstItem="XPd-Af-CYy" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" id="7en-GF-yv8"/>
+                                            <constraint firstItem="VFm-r7-f2K" firstAttribute="centerY" secondItem="qag-Wb-5DJ" secondAttribute="centerY" id="8Jn-GI-7WS"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="hbc-OQ-ngs" secondAttribute="trailing" constant="8" id="8wZ-Cr-wjl"/>
+                                            <constraint firstItem="Jca-ht-ahJ" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="16" id="CfR-vD-iI4"/>
+                                            <constraint firstItem="A6t-OF-SSy" firstAttribute="top" secondItem="hbc-OQ-ngs" secondAttribute="bottom" constant="44" id="DQx-2B-c9h"/>
+                                            <constraint firstItem="hbc-OQ-ngs" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="JYF-px-uat"/>
+                                            <constraint firstItem="qEk-TU-odc" firstAttribute="centerX" secondItem="eWu-CK-FWW" secondAttribute="centerX" id="KUF-EC-cLO"/>
+                                            <constraint firstItem="QFe-pU-ocw" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="LlO-Vk-bA7"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Ndg-v1-Tx3" secondAttribute="trailing" constant="8" id="NW0-4E-i8E"/>
+                                            <constraint firstAttribute="height" constant="647" id="Nwm-xh-vZf"/>
+                                            <constraint firstItem="ABG-DJ-HY6" firstAttribute="trailing" secondItem="eWu-CK-FWW" secondAttribute="trailingMargin" constant="-8" id="OAO-EM-NPL"/>
+                                            <constraint firstItem="hED-uQ-kcm" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" id="P9g-je-5Du"/>
+                                            <constraint firstItem="qag-Wb-5DJ" firstAttribute="centerX" secondItem="eWu-CK-FWW" secondAttribute="centerX" multiplier="0.66" id="Qzg-UZ-6cQ"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Jca-ht-ahJ" secondAttribute="trailing" constant="16" id="RFq-1v-q2h"/>
+                                            <constraint firstItem="Jca-ht-ahJ" firstAttribute="top" secondItem="ABG-DJ-HY6" secondAttribute="bottom" constant="8" symbolic="YES" id="Suh-QG-3bx"/>
+                                            <constraint firstItem="me6-ut-RSP" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="Tsr-Ui-3E4"/>
+                                            <constraint firstItem="A6t-OF-SSy" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" id="UqB-YM-c54"/>
+                                            <constraint firstItem="1wG-kf-nie" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" id="WbT-PJ-Z4t"/>
+                                            <constraint firstItem="gID-5d-KDe" firstAttribute="baseline" secondItem="XPd-Af-CYy" secondAttribute="baseline" id="YkN-mo-dau"/>
+                                            <constraint firstItem="cr3-Gd-Hq6" firstAttribute="top" secondItem="A6t-OF-SSy" secondAttribute="bottom" constant="8" symbolic="YES" id="Ztk-5o-3a0"/>
+                                            <constraint firstItem="1wG-kf-nie" firstAttribute="top" secondItem="qEk-TU-odc" secondAttribute="bottom" constant="44" id="afo-jx-kpZ"/>
+                                            <constraint firstItem="Ndg-v1-Tx3" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="czJ-zn-XCo"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="BhH-uE-SaH" secondAttribute="trailing" constant="8" id="dtS-Ph-zAA"/>
+                                            <constraint firstItem="qEk-TU-odc" firstAttribute="top" secondItem="Jca-ht-ahJ" secondAttribute="bottom" constant="-1" id="fvc-2X-ahE"/>
+                                            <constraint firstItem="cr3-Gd-Hq6" firstAttribute="centerX" secondItem="qag-Wb-5DJ" secondAttribute="centerX" id="gw0-nt-CIO"/>
+                                            <constraint firstItem="hED-uQ-kcm" firstAttribute="top" secondItem="eWu-CK-FWW" secondAttribute="top" constant="20" symbolic="YES" id="hMh-rx-udj"/>
+                                            <constraint firstItem="XPd-Af-CYy" firstAttribute="top" secondItem="qag-Wb-5DJ" secondAttribute="bottom" constant="44" id="i97-rY-DQL"/>
+                                            <constraint firstItem="Zr4-IE-ENv" firstAttribute="centerY" secondItem="VFm-r7-f2K" secondAttribute="centerY" id="ivA-ag-HMK"/>
+                                            <constraint firstItem="ABG-DJ-HY6" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="jNz-wq-h0l"/>
+                                            <constraint firstItem="Ndg-v1-Tx3" firstAttribute="top" secondItem="QFe-pU-ocw" secondAttribute="bottom" constant="8" symbolic="YES" id="kOg-ni-91m"/>
+                                            <constraint firstItem="me6-ut-RSP" firstAttribute="top" secondItem="hED-uQ-kcm" secondAttribute="bottom" constant="8" symbolic="YES" id="krk-sF-r4n"/>
+                                            <constraint firstItem="me6-ut-RSP" firstAttribute="trailing" secondItem="eWu-CK-FWW" secondAttribute="trailingMargin" constant="-8" id="ltM-om-wyk"/>
+                                            <constraint firstItem="QFe-pU-ocw" firstAttribute="top" secondItem="XPd-Af-CYy" secondAttribute="bottom" constant="8" symbolic="YES" id="nLx-CN-xDR"/>
+                                            <constraint firstItem="BhH-uE-SaH" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="pQ9-Hh-aXC"/>
+                                            <constraint firstItem="BhH-uE-SaH" firstAttribute="top" secondItem="1wG-kf-nie" secondAttribute="bottom" constant="8" symbolic="YES" id="qeV-sc-pdk"/>
+                                            <constraint firstItem="VFm-r7-f2K" firstAttribute="centerX" secondItem="eWu-CK-FWW" secondAttribute="centerX" multiplier="1.33" id="qkg-jD-FiO"/>
+                                            <constraint firstItem="ABG-DJ-HY6" firstAttribute="top" secondItem="me6-ut-RSP" secondAttribute="bottom" constant="-16" id="thz-co-HRH"/>
+                                            <constraint firstItem="Zr4-IE-ENv" firstAttribute="centerX" secondItem="VFm-r7-f2K" secondAttribute="centerX" id="uZT-Xj-m1Q"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="QFe-pU-ocw" secondAttribute="trailing" constant="8" id="zrP-gN-OYJ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="YPH-7w-2mY"/>
+                                    <constraint firstItem="eWu-CK-FWW" firstAttribute="leading" secondItem="DiV-DE-SKA" secondAttribute="leading" id="6Iw-8k-BNJ"/>
+                                    <constraint firstItem="eWu-CK-FWW" firstAttribute="top" secondItem="DiV-DE-SKA" secondAttribute="top" id="EhX-oU-vfq"/>
+                                    <constraint firstAttribute="trailing" secondItem="eWu-CK-FWW" secondAttribute="trailing" id="L7u-VB-Oe6"/>
+                                    <constraint firstAttribute="bottom" secondItem="eWu-CK-FWW" secondAttribute="bottom" id="Zje-Up-DVu"/>
+                                    <constraint firstItem="eWu-CK-FWW" firstAttribute="centerX" secondItem="DiV-DE-SKA" secondAttribute="centerX" id="w4t-e1-u4S"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="ticksDistance">
-                                        <real key="value" value="33"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="upFontName" value="AvenirNext-Regular"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="downFontName" value="AvenirNext-Regular"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="upFontSize">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="downFontSize">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="upFontColor">
-                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="downFontColor">
-                                        <color key="value" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABG-DJ-HY6" userLabel="oneTo10Slider" customClass="TGPDiscreteSlider7">
-                                <rect key="frame" x="16" y="99" width="343" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Iam-Pd-ib7"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickStyle">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="trackStyle">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="incrementValue">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="tickSize">
-                                        <size key="value" width="1" height="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-ht-ahJ" userLabel="pictureLabels" customClass="TGPCamelLabels7">
-                                <rect key="frame" x="16" y="169" width="343" height="32"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="xdu-yK-lYy"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="ticksDistance">
-                                        <real key="value" value="55"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="upFontName" value="Futura-CondensedMedium"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="upFontColor">
-                                        <color key="value" red="0.3411764705882353" green="0.60784313725490191" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="downFontName" value="Futura-CondensedMedium"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="upFontSize">
-                                        <real key="value" value="17"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="downFontSize">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="downFontColor">
-                                        <color key="value" red="0.29411764705882354" green="0.35686274509803922" blue="0.43137254901960786" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEk-TU-odc" userLabel="pictureSlider" customClass="TGPDiscreteSlider7">
-                                <rect key="frame" x="16" y="184" width="343" height="78"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="78" id="gir-70-NLC"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickStyle">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="trackStyle">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbStyle">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="tickSize">
-                                        <size key="value" width="1" height="26"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="incrementValue">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="thumbImage" value="thumb"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="tickImage" value="tick"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="trackImage" value="track"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Layers and transparency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wG-kf-nie">
-                                <rect key="frame" x="16" y="270" width="189" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BhH-uE-SaH" userLabel="alphabetLabels" customClass="TGPCamelLabels7">
-                                <rect key="frame" x="16" y="295" width="343" height="40"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="XdG-yC-sgG"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
-                                        <integer key="value" value="26"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="ticksDistance">
-                                        <real key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <integer key="value" value="13"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="upFontName" value="AvenirNext-Demibold"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="upFontColor">
-                                        <color key="value" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="downFontName" value="AvenirNext-Medium"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="upFontSize">
-                                        <real key="value" value="13"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="downFontSize">
-                                        <real key="value" value="13"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="downFontColor">
-                                        <color key="value" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-OQ-ngs" userLabel="alphabetSlider" customClass="TGPDiscreteSlider7">
-                                <rect key="frame" x="16" y="299" width="343" height="54"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="PeU-Hp-weJ"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickStyle">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
-                                        <integer key="value" value="26"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="trackStyle">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbStyle">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="thumbSize">
-                                        <size key="value" width="15" height="28"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
-                                        <color key="value" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="13"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="incrementValue">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TGPCamelLabels + UISwitch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6t-OF-SSy">
-                                <rect key="frame" x="16" y="380" width="222.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-Gd-Hq6" userLabel="switch1Camel" customClass="TGPCamelLabels7">
-                                <rect key="frame" x="107" y="415" width="49" height="18"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="TH0-qP-ycM"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="ticksDistance">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="upFontName" value="AvenirNext-Medium"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="upFontSize">
-                                        <real key="value" value="11"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="upFontColor">
-                                        <color key="value" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="downFontName" value="AvenirNext-Medium"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="downFontSize">
-                                        <real key="value" value="11"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="downFontColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.25" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qag-Wb-5DJ" userLabel="switch1">
-                                <rect key="frame" x="107" y="431.5" width="51" height="31"/>
-                                <connections>
-                                    <action selector="switch1ValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="5bc-7D-vJF"/>
-                                </connections>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFm-r7-f2K" userLabel="switch2">
-                                <rect key="frame" x="219" y="431" width="51" height="31"/>
-                                <connections>
-                                    <action selector="switch2TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0xh-oL-8NO"/>
-                                </connections>
-                            </switch>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zr4-IE-ENv" userLabel="switch2Camel" customClass="TGPCamelLabels7">
-                                <rect key="frame" x="220" y="437" width="49" height="20"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="4gv-eK-57q"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="ticksDistance">
-                                        <real key="value" value="22"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="upFontName" value="AvenirNext-Regular"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="upFontSize">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="upFontColor">
-                                        <color key="value" red="0.2627450980392157" green="0.83137254901960789" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="downFontColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="downFontName" value="AvenirNext-Regular"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="downFontSize">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TGPDiscreteSlider variations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPd-Af-CYy">
-                                <rect key="frame" x="16" y="481" width="219.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndg-v1-Tx3" userLabel="customSlider1" customClass="TGPDiscreteSlider7">
-                                <rect key="frame" x="16" y="538" width="343" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.33333333333333331" alpha="0.25" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="pL3-9o-4QO"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickStyle">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="tickSize">
-                                        <size key="value" width="14" height="14"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickCount">
-                                        <integer key="value" value="11"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="trackStyle">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbStyle">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="thumbSize">
-                                        <size key="value" width="44" height="44"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
-                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbShadowRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="thumbShadowOffset">
-                                        <size key="value" width="0.0" height="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-pU-ocw" userLabel="customSlider4" customClass="TGPDiscreteSlider7">
-                                <rect key="frame" x="16" y="589" width="343" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="olU-G4-MUE"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tickStyle">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="trackStyle">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.87566179040000003" green="0.8756355643" blue="0.87565040589999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qEk-TU-odc" firstAttribute="centerY" secondItem="Jca-ht-ahJ" secondAttribute="centerY" constant="38" id="0ky-2u-jsZ"/>
-                            <constraint firstItem="XPd-Af-CYy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4gf-WO-ysR"/>
-                            <constraint firstItem="me6-ut-RSP" firstAttribute="centerY" secondItem="ABG-DJ-HY6" secondAttribute="centerY" constant="-27" id="5P5-o3-fJa"/>
-                            <constraint firstItem="ABG-DJ-HY6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6ym-Lu-D7D"/>
-                            <constraint firstItem="BhH-uE-SaH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9WX-tF-da4"/>
-                            <constraint firstItem="Ndg-v1-Tx3" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="B22-Tf-930"/>
-                            <constraint firstItem="hbc-OQ-ngs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Bxo-T9-mlW"/>
-                            <constraint firstItem="BhH-uE-SaH" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="C1k-12-GvS"/>
-                            <constraint firstItem="A6t-OF-SSy" firstAttribute="top" secondItem="hbc-OQ-ngs" secondAttribute="bottom" constant="26.5" id="DpZ-zm-fuB"/>
-                            <constraint firstItem="qEk-TU-odc" firstAttribute="top" secondItem="ABG-DJ-HY6" secondAttribute="bottom" constant="41" id="Ecx-tQ-bea"/>
-                            <constraint firstItem="1wG-kf-nie" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="FgC-pC-Ju7"/>
-                            <constraint firstItem="QFe-pU-ocw" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Kf2-Qo-MKs"/>
-                            <constraint firstItem="XPd-Af-CYy" firstAttribute="top" secondItem="VFm-r7-f2K" secondAttribute="bottom" constant="19" id="MPa-TF-VOx"/>
-                            <constraint firstAttribute="centerX" secondItem="qag-Wb-5DJ" secondAttribute="centerX" constant="56" id="MfP-WA-jAB"/>
-                            <constraint firstItem="cr3-Gd-Hq6" firstAttribute="width" secondItem="qag-Wb-5DJ" secondAttribute="width" id="Nv6-Re-TgA"/>
-                            <constraint firstItem="ABG-DJ-HY6" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="QLc-uN-eQs"/>
-                            <constraint firstItem="Jca-ht-ahJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="RGj-3P-LGG"/>
-                            <constraint firstItem="QFe-pU-ocw" firstAttribute="top" secondItem="Ndg-v1-Tx3" secondAttribute="bottom" constant="7" id="SNf-VG-tpB"/>
-                            <constraint firstItem="qEk-TU-odc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="VdX-6K-c2d"/>
-                            <constraint firstItem="hED-uQ-kcm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="27" id="Wez-tM-enh"/>
-                            <constraint firstItem="A6t-OF-SSy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cJK-f2-SFG"/>
-                            <constraint firstItem="qag-Wb-5DJ" firstAttribute="top" secondItem="A6t-OF-SSy" secondAttribute="bottom" constant="31" id="fHc-8p-ouX"/>
-                            <constraint firstItem="VFm-r7-f2K" firstAttribute="width" secondItem="Zr4-IE-ENv" secondAttribute="width" id="fj1-ce-wn1"/>
-                            <constraint firstItem="hED-uQ-kcm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fzu-Ww-8Eo"/>
-                            <constraint firstItem="me6-ut-RSP" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="gae-ID-w4Z"/>
-                            <constraint firstItem="me6-ut-RSP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gbT-8b-fGE"/>
-                            <constraint firstItem="Jca-ht-ahJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hCi-UX-sAS"/>
-                            <constraint firstItem="QFe-pU-ocw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hOH-uX-R23"/>
-                            <constraint firstItem="Ndg-v1-Tx3" firstAttribute="top" secondItem="XPd-Af-CYy" secondAttribute="bottom" constant="37" id="htu-gQ-ccv"/>
-                            <constraint firstItem="ABG-DJ-HY6" firstAttribute="top" secondItem="hED-uQ-kcm" secondAttribute="bottom" constant="32" id="iNI-NO-0SS"/>
-                            <constraint firstItem="cr3-Gd-Hq6" firstAttribute="centerY" secondItem="qag-Wb-5DJ" secondAttribute="centerY" constant="-22.5" id="lFZ-6R-uYu"/>
-                            <constraint firstItem="BhH-uE-SaH" firstAttribute="centerY" secondItem="hbc-OQ-ngs" secondAttribute="centerY" constant="-11" id="mEW-ba-COP"/>
-                            <constraint firstItem="cr3-Gd-Hq6" firstAttribute="centerX" secondItem="qag-Wb-5DJ" secondAttribute="centerX" id="nkD-zX-EF6"/>
-                            <constraint firstItem="qEk-TU-odc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="piT-8i-TRB"/>
-                            <constraint firstItem="hbc-OQ-ngs" firstAttribute="top" secondItem="1wG-kf-nie" secondAttribute="bottom" constant="9" id="q77-ib-g0g"/>
-                            <constraint firstItem="hbc-OQ-ngs" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rsR-jO-wzB"/>
-                            <constraint firstItem="1wG-kf-nie" firstAttribute="top" secondItem="qEk-TU-odc" secondAttribute="bottom" constant="8" id="s5X-Qh-nyT"/>
-                            <constraint firstItem="Ndg-v1-Tx3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="vVZ-gg-5Ko"/>
-                            <constraint firstAttribute="centerX" secondItem="VFm-r7-f2K" secondAttribute="centerX" constant="-56" id="vj0-2y-FgW"/>
-                            <constraint firstItem="VFm-r7-f2K" firstAttribute="centerX" secondItem="Zr4-IE-ENv" secondAttribute="centerX" constant="-1" id="x6x-E0-UVu"/>
-                            <constraint firstItem="VFm-r7-f2K" firstAttribute="centerY" secondItem="Zr4-IE-ENv" secondAttribute="centerY" constant="-0.5" id="xgs-Q5-C1K"/>
-                            <constraint firstItem="VFm-r7-f2K" firstAttribute="centerY" secondItem="qag-Wb-5DJ" secondAttribute="centerY" id="zeV-6W-jT3"/>
+                            <constraint firstItem="DiV-DE-SKA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Dcr-Df-pfx"/>
+                            <constraint firstItem="DiV-DE-SKA" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="P5R-SH-hrO"/>
+                            <constraint firstItem="DiV-DE-SKA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zbm-0n-qcK"/>
+                            <constraint firstItem="DiV-DE-SKA" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="zv6-Ux-k9m"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="alphabetLabels" destination="BhH-uE-SaH" id="qxo-zd-p1R"/>
-                        <outlet property="alphabetSlider" destination="hbc-OQ-ngs" id="4ye-LL-oZo"/>
-                        <outlet property="oneTo10Labels" destination="me6-ut-RSP" id="gHh-J9-qc8"/>
-                        <outlet property="oneTo10Slider" destination="ABG-DJ-HY6" id="tYZ-qQ-rqW"/>
-                        <outlet property="pictureLabels" destination="Jca-ht-ahJ" id="0sr-QZ-fXC"/>
-                        <outlet property="pictureSlider" destination="qEk-TU-odc" id="rHN-Xz-vX5"/>
-                        <outlet property="switch1Camel" destination="cr3-Gd-Hq6" id="SLv-Re-LQ1"/>
-                        <outlet property="switch2Camel" destination="Zr4-IE-ENv" id="kck-Ae-PqW"/>
+                        <outlet property="alphabetLabels" destination="BhH-uE-SaH" id="yzb-hl-WpS"/>
+                        <outlet property="alphabetSlider" destination="hbc-OQ-ngs" id="ut0-mX-eWi"/>
+                        <outlet property="controlEventsLabel" destination="gID-5d-KDe" id="WZa-pO-zC1"/>
+                        <outlet property="dualColorSlider" destination="QFe-pU-ocw" id="hXP-7M-X6d"/>
+                        <outlet property="oneTo10Labels" destination="me6-ut-RSP" id="Q7C-To-wNy"/>
+                        <outlet property="oneTo10Slider" destination="ABG-DJ-HY6" id="4IX-Ms-Fsr"/>
+                        <outlet property="pictureLabels" destination="Jca-ht-ahJ" id="LvS-21-T33"/>
+                        <outlet property="pictureSlider" destination="qEk-TU-odc" id="UbI-hb-jmT"/>
+                        <outlet property="switch1Camel" destination="cr3-Gd-Hq6" id="MwF-sx-QsC"/>
+                        <outlet property="switch2Camel" destination="Zr4-IE-ENv" id="B2K-uv-vmB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
