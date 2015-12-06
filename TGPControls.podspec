@@ -16,17 +16,18 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TGPControls"
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.summary      = "Custom Awesome iOS Controls: Animated discrete slider, animated labels"
 
   s.description  = <<-DESC
                    Provide an iOS looking UISlider with discrete, controlable steps
                    Provide dynamic, animated labels for discrete slider
+                   Entirely compatible with UISlider
 
                    DESC
 
   s.homepage     = "https://github.com/arquebuse/TGPControls"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  s.screenshots  = "https://cloud.githubusercontent.com/assets/4073988/5912371/144aaf24-a588-11e4-9a22-42832eb2c235.gif", "https://cloud.githubusercontent.com/assets/4073988/5912454/15774398-a589-11e4-8f08-18c9c7b59871.gif", "https://cloud.githubusercontent.com/assets/4073988/6628373/183c7452-c8c2-11e4-9a63-107805bc0cc4.gif", "https://cloud.githubusercontent.com/assets/4073988/5912297/c3f21bb2-a586-11e4-8eb1-a1f930ccbdd5.gif"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -50,8 +51,9 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "Arquebuse" => "xschott@gmail.com" }
-  s.social_media_url = "http://twitter.com/xavierschott"
+  s.author             = { "Xavier Schott" => "http://swiftarchitect.com/swiftarchitect/" }
+  s.social_media_url = "https://twitter.com/swiftarchitect"
+
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -68,7 +70,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/arquebuse/TGPControls.git", :tag => "v1.0.0" }
+  s.source       = { :git => "https://github.com/SwiftArchitect/TGPControls.git", :tag => "v1.1.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -81,36 +83,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = "TGPControls", "TGPControls/**/*.{h,m}"
   s.exclude_files = "TGPControlsDemo7/*", "TGPControlsDemo/*"
-
-
   s.public_header_files = "TGPControls/**/*.{h}"
-
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  # s.resource  = "TGPImages.car"
-  # s.resources = "TGPImages.xcassets/*.imageset"
-
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
-
-
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
-
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
-
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -121,7 +94,5 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
 
 end
