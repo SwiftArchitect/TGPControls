@@ -14,18 +14,7 @@
 		DC74B6821A901699001DC526 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC74B6801A901699001DC526 /* Main.storyboard */; };
 		DC74B6841A901699001DC526 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC74B6831A901699001DC526 /* Images.xcassets */; };
 		DC74B6871A901699001DC526 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC74B6851A901699001DC526 /* LaunchScreen.xib */; };
-		DC74B6931A901699001DC526 /* TGPControlsDemo7Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC74B6921A901699001DC526 /* TGPControlsDemo7Tests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		DC74B68D1A901699001DC526 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC74B66B1A901699001DC526 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DC74B6721A901699001DC526;
-			remoteInfo = TGPControlsDemo7;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3227B7F26D7BFA5B9536A0DB /* Pods-TGPControlsDemo7.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo7.release.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo7/Pods-TGPControlsDemo7.release.xcconfig"; sourceTree = "<group>"; };
@@ -41,9 +30,6 @@
 		DC74B6811A901699001DC526 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC74B6831A901699001DC526 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DC74B6861A901699001DC526 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		DC74B68C1A901699001DC526 /* TGPControlsDemo7Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TGPControlsDemo7Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC74B6911A901699001DC526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC74B6921A901699001DC526 /* TGPControlsDemo7Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TGPControlsDemo7Tests.m; sourceTree = "<group>"; };
 		DCC831371A9017670047F142 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
@@ -53,13 +39,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A506FFB267F7DB477E7645C6 /* libPods-TGPControlsDemo7.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC74B6891A901699001DC526 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +58,6 @@
 			children = (
 				DCC831371A9017670047F142 /* Podfile */,
 				DC74B6751A901699001DC526 /* TGPControlsDemo7 */,
-				DC74B68F1A901699001DC526 /* TGPControlsDemo7Tests */,
 				DC74B6741A901699001DC526 /* Products */,
 				EA8C94FA4563F0443C64E897 /* Pods */,
 				2BAC7104A1110CC622B002A7 /* Frameworks */,
@@ -90,7 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				DC74B6731A901699001DC526 /* TGPControlsDemo7.app */,
-				DC74B68C1A901699001DC526 /* TGPControlsDemo7Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,23 +92,6 @@
 			children = (
 				DC74B6771A901699001DC526 /* Info.plist */,
 				DC74B6781A901699001DC526 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DC74B68F1A901699001DC526 /* TGPControlsDemo7Tests */ = {
-			isa = PBXGroup;
-			children = (
-				DC74B6921A901699001DC526 /* TGPControlsDemo7Tests.m */,
-				DC74B6901A901699001DC526 /* Supporting Files */,
-			);
-			path = TGPControlsDemo7Tests;
-			sourceTree = "<group>";
-		};
-		DC74B6901A901699001DC526 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DC74B6911A901699001DC526 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -167,39 +127,17 @@
 			productReference = DC74B6731A901699001DC526 /* TGPControlsDemo7.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DC74B68B1A901699001DC526 /* TGPControlsDemo7Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DC74B6991A901699001DC526 /* Build configuration list for PBXNativeTarget "TGPControlsDemo7Tests" */;
-			buildPhases = (
-				DC74B6881A901699001DC526 /* Sources */,
-				DC74B6891A901699001DC526 /* Frameworks */,
-				DC74B68A1A901699001DC526 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DC74B68E1A901699001DC526 /* PBXTargetDependency */,
-			);
-			name = TGPControlsDemo7Tests;
-			productName = TGPControlsDemo7Tests;
-			productReference = DC74B68C1A901699001DC526 /* TGPControlsDemo7Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		DC74B66B1A901699001DC526 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = TheGothicParty;
 				TargetAttributes = {
 					DC74B6721A901699001DC526 = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					DC74B68B1A901699001DC526 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = DC74B6721A901699001DC526;
 					};
 				};
 			};
@@ -217,7 +155,6 @@
 			projectRoot = "";
 			targets = (
 				DC74B6721A901699001DC526 /* TGPControlsDemo7 */,
-				DC74B68B1A901699001DC526 /* TGPControlsDemo7Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -230,13 +167,6 @@
 				DC74B6821A901699001DC526 /* Main.storyboard in Resources */,
 				DC74B6871A901699001DC526 /* LaunchScreen.xib in Resources */,
 				DC74B6841A901699001DC526 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC74B68A1A901699001DC526 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,23 +216,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC74B6881A901699001DC526 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC74B6931A901699001DC526 /* TGPControlsDemo7Tests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DC74B68E1A901699001DC526 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DC74B6721A901699001DC526 /* TGPControlsDemo7 */;
-			targetProxy = DC74B68D1A901699001DC526 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DC74B6801A901699001DC526 /* Main.storyboard */ = {
@@ -344,6 +258,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -407,9 +322,11 @@
 			baseConfigurationReference = 9D6EC9A4396AF16D62F320EE /* Pods-TGPControlsDemo7.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = TGPControlsDemo7/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thegothicparty.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -419,44 +336,12 @@
 			baseConfigurationReference = 3227B7F26D7BFA5B9536A0DB /* Pods-TGPControlsDemo7.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = TGPControlsDemo7/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thegothicparty.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		DC74B69A1A901699001DC526 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TGPControlsDemo7Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TGPControlsDemo7.app/TGPControlsDemo7";
-			};
-			name = Debug;
-		};
-		DC74B69B1A901699001DC526 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TGPControlsDemo7Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TGPControlsDemo7.app/TGPControlsDemo7";
 			};
 			name = Release;
 		};
@@ -477,15 +362,6 @@
 			buildConfigurations = (
 				DC74B6971A901699001DC526 /* Debug */,
 				DC74B6981A901699001DC526 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DC74B6991A901699001DC526 /* Build configuration list for PBXNativeTarget "TGPControlsDemo7Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DC74B69A1A901699001DC526 /* Debug */,
-				DC74B69B1A901699001DC526 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

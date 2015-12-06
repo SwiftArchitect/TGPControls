@@ -5,8 +5,3 @@ target 'TGPControlsDemo7' do
     #pod 'TGPControls', :path => '../../TGPControls'
     pod 'TGPControls'
 end
-
-target 'TGPControlsDemo7Tests' do
-
-end
-
