@@ -9,7 +9,7 @@ Ideal to select steps.
 ![camellabels2](https://cloud.githubusercontent.com/assets/4073988/5912454/15774398-a589-11e4-8f08-18c9c7b59871.gif)
 
 A set of animated labels representing a selection. Can be used alone or in conjunction with a UIControl.
-Ideal to represent steps.
+Ideal to represent steps. *The discrete slider and the camel labels can work in unison.*
 
 ##Compatibility
 TGPControls are **AutoLayout** ready, support **iOS 8** `IB Designable` and `IB Inspectable` properties, yet runs as far back as iOS 7.
@@ -49,25 +49,25 @@ Besides customization, which you can do entirely under Interface Builder in iOS 
 For simplicity, TGPDiscreteSlider does not descend from UISlider but from **UIControl**.
 It uses a `minimumValue`, a `tickCount` and an `incrementValue` (instead of *minimumValue* and *maximumValue*).
 All graphic aspects, such as physical spacing of the ticks or physical width of the track are controlled internally.
-This makes TGPDiscreteSlider predictable. it is guarantied to always fit snuggly inside its bounds.
+This makes TGPDiscreteSlider predictable. it is guaranteed to always fit snuggly inside its bounds.
 
 **Step 1**: *register* to notifications (*just like any UIControl*)
 ```
-[self.oneTo10Slider addTarget:self
-                       action:@selector(oneTo10SliderValueChanged:)
-             forControlEvents:UIControlEventValueChanged];
+[self.discreteSlider addTarget:self
+                        action:@selector(discreteSliderValueChanged:)
+              forControlEvents:UIControlEventValueChanged];
 ```
 **Step 2**: *respond* to notification
 ```
-- (IBAction)oneTo10SliderValueChanged:(TGPDiscreteSlider *)sender {
-    [self.oneTo10Labels setValue:sender.value];
+- (IBAction)discreteSliderValueChanged:(TGPDiscreteSlider *)sender {
+    [self.camelLabels setValue:sender.value];
 }
 ```
 That's all, and all you need to create this control:
 
 ![complete](https://cloud.githubusercontent.com/assets/4073988/5912616/26cf1b0a-a58b-11e4-92f7-f9dbcd53c413.gif)
 
-Change tickStyle, trackStyle, thumbStyle to be one of:
+**Change tickStyle, trackStyle, thumbStyle to be one of:**
 - `ComponentStyleIOS` = 0
 Gives to any component the iOS appearance. Ticks are invisible, track is blue and gray, thumb is round with a shadow.
 - `ComponentStyleRectangular` = 1
@@ -85,23 +85,27 @@ Besides font customization, `TGPCamelLabels` only requires a set of labels (supp
 
 **Step 1**: *tell* the TGPCamelLabels what to select
 ```
-[self.oneTo10Labels setValue:sender.value];
+[self.camelLabels setValue:sender.value];
 ```
 
 *There is no step 2.*
 
 For ease of use, most of the customization can be done inside Interface Builder.
-You may, however, be interested in these 2 properties programatically:
-- `ticksDistance` allows you adjust the spacing between tick exactly. A typical use may be
-`self.alphabetLabels.ticksDistance = self.alphabetSlider.ticksDistance;`
+You may, however, be interested in these 3 properties programatically:
+- `ticksListener` allows you tie a discrete slider to its camel labels. This is your most robust method to not only ensure that the layout of both controls match exactly, but also adjust this spacing when orientation changes. A typical use may be
+`self.discreteSlider.ticksListener = self.camelLabels`
 
 - `names` allows you to supply a new set of labels. This supersedes the `tickCount` property, which will return the number of labels. A typical use may be
-`self.switch1Camel.names = @[@"OFF", @"ON"];`
+`self.camelLabels.names = @[@"OFF", @"ON"];`
+
+- `ticksDistance`, a less common property, allows you to override the labels spacing entirely. Prefer the `ticksListener` mechanism if it is available to you. A typical use may be
+`self.camelLabels.ticksDistance = 15`
+
 
 For convenience TGPCamelLabels becomes *tap-through* (*click-through*) when `backgroundColor` is `clearColor`.
-You can then use TGPCamelLabels on top of other UI elements with no ill effet.
+You can then use TGPCamelLabels *on top of* other UI elements:
 
-![image](https://cloud.githubusercontent.com/assets/4073988/5910599/b775b6e8-a570-11e4-9846-d990ca0f8c9c.png)
+![uiswitch](https://cloud.githubusercontent.com/assets/4073988/11609813/a3b63526-9b45-11e5-9562-34fc2c9b134d.gif)
 
 ###Code example
 
