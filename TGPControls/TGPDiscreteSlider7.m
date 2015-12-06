@@ -40,7 +40,9 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 @property (nonatomic) NSMutableArray * ticksAbscisses;
 @property (nonatomic, assign) CGFloat thumbAbscisse;
 @property (nonatomic) CALayer * thumbLayer;
-@property (nonatomic) CALayer * colorTrackLayer;
+@property (nonatomic) CALayer * leftTrackLayer;
+@property (nonatomic) CALayer * rightTrackLayer;
+@property (nonatomic) CALayer * trackLayer;
 @property (nonatomic) CGRect trackRectangle;
 @property (nonatomic) BOOL touchedInside;
 @end
@@ -73,6 +75,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 
 - (void)setTickImage:(NSString *)tickImage {
     _tickImage = tickImage;
+    [self layoutTrack];
+}
+
+- (void)setTintColor:(UIColor *)tintColor {
+    [super setTintColor:tintColor];
     [self layoutTrack];
 }
 
@@ -211,13 +218,17 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     _thumbAbscisse = 0.0;
     _trackRectangle = CGRectZero;
 
-    // In case we need a colored track, initialize it now
-    // There may be a more elegant way to do this than with a CALayer,
-    // but then again CALayer brings free animation and will animate along the thumb
-    _colorTrackLayer = [CALayer layer];
-    _colorTrackLayer.backgroundColor = [[UIColor colorWithHue:211.0/360.0 saturation:1 brightness:1 alpha:1] CGColor];
-    _colorTrackLayer.cornerRadius = 2.0;
-    [self.layer addSublayer:self.colorTrackLayer];
+    // Track is a clear clipping layer, and left + right sublayers, which brings in free animation
+    _trackLayer = [CALayer layer];
+    _trackLayer.masksToBounds = YES;
+    _trackLayer.backgroundColor = [[UIColor clearColor] CGColor];
+    [self.layer addSublayer:self.trackLayer];
+    _leftTrackLayer = [CALayer layer];
+    _leftTrackLayer.backgroundColor = [self.tintColor CGColor];
+    [self.trackLayer addSublayer:self.leftTrackLayer];
+    _rightTrackLayer = [CALayer layer];
+    _rightTrackLayer.backgroundColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor];
+    [self.trackLayer addSublayer:self.rightTrackLayer];
 
     // The thumb is its own CALayer, which brings in free animation
     _thumbLayer = [CALayer layer];
@@ -227,20 +238,87 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     [self layoutTrack];
 }
 
-- (void)drawTrack {
-    const CGContextRef ctx = UIGraphicsGetCurrentContext();
+- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx {
+    [super drawLayer:layer inContext:ctx];
 
-    // Track
+    switch (self.tickStyle) {
+        case ComponentStyleRounded:
+        case ComponentStyleRectangular:
+        case ComponentStyleImage: {
+            NSAssert(nil != self.ticksAbscisses, @"ticksAbscisses");
+            if(nil != self.ticksAbscisses) {
+
+                for(NSValue * originValue in self.ticksAbscisses) {
+                    CGPoint originPoint = [originValue CGPointValue];
+                    CGRect rectangle = CGRectMake(originPoint.x-(self.tickSize.width/2),
+                                                  originPoint.y-(self.tickSize.height/2),
+                                                  self.tickSize.width, self.tickSize.height);
+                    switch(self.tickStyle) {
+                        case ComponentStyleRounded: {
+                            UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:rectangle
+                                                                             cornerRadius:rectangle.size.height/2];
+                            CGContextAddPath(ctx, [path CGPath]) ;
+                            CGContextSetFillColorWithColor(ctx, [self.tintColor CGColor]);
+                            CGContextFillPath(ctx);
+                            break;
+                        }
+
+                        case ComponentStyleRectangular:
+                            CGContextAddRect(ctx, rectangle);
+                            CGContextSetFillColorWithColor(ctx, [self.tintColor CGColor]);
+                            CGContextFillPath(ctx);
+                            break;
+
+                        case ComponentStyleImage: {
+                            // Draw image if exists
+                            NSString * imageName = self.tickImage;
+                            if(imageName.length > 0) {
+                                UIImage * image = [UIImage imageNamed:imageName]; //[NSBundle bundleForClass:[self class]]
+                                if(image) {
+                                    CGRect centered = CGRectMake(rectangle.origin.x + (rectangle.size.width/2) - (image.size.width/2),
+                                                                 rectangle.origin.y + (rectangle.size.height/2) - (image.size.height/2),
+                                                                 image.size.width,
+                                                                 image.size.height);
+                                    CGContextDrawImage(ctx, centered, image.CGImage);
+                                }
+                            }
+                            break;
+                        }
+
+                        case ComponentStyleInvisible:
+                        case ComponentStyleIOS:
+                        default:
+                            NSAssert(FALSE, @"ComponentStyleInvisible, ComponentStyleIOS, default");
+                            break;
+                    }
+                }
+            }
+            break;
+        }
+
+        case ComponentStyleInvisible:
+        case ComponentStyleIOS:
+        default:
+            // Nothing to draw
+            break;
+            
+    }
+}
+
+- (void)drawTrack {
     switch(self.trackStyle) {
         case ComponentStyleRectangular:
-            CGContextAddRect(ctx, self.trackRectangle);
+            self.trackLayer.frame = self.trackRectangle;
+            self.trackLayer.cornerRadius = 0.0;
             break;
 
         case ComponentStyleInvisible:
-            // Nothing to draw
+            self.trackLayer.frame = CGRectZero;
             break;
 
         case ComponentStyleImage: {
+            self.trackLayer.frame = CGRectZero;
+
             // Draw image if exists
             NSString * imageName = self.trackImage;
             if(imageName.length > 0) {
@@ -250,6 +328,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
                                                 (self.frame.size.height/2) - (image.size.height/2),
                                                 image.size.width,
                                                 image.size.height);
+                    const CGContextRef ctx = UIGraphicsGetCurrentContext();
                     CGContextDrawImage(ctx, centered, image.CGImage);
                 }
             }
@@ -257,76 +336,27 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
         }
 
         case ComponentStyleRounded:
-        case ComponentStyleIOS:
-        default: {
-            UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:self.trackRectangle
-                                                             cornerRadius:self.trackRectangle.size.height/2];
-            CGContextAddPath(ctx, [path CGPath]) ;
+            self.trackLayer.frame = self.trackRectangle;
+            self.trackLayer.cornerRadius = self.trackThickness/2.0;
             break;
-        }
+
+        case ComponentStyleIOS:
+        default:
+            self.trackLayer.frame = self.trackRectangle;
+            self.trackLayer.cornerRadius = 2.0;
     }
 
-    // Ticks
-    if(ComponentStyleIOS != self.tickStyle) {
-        NSAssert(nil != self.ticksAbscisses, @"ticksAbscisses");
-        if(nil != self.ticksAbscisses) {
-
-            for(NSValue * originValue in self.ticksAbscisses) {
-                CGPoint originPoint = [originValue CGPointValue];
-                CGRect rectangle = CGRectMake(originPoint.x-(self.tickSize.width/2),
-                                              originPoint.y-(self.tickSize.height/2),
-                                              self.tickSize.width, self.tickSize.height);
-                switch(self.tickStyle) {
-                    case ComponentStyleRounded: {
-                        UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:rectangle
-                                                                         cornerRadius:rectangle.size.height/2];
-                        CGContextAddPath(ctx, [path CGPath]) ;
-                        break;
-                    }
-
-                    case ComponentStyleRectangular:
-                        CGContextAddRect(ctx, rectangle);
-                        break;
-
-                    case ComponentStyleImage: {
-                        // Draw image if exists
-                        NSString * imageName = self.tickImage;
-                        if(imageName.length > 0) {
-                            UIImage * image = [UIImage imageNamed:imageName]; //[NSBundle bundleForClass:[self class]]
-                            if(image) {
-                                CGRect centered = CGRectMake(rectangle.origin.x + (rectangle.size.width/2) - (image.size.width/2),
-                                                             rectangle.origin.y + (rectangle.size.height/2) - (image.size.height/2),
-                                                             image.size.width,
-                                                             image.size.height);
-                                CGContextDrawImage(ctx, centered, image.CGImage);
-                            }
-                        }
-                        break;
-                    }
-
-                    case ComponentStyleInvisible:
-                    case ComponentStyleIOS:
-                    default:
-                        // Nothing to draw
-                        break;
-                }
-            }
-        }
-    } // iOS UISlider aka ComponentStyleIOS does not have ticks
-
-    CGContextSetFillColorWithColor(ctx, [self.tintColor CGColor]);
-    CGContextFillPath(ctx);
-
-    // For colored track, we overlay a CALayer, which will animate along with the cursor
-    if(ComponentStyleIOS == self.trackStyle) {
-        self.colorTrackLayer.frame = ({
-            CGRect frame = self.trackRectangle;
-            frame.size.width = self.thumbAbscisse - CGRectGetMinX(self.trackRectangle);
-            frame;
-        });
-    } else {
-        self.colorTrackLayer.frame = CGRectZero;
-    }
+    self.leftTrackLayer.frame = ({
+        CGRect frame = self.trackLayer.bounds;
+        frame.size.width = self.thumbAbscisse - CGRectGetMinX(self.trackRectangle);
+        frame;
+    });
+    self.rightTrackLayer.frame = ({
+        CGRect frame = self.trackLayer.bounds;
+        frame.size.width = CGRectGetWidth(self.trackRectangle) - CGRectGetWidth(self.leftTrackLayer.frame);
+        frame.origin.x = CGRectGetMaxX(self.leftTrackLayer.frame);
+        frame;
+    });
 }
 
 - (void)drawThumb {
