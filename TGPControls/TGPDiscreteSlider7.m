@@ -159,7 +159,6 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 {
     [super setBounds:bounds];
     [self layoutTrack];
-    [self setNeedsDisplay];
 }
 
 #pragma mark UIControl
@@ -452,6 +451,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     
     // If we have a TGPDiscreteSliderTicksListener (such as TGPCamelLabels), broadcast new spacing
     [self.ticksListener tgpTicksDistanceChanged:self.ticksDistance sender:self];
+    [self setNeedsDisplay];
 }
 
 - (void)layoutThumb {
