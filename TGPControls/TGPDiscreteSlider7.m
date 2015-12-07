@@ -227,7 +227,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     _trackStyle = ComponentStyleIOS;
     _trackThickness = 2.0;
     _minimumTrackTintColor = nil;
-    _maximumTrackTintColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.72 alpha:1];
+    _maximumTrackTintColor = [UIColor colorWithWhite:0.71 alpha:1];
     _thumbStyle = ComponentStyleIOS;
     _thumbSize = (CGSize) {10.0, 10.0};
     _thumbTintColor = nil;
@@ -358,14 +358,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
         }
 
         case ComponentStyleRounded:
-            self.trackLayer.frame = self.trackRectangle;
-            self.trackLayer.cornerRadius = self.trackThickness/2.0;
-            break;
-
         case ComponentStyleIOS:
         default:
             self.trackLayer.frame = self.trackRectangle;
-            self.trackLayer.cornerRadius = 2.0;
+            self.trackLayer.cornerRadius = CGRectGetHeight(self.trackRectangle)/2.0;
+            break;
     }
 
     self.leftTrackLayer.frame = ({
@@ -452,10 +449,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
                                              ? [UIColor whiteColor]
                                              : self.thumbTintColor);
                 self.thumbLayer.backgroundColor = [backgroundColor CGColor];
+                // Only default iOS thumb has a border
                 if(nil == self.thumbTintColor) {
-                    const UIColor * borderColor = [UIColor colorWithHue:0 saturation: 0 brightness: 0.8 alpha: 1];
+                    const UIColor * borderColor = [UIColor colorWithWhite:0.5 alpha: 1];
                     self.thumbLayer.borderColor = [borderColor CGColor];
-                    self.thumbLayer.borderWidth = 0.5;
+                    self.thumbLayer.borderWidth = 0.25;
                 } else {
                     self.thumbLayer.borderWidth = 0;
                 }
@@ -549,10 +547,10 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
                     : self.thumbSize);
 
         case ComponentStyleIOS:
-            return CGSizeMake(33.0
+            return CGSizeMake(28.0
                               + (iOSThumbShadowRadius * 2)
                               + (iosThumbShadowOffset.width * 2),
-                              33.0
+                              28.0
                               + (iOSThumbShadowRadius * 2)
                               + (iosThumbShadowOffset.height * 2));
 
