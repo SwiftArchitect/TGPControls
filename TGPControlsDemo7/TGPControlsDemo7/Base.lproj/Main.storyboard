@@ -66,7 +66,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABG-DJ-HY6" userLabel="oneTo10Slider" customClass="TGPDiscreteSlider7">
                                                 <rect key="frame" x="16" y="72" width="343" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <color key="tintColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="Iam-Pd-ib7"/>
                                                 </constraints>
@@ -227,7 +227,7 @@
                                                     <userDefinedRuntimeAttribute type="size" keyPath="thumbSize">
                                                         <size key="value" width="15" height="28"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbTintColor">
                                                         <color key="value" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
@@ -334,7 +334,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-pU-ocw" userLabel="customSlider4" customClass="TGPDiscreteSlider7">
                                                 <rect key="frame" x="16" y="499" width="241" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="olU-G4-MUE"/>
                                                 </constraints>
@@ -373,7 +372,7 @@
                                                     <userDefinedRuntimeAttribute type="size" keyPath="thumbSize">
                                                         <size key="value" width="44" height="44"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbTintColor">
                                                         <color key="value" red="1" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="thumbShadowRadius">
