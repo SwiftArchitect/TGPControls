@@ -98,6 +98,16 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     [self layoutTrack];
 }
 
+- (void)setMinimumTrackTintColor:(UIColor *)minimumTrackTintColor {
+    _minimumTrackTintColor = minimumTrackTintColor;
+    [self layoutTrack];
+}
+
+- (void)setMaximumTrackTintColor:(UIColor *)maximumTrackTintColor {
+    _maximumTrackTintColor = maximumTrackTintColor;
+    [self layoutTrack];
+}
+
 - (void)setThumbStyle:(ComponentStyle)thumbStyle {
     _thumbStyle = thumbStyle;
     [self layoutTrack];
@@ -106,6 +116,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 - (void)setThumbSize:(CGSize)thumbSize {
     _thumbSize.width = MAX(1, thumbSize.width);
     _thumbSize.height = MAX(1, thumbSize.height);
+    [self layoutTrack];
+}
+
+- (void)setThumbTintColor:(UIColor *)thumbTintColor {
+    _thumbTintColor = thumbTintColor;
     [self layoutTrack];
 }
 
@@ -124,6 +139,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 
 - (void)setThumbShadowRadius:(CGFloat)thumbShadowRadius {
     _thumbShadowRadius = thumbShadowRadius;
+    [self layoutTrack];
+}
+
+- (void)setThumbShadowOffset:(CGSize)thumbShadowOffset {
+    _thumbShadowOffset = thumbShadowOffset;
     [self layoutTrack];
 }
 
@@ -206,9 +226,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     _tickCount = 11;
     _trackStyle = ComponentStyleIOS;
     _trackThickness = 2.0;
+    _minimumTrackTintColor = nil;
+    _maximumTrackTintColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.72 alpha:1];
     _thumbStyle = ComponentStyleIOS;
     _thumbSize = (CGSize) {10.0, 10.0};
-    _thumbColor = [UIColor lightGrayColor];
+    _thumbTintColor = nil;
     _thumbShadowRadius = 0.0;
     _thumbShadowOffset = CGSizeZero;
     _intMinimumValue = -5;
@@ -227,7 +249,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     _leftTrackLayer.backgroundColor = [self.tintColor CGColor];
     [self.trackLayer addSublayer:self.leftTrackLayer];
     _rightTrackLayer = [CALayer layer];
-    _rightTrackLayer.backgroundColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.72 alpha:1] CGColor];
+    _rightTrackLayer.backgroundColor = [self.maximumTrackTintColor CGColor];
     [self.trackLayer addSublayer:self.rightTrackLayer];
 
     // The thumb is its own CALayer, which brings in free animation
@@ -351,7 +373,9 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
         frame.size.width = self.thumbAbscisse - CGRectGetMinX(self.trackRectangle);
         frame;
     });
-    self.leftTrackLayer.backgroundColor = [self.tintColor CGColor];
+    self.leftTrackLayer.backgroundColor = ((nil == self.minimumTrackTintColor)
+                                           ? [self.tintColor CGColor]
+                                           : [self.minimumTrackTintColor CGColor]);
 
     self.rightTrackLayer.frame = ({
         CGRect frame = self.trackLayer.bounds;
@@ -359,6 +383,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
         frame.origin.x = CGRectGetMaxX(self.leftTrackLayer.frame);
         frame;
     });
+    self.rightTrackLayer.backgroundColor = [self.maximumTrackTintColor CGColor];
 }
 
 - (void)drawThumb {
@@ -387,7 +412,9 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
         
         switch(self.thumbStyle) {
             case ComponentStyleRounded: // A rounded thumb is circular
-                self.thumbLayer.backgroundColor = [self.thumbColor CGColor];
+                self.thumbLayer.backgroundColor = ((nil == self.thumbTintColor)
+                                                   ? [[UIColor lightGrayColor] CGColor]
+                                                   : [self.thumbTintColor CGColor]);
                 self.thumbLayer.borderColor = [[UIColor clearColor] CGColor];
                 self.thumbLayer.borderWidth = 0.0;
                 self.thumbLayer.cornerRadius = self.thumbLayer.frame.size.width/2;
@@ -405,7 +432,9 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
             }
 
             case ComponentStyleRectangular:
-                self.thumbLayer.backgroundColor = [self.thumbColor CGColor];
+                self.thumbLayer.backgroundColor = ((nil == self.thumbTintColor)
+                                                   ? [[UIColor lightGrayColor] CGColor]
+                                                   : [self.thumbTintColor CGColor]);
                 self.thumbLayer.borderColor = [[UIColor clearColor] CGColor];
                 self.thumbLayer.borderWidth = 0.0;
                 self.thumbLayer.cornerRadius = 0.0;
@@ -418,14 +447,22 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
                 break;
                 
             case ComponentStyleIOS:
-            default:
-                self.thumbLayer.backgroundColor = [[UIColor whiteColor] CGColor];
-                self.thumbLayer.borderColor = [[UIColor colorWithHue:0 saturation: 0 brightness: 0.8 alpha: 1]
-                                               CGColor];
-                self.thumbLayer.borderWidth = 0.5;
+            default: {
+                UIColor * backgroundColor = ((nil == self.thumbTintColor)
+                                             ? [UIColor whiteColor]
+                                             : self.thumbTintColor);
+                self.thumbLayer.backgroundColor = [backgroundColor CGColor];
+                if(nil == self.thumbTintColor) {
+                    const UIColor * borderColor = [UIColor colorWithHue:0 saturation: 0 brightness: 0.8 alpha: 1];
+                    self.thumbLayer.borderColor = [borderColor CGColor];
+                    self.thumbLayer.borderWidth = 0.5;
+                } else {
+                    self.thumbLayer.borderWidth = 0;
+                }
                 self.thumbLayer.cornerRadius = self.thumbLayer.frame.size.width/2;
                 self.thumbLayer.allowsEdgeAntialiasing = YES;
                 break;
+            }
         }
         
         // Shadow

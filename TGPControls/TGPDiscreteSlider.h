@@ -41,10 +41,12 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable int trackStyle;
 @property (nonatomic) IBInspectable CGFloat trackThickness;
 @property (nonatomic) IBInspectable NSString * trackImage;
+@property (nonatomic) IBInspectable UIColor * minimumTrackTintColor;
+@property (nonatomic) IBInspectable UIColor * maximumTrackTintColor;
 
 @property (nonatomic) IBInspectable int thumbStyle;
 @property (nonatomic) IBInspectable CGSize thumbSize;
-@property (nonatomic) IBInspectable UIColor * thumbColor;
+@property (nonatomic) IBInspectable UIColor * thumbTintColor;
 @property (nonatomic) IBInspectable CGFloat thumbSRadius;
 @property (nonatomic) IBInspectable CGSize thumbSOffset;
 @property (nonatomic) IBInspectable NSString * thumbImage;

@@ -39,9 +39,11 @@
 @dynamic trackStyle;
 @dynamic trackThickness;
 @dynamic trackImage;
+@dynamic minimumTrackTintColor;
+@dynamic maximumTrackTintColor;
 @dynamic thumbStyle;
 @dynamic thumbSize;
-@dynamic thumbColor;
+@dynamic thumbTintColor;
 @dynamic thumbImage;
 @dynamic minimumValue;
 @dynamic value;

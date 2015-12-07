@@ -58,10 +58,12 @@ typedef NS_ENUM(int, ComponentStyle) {
 @property (nonatomic, assign) ComponentStyle trackStyle;
 @property (nonatomic, assign) CGFloat trackThickness;
 @property (nonatomic, strong) NSString * trackImage;
+@property (nonatomic, strong) UIColor * minimumTrackTintColor;
+@property (nonatomic, strong) UIColor * maximumTrackTintColor;
 
 @property (nonatomic, assign) ComponentStyle thumbStyle;
 @property (nonatomic, assign) CGSize thumbSize;
-@property (nonatomic, strong) UIColor * thumbColor;
+@property (nonatomic, strong) UIColor * thumbTintColor;
 @property (nonatomic, assign) CGFloat thumbShadowRadius;
 @property (nonatomic, assign) CGSize thumbShadowOffset;
 @property (nonatomic, strong) NSString * thumbImage;
