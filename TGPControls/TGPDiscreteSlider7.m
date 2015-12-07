@@ -227,7 +227,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     _leftTrackLayer.backgroundColor = [self.tintColor CGColor];
     [self.trackLayer addSublayer:self.leftTrackLayer];
     _rightTrackLayer = [CALayer layer];
-    _rightTrackLayer.backgroundColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor];
+    _rightTrackLayer.backgroundColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.72 alpha:1] CGColor];
     [self.trackLayer addSublayer:self.rightTrackLayer];
 
     // The thumb is its own CALayer, which brings in free animation
@@ -351,6 +351,8 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
         frame.size.width = self.thumbAbscisse - CGRectGetMinX(self.trackRectangle);
         frame;
     });
+    self.leftTrackLayer.backgroundColor = [self.tintColor CGColor];
+
     self.rightTrackLayer.frame = ({
         CGRect frame = self.trackLayer.bounds;
         frame.size.width = CGRectGetWidth(self.trackRectangle) - CGRectGetWidth(self.leftTrackLayer.frame);
