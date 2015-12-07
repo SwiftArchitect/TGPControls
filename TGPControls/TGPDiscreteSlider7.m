@@ -43,6 +43,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 @property (nonatomic) CALayer * leftTrackLayer;
 @property (nonatomic) CALayer * rightTrackLayer;
 @property (nonatomic) CALayer * trackLayer;
+@property (nonatomic) CALayer * ticksLayer;
 @property (nonatomic) CGRect trackRectangle;
 @property (nonatomic) BOOL touchedInside;
 @end
@@ -208,6 +209,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
 
 - (void)drawRect:(CGRect)rect {
     [self drawTrack];
+    [self drawTicks];
     [self drawThumb];
 }
 
@@ -252,6 +254,10 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     _rightTrackLayer.backgroundColor = [self.maximumTrackTintColor CGColor];
     [self.trackLayer addSublayer:self.rightTrackLayer];
 
+    // Ticks in between track and thumb
+    _ticksLayer = [CALayer layer];
+    [self.layer addSublayer:self.ticksLayer];
+
     // The thumb is its own CALayer, which brings in free animation
     _thumbLayer = [CALayer layer];
     [self.layer addSublayer:self.thumbLayer];
@@ -260,8 +266,11 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
     [self layoutTrack];
 }
 
-- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx {
-    [super drawLayer:layer inContext:ctx];
+- (void)drawTicks {
+    self.ticksLayer.frame = self.bounds;
+    self.ticksLayer.backgroundColor = [self.tintColor CGColor];
+
+    UIBezierPath *path = [UIBezierPath bezierPath];
 
     switch (self.tickStyle) {
         case ComponentStyleRounded:
@@ -277,18 +286,13 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
                                                   self.tickSize.width, self.tickSize.height);
                     switch(self.tickStyle) {
                         case ComponentStyleRounded: {
-                            UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:rectangle
-                                                                             cornerRadius:rectangle.size.height/2];
-                            CGContextAddPath(ctx, [path CGPath]) ;
-                            CGContextSetFillColorWithColor(ctx, [self.tintColor CGColor]);
-                            CGContextFillPath(ctx);
+                            [path appendPath:[UIBezierPath bezierPathWithRoundedRect:rectangle
+                                                                                 cornerRadius:rectangle.size.height/2]];
                             break;
                         }
 
                         case ComponentStyleRectangular:
-                            CGContextAddRect(ctx, rectangle);
-                            CGContextSetFillColorWithColor(ctx, [self.tintColor CGColor]);
-                            CGContextFillPath(ctx);
+                            [path appendPath:[UIBezierPath bezierPathWithRect:rectangle]];
                             break;
 
                         case ComponentStyleImage: {
@@ -301,6 +305,7 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
                                                                  rectangle.origin.y + (rectangle.size.height/2) - (image.size.height/2),
                                                                  image.size.width,
                                                                  image.size.height);
+                                    const CGContextRef ctx = UIGraphicsGetCurrentContext();
                                     CGContextDrawImage(ctx, centered, image.CGImage);
                                 }
                             }
@@ -323,8 +328,12 @@ static CGSize iosThumbShadowOffset = (CGSize){0, 3};
         default:
             // Nothing to draw
             break;
-            
     }
+
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = self.trackLayer.bounds;
+    maskLayer.path = path.CGPath;
+    self.ticksLayer.mask = maskLayer;
 }
 
 - (void)drawTrack {
