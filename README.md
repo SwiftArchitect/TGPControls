@@ -1,4 +1,4 @@
-# TGPControls
+# TGPControls Swift & Obj-C
 ##TGPDiscreteSlider
 ![ticksdemo](https://cloud.githubusercontent.com/assets/4073988/5912371/144aaf24-a588-11e4-9a22-42832eb2c235.gif)
 
@@ -12,7 +12,7 @@ A set of animated labels representing a selection. Can be used alone or in conju
 Ideal to represent steps. *The discrete slider and the camel labels can work in unison.*
 
 ##Compatibility
-TGPControls are **AutoLayout** ready, support **iOS 8** `IB Designable` and `IB Inspectable` properties, yet runs as far back as iOS 7.
+TGPControls are **AutoLayout** ready, support **iOS 9 & iOS 8** `IB Designable` and `IB Inspectable` properties, yet runs as far back as **iOS 7**. Comes with two demo applications, one in **Swift** and one in **Objective-C**.
 
 ![imagessliderdemo](https://cloud.githubusercontent.com/assets/4073988/6628373/183c7452-c8c2-11e4-9a63-107805bc0cc4.gif)
 
@@ -38,15 +38,15 @@ Most customization can be done in **Interface Builder** and require **0 coding**
 
 ##How to integrate
 Using [CocoaPods](http://cocoapods.org/?q=TGPControls)
-- **iOS 8**: install Cocoapods 0.36.0+ [CocoaPods-Frameworks](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/), add `use_frameworks!` to your podfile.
+- **iOS 9 and later, iOS 8**: install Cocoapods 0.36.0+ [CocoaPods-Frameworks](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/), add `use_frameworks!` to your podfile.
 - **iOS 7**: restrict yourself to `TGPCamelLabels7.{h,m}` and `TGPDiscreteSlider7.{h,m}`. Compatible with Cocoapods 0.35.0.
 *Note: When integrating into an iOS 7 project, use the TGPCamelLabels7 and TGPDiscreteSlider7 classes in Interface Builder.*
 
-Besides customization, which you can do entirely under Interface Builder in iOS 8, both `TGPDiscreteSlider` and `TGPCamelLabels` require surprisingly little code to integrate.
+Besides customization, which you can do entirely under Interface Builder in iOS 8 and later, both `TGPDiscreteSlider` and `TGPCamelLabels` require surprisingly little code to integrate.
 
 ###TGPDiscreteSlider
 
-For simplicity, TGPDiscreteSlider does not descend from UISlider but from **UIControl**.
+For simplicity, TGPDiscreteSlider does *not* descend from UISlider but from **UIControl**.
 It uses a `minimumValue`, a `tickCount` and an `incrementValue` (instead of *minimumValue* and *maximumValue*).
 All graphic aspects, such as physical spacing of the ticks or physical width of the track are controlled internally.
 This makes TGPDiscreteSlider predictable. it is guaranteed to always fit snuggly inside its bounds.
@@ -110,7 +110,7 @@ You can then use TGPCamelLabels *on top of* other UI elements:
 ###Code example
 
 See **TGPControlsDemo** projects:
- 1. `TGPControlsDemo` (iOS 8 + Swift + IBInspectable)
+ 1. `TGPControlsDemo` (iOS 9 & 8 + Swift + IBInspectable)
  2. `TGPControlsDemo7` (iOS 7 + ObjC) projects.
 
 ```
