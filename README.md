@@ -38,8 +38,8 @@ Most customization can be done in **Interface Builder** and require **0 coding**
 
 ##How to integrate
 Using [CocoaPods](http://cocoapods.org/?q=TGPControls)
-- **iOS 9 and later, iOS 8**: install Cocoapods 0.36.0+ [CocoaPods-Frameworks](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/), add `use_frameworks!` to your podfile.
-- **iOS 7**: restrict yourself to `TGPCamelLabels7.{h,m}` and `TGPDiscreteSlider7.{h,m}`. Compatible with Cocoapods 0.35.0.
+- **iOS 9 and later, iOS 8**: install CocoaPods 0.36.0+ [CocoaPods-Frameworks](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/), add `use_frameworks!` to your podfile.
+- **iOS 7**: restrict yourself to `TGPCamelLabels7.{h,m}` and `TGPDiscreteSlider7.{h,m}`. Compatible with CocoaPods 0.35.0.
 *Note: When integrating into an iOS 7 project, use the TGPCamelLabels7 and TGPDiscreteSlider7 classes in Interface Builder.*
 
 Besides customization, which you can do entirely under Interface Builder in iOS 8 and later, both `TGPDiscreteSlider` and `TGPCamelLabels` require surprisingly little code to integrate.
