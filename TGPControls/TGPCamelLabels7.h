@@ -48,4 +48,6 @@
 @property (nonatomic, strong) NSArray * names; // Will dictate the number of ticks
 @property (nonatomic, assign) NSTimeInterval animationDuration;
 
+@property (nonatomic, assign) BOOL animate; // Make the labels animate when selected
+
 @end

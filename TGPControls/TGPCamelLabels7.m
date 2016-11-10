@@ -155,6 +155,8 @@
 
     _lastValue = NSNotFound;    // Never tapped
     _animationDuration = 0.15;
+    
+    _animate = YES;
 
     [self layoutTrack];
 }
@@ -262,7 +264,7 @@
 
     if(duration > 0) {
         [UIView animateWithDuration:duration
-                        delay:0
+                              delay:0
                             options:(UIViewAnimationOptionBeginFromCurrentState +
                                      UIViewAnimationOptionCurveLinear)
                          animations:moveBlock
@@ -274,21 +276,25 @@
 
 - (void)moveDown:(UIView*)aView withAlpha:(CGFloat) alpha
 {
-    aView.frame = ({
-        CGRect frame = aView.frame;
-        frame.origin.y = self.bounds.size.height - frame.size.height;
-        frame;
-    });
+    if (self.animate) {
+        aView.frame = ({
+            CGRect frame = aView.frame;
+            frame.origin.y = self.bounds.size.height - frame.size.height;
+            frame;
+        });
+    }
     [aView setAlpha:alpha];
 }
 
 - (void)moveUp:(UIView*)aView withAlpha:(CGFloat) alpha
 {
-    aView.frame = ({
-        CGRect frame = aView.frame;
-        frame.origin.y = 0;
-        frame;
-    });
+    if (self.animate) {
+        aView.frame = ({
+            CGRect frame = aView.frame;
+            frame.origin.y = 0;
+            frame;
+        });
+    }
     [aView setAlpha:alpha];
 }
 
