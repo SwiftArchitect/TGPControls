@@ -157,6 +157,8 @@
     _animationDuration = 0.15;
     
     _animate = YES;
+    _centerEndLabels = YES;
+    _horizontalMargin = nil;
 
     [self layoutTrack];
 }
@@ -184,6 +186,7 @@
     if( count > 0) {
         CGFloat centerX = (self.bounds.size.width - ((count - 1) * self.ticksDistance))/2.0;
         const CGFloat centerY = self.bounds.size.height / 2.0;
+        int i = 0;
         for(NSString * name in self.names) {
             UILabel * upLabel = [[UILabel alloc] initWithFrame:CGRectZero];
             [self.upLabels addObject:upLabel];
@@ -200,6 +203,13 @@
                 CGRect frame = upLabel.frame;
                 // frame.origin.y = 0;
                 frame.origin.y = self.bounds.size.height - frame.size.height;
+                if(!self.centerEndLabels) {
+                    if(i == 0) {
+                        frame.origin.x = self.horizontalMargin;
+                    } else if(i == count - 1) {
+                        frame.origin.x = self.bounds.size.width - (upLabel.frame.size.width + self.horizontalMargin);
+                    }
+                }
                 frame;
             });
             upLabel.alpha = 0.0;
@@ -219,11 +229,19 @@
             dnLabel.frame = ({
                 CGRect frame = dnLabel.frame;
                 frame.origin.y = self.bounds.size.height - frame.size.height;
+                if(!self.centerEndLabels) {
+                    if(i == 0) {
+                        frame.origin.x = self.horizontalMargin;
+                    } else if(i == count - 1) {
+                        frame.origin.x = self.bounds.size.width - (dnLabel.frame.size.width + self.horizontalMargin);
+                    }
+                }
                 frame;
             });
             [self addSubview:dnLabel];
 
             centerX += self.ticksDistance;
+            i++;
         }
         [self dockEffect:0.0];
     }

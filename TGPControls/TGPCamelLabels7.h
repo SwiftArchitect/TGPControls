@@ -50,4 +50,9 @@
 
 @property (nonatomic, assign) BOOL animate; // Make the labels animate when selected
 
+// If false first and last label will align left (first label) and right (last label).
+@property (nonatomic, assign) BOOL centerEndLabels;
+// Margin to the left and right of the slider. Only relevant if centerEndLabel is false.
+@property (nonatomic, assign) NSInteger horizontalMargin;
+
 @end
