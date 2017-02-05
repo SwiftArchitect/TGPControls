@@ -7,150 +7,100 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06B1EA7FFF5C48AB28F48C03 /* Pods_TGPControlsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99E06034FFE0CC31C39944E /* Pods_TGPControlsDemo.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		DC0B42111A901E59008D679A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0B42101A901E59008D679A /* AppDelegate.swift */; };
-		DC0B42131A901E59008D679A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0B42121A901E59008D679A /* ViewController.swift */; };
-		DC0B42161A901E59008D679A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC0B42141A901E59008D679A /* Main.storyboard */; };
-		DC0B42181A901E59008D679A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC0B42171A901E59008D679A /* Images.xcassets */; };
-		DC0B421B1A901E59008D679A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC0B42191A901E59008D679A /* LaunchScreen.xib */; };
-		DC0B42271A901E59008D679A /* TGPControlsDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0B42261A901E59008D679A /* TGPControlsDemoTests.swift */; };
+		49DFBE652BC3561E5CB5AC71 /* Pods_TGPControlsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581DB63BCDD6158FFB0D74E5 /* Pods_TGPControlsDemo.framework */; };
+		DC56BDC71E46DEB900AAD0D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56BDC61E46DEB900AAD0D9 /* AppDelegate.swift */; };
+		DC56BDC91E46DEB900AAD0D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56BDC81E46DEB900AAD0D9 /* ViewController.swift */; };
+		DC56BDCC1E46DEB900AAD0D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCA1E46DEB900AAD0D9 /* Main.storyboard */; };
+		DC56BDCE1E46DEB900AAD0D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCD1E46DEB900AAD0D9 /* Assets.xcassets */; };
+		DC56BDD11E46DEB900AAD0D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCF1E46DEB900AAD0D9 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		DC0B42211A901E59008D679A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC0B42031A901E59008D679A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DC0B420A1A901E59008D679A;
-			remoteInfo = TGPControlsDemo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		D99E06034FFE0CC31C39944E /* Pods_TGPControlsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TGPControlsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC0B420B1A901E59008D679A /* TGPControlsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TGPControlsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC0B420F1A901E59008D679A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC0B42101A901E59008D679A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DC0B42121A901E59008D679A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DC0B42151A901E59008D679A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DC0B42171A901E59008D679A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		DC0B421A1A901E59008D679A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		DC0B42201A901E59008D679A /* TGPControlsDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TGPControlsDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC0B42251A901E59008D679A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC0B42261A901E59008D679A /* TGPControlsDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPControlsDemoTests.swift; sourceTree = "<group>"; };
-		DC0B42301A901F09008D679A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E1E29E38530A3F94DA312C93 /* Pods-TGPControlsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo/Pods-TGPControlsDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		EA6AEAFB632330729C70C835 /* Pods-TGPControlsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo/Pods-TGPControlsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		581DB63BCDD6158FFB0D74E5 /* Pods_TGPControlsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TGPControlsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92A7F603AAEAC96A55AB65B0 /* Pods-TGPControlsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo/Pods-TGPControlsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		DA8C1E8D17DDF9A4BE0D574A /* Pods-TGPControlsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo/Pods-TGPControlsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		DC56BDC31E46DEB900AAD0D9 /* TGPControlsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TGPControlsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC56BDC61E46DEB900AAD0D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DC56BDC81E46DEB900AAD0D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DC56BDCB1E46DEB900AAD0D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC56BDCD1E46DEB900AAD0D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC56BDD01E46DEB900AAD0D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DC56BDD21E46DEB900AAD0D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DC0B42081A901E59008D679A /* Frameworks */ = {
+		DC56BDC01E46DEB900AAD0D9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06B1EA7FFF5C48AB28F48C03 /* Pods_TGPControlsDemo.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC0B421D1A901E59008D679A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				49DFBE652BC3561E5CB5AC71 /* Pods_TGPControlsDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		43F34D3BAAD6BE92D4D970B5 /* Frameworks */ = {
+		4377D1C5D815215296FB706C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D99E06034FFE0CC31C39944E /* Pods_TGPControlsDemo.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C024A6D85198B6A4399C2561 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E1E29E38530A3F94DA312C93 /* Pods-TGPControlsDemo.debug.xcconfig */,
-				EA6AEAFB632330729C70C835 /* Pods-TGPControlsDemo.release.xcconfig */,
+				DA8C1E8D17DDF9A4BE0D574A /* Pods-TGPControlsDemo.debug.xcconfig */,
+				92A7F603AAEAC96A55AB65B0 /* Pods-TGPControlsDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		DC0B42021A901E59008D679A = {
+		9913583EE20668591C0787BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DC0B42301A901F09008D679A /* Podfile */,
-				DC0B420D1A901E59008D679A /* TGPControlsDemo */,
-				DC0B42231A901E59008D679A /* TGPControlsDemoTests */,
-				DC0B420C1A901E59008D679A /* Products */,
-				C024A6D85198B6A4399C2561 /* Pods */,
-				43F34D3BAAD6BE92D4D970B5 /* Frameworks */,
+				581DB63BCDD6158FFB0D74E5 /* Pods_TGPControlsDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC56BDBA1E46DEB900AAD0D9 = {
+			isa = PBXGroup;
+			children = (
+				DC56BDC51E46DEB900AAD0D9 /* TGPControlsDemo */,
+				DC56BDC41E46DEB900AAD0D9 /* Products */,
+				4377D1C5D815215296FB706C /* Pods */,
+				9913583EE20668591C0787BB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		DC0B420C1A901E59008D679A /* Products */ = {
+		DC56BDC41E46DEB900AAD0D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC0B420B1A901E59008D679A /* TGPControlsDemo.app */,
-				DC0B42201A901E59008D679A /* TGPControlsDemoTests.xctest */,
+				DC56BDC31E46DEB900AAD0D9 /* TGPControlsDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DC0B420D1A901E59008D679A /* TGPControlsDemo */ = {
+		DC56BDC51E46DEB900AAD0D9 /* TGPControlsDemo */ = {
 			isa = PBXGroup;
 			children = (
-				DC0B42101A901E59008D679A /* AppDelegate.swift */,
-				DC0B42121A901E59008D679A /* ViewController.swift */,
-				DC0B42141A901E59008D679A /* Main.storyboard */,
-				DC0B42171A901E59008D679A /* Images.xcassets */,
-				DC0B42191A901E59008D679A /* LaunchScreen.xib */,
-				DC0B420E1A901E59008D679A /* Supporting Files */,
+				DC56BDC61E46DEB900AAD0D9 /* AppDelegate.swift */,
+				DC56BDC81E46DEB900AAD0D9 /* ViewController.swift */,
+				DC56BDCA1E46DEB900AAD0D9 /* Main.storyboard */,
+				DC56BDCD1E46DEB900AAD0D9 /* Assets.xcassets */,
+				DC56BDCF1E46DEB900AAD0D9 /* LaunchScreen.storyboard */,
+				DC56BDD21E46DEB900AAD0D9 /* Info.plist */,
 			);
 			path = TGPControlsDemo;
-			sourceTree = "<group>";
-		};
-		DC0B420E1A901E59008D679A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DC0B420F1A901E59008D679A /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DC0B42231A901E59008D679A /* TGPControlsDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				DC0B42261A901E59008D679A /* TGPControlsDemoTests.swift */,
-				DC0B42241A901E59008D679A /* Supporting Files */,
-			);
-			path = TGPControlsDemoTests;
-			sourceTree = "<group>";
-		};
-		DC0B42241A901E59008D679A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DC0B42251A901E59008D679A /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DC0B420A1A901E59008D679A /* TGPControlsDemo */ = {
+		DC56BDC21E46DEB900AAD0D9 /* TGPControlsDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC0B422A1A901E59008D679A /* Build configuration list for PBXNativeTarget "TGPControlsDemo" */;
+			buildConfigurationList = DC56BDD51E46DEB900AAD0D9 /* Build configuration list for PBXNativeTarget "TGPControlsDemo" */;
 			buildPhases = (
-				9DC49ADB016D0365B07A2CE3 /* Check Pods Manifest.lock */,
-				DC0B42071A901E59008D679A /* Sources */,
-				DC0B42081A901E59008D679A /* Frameworks */,
-				DC0B42091A901E59008D679A /* Resources */,
-				3FC1CB30371C38246EE22494 /* Copy Pods Resources */,
-				6FE2512BFEFD20704B4B9262 /* Embed Pods Frameworks */,
+				1934555AC11CDE41167D1F71 /* [CP] Check Pods Manifest.lock */,
+				DC56BDBF1E46DEB900AAD0D9 /* Sources */,
+				DC56BDC01E46DEB900AAD0D9 /* Frameworks */,
+				DC56BDC11E46DEB900AAD0D9 /* Resources */,
+				A772C50843047EE677ADAF15 /* [CP] Embed Pods Frameworks */,
+				3FF2E09CAFA7D92A488FACF7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -158,47 +108,27 @@
 			);
 			name = TGPControlsDemo;
 			productName = TGPControlsDemo;
-			productReference = DC0B420B1A901E59008D679A /* TGPControlsDemo.app */;
+			productReference = DC56BDC31E46DEB900AAD0D9 /* TGPControlsDemo.app */;
 			productType = "com.apple.product-type.application";
-		};
-		DC0B421F1A901E59008D679A /* TGPControlsDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DC0B422D1A901E59008D679A /* Build configuration list for PBXNativeTarget "TGPControlsDemoTests" */;
-			buildPhases = (
-				DC0B421C1A901E59008D679A /* Sources */,
-				DC0B421D1A901E59008D679A /* Frameworks */,
-				DC0B421E1A901E59008D679A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DC0B42221A901E59008D679A /* PBXTargetDependency */,
-			);
-			name = TGPControlsDemoTests;
-			productName = TGPControlsDemoTests;
-			productReference = DC0B42201A901E59008D679A /* TGPControlsDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DC0B42031A901E59008D679A /* Project object */ = {
+		DC56BDBB1E46DEB900AAD0D9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
-				ORGANIZATIONNAME = TheGothicParty;
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = SwiftArchitect;
 				TargetAttributes = {
-					DC0B420A1A901E59008D679A = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					DC0B421F1A901E59008D679A = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = DC0B420A1A901E59008D679A;
+					DC56BDC21E46DEB900AAD0D9 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 55K7THBUV8;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = DC0B42061A901E59008D679A /* Build configuration list for PBXProject "TGPControlsDemo" */;
+			buildConfigurationList = DC56BDBE1E46DEB900AAD0D9 /* Build configuration list for PBXProject "TGPControlsDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -206,46 +136,53 @@
 				en,
 				Base,
 			);
-			mainGroup = DC0B42021A901E59008D679A;
-			productRefGroup = DC0B420C1A901E59008D679A /* Products */;
+			mainGroup = DC56BDBA1E46DEB900AAD0D9;
+			productRefGroup = DC56BDC41E46DEB900AAD0D9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC0B420A1A901E59008D679A /* TGPControlsDemo */,
-				DC0B421F1A901E59008D679A /* TGPControlsDemoTests */,
+				DC56BDC21E46DEB900AAD0D9 /* TGPControlsDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DC0B42091A901E59008D679A /* Resources */ = {
+		DC56BDC11E46DEB900AAD0D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC0B42161A901E59008D679A /* Main.storyboard in Resources */,
-				DC0B421B1A901E59008D679A /* LaunchScreen.xib in Resources */,
-				DC0B42181A901E59008D679A /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC0B421E1A901E59008D679A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				DC56BDD11E46DEB900AAD0D9 /* LaunchScreen.storyboard in Resources */,
+				DC56BDCE1E46DEB900AAD0D9 /* Assets.xcassets in Resources */,
+				DC56BDCC1E46DEB900AAD0D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3FC1CB30371C38246EE22494 /* Copy Pods Resources */ = {
+		1934555AC11CDE41167D1F71 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3FF2E09CAFA7D92A488FACF7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,14 +190,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TGPControlsDemo/Pods-TGPControlsDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6FE2512BFEFD20704B4B9262 /* Embed Pods Frameworks */ = {
+		A772C50843047EE677ADAF15 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,75 +205,45 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TGPControlsDemo/Pods-TGPControlsDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9DC49ADB016D0365B07A2CE3 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DC0B42071A901E59008D679A /* Sources */ = {
+		DC56BDBF1E46DEB900AAD0D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC0B42131A901E59008D679A /* ViewController.swift in Sources */,
-				DC0B42111A901E59008D679A /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC0B421C1A901E59008D679A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC0B42271A901E59008D679A /* TGPControlsDemoTests.swift in Sources */,
+				DC56BDC91E46DEB900AAD0D9 /* ViewController.swift in Sources */,
+				DC56BDC71E46DEB900AAD0D9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		DC0B42221A901E59008D679A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DC0B420A1A901E59008D679A /* TGPControlsDemo */;
-			targetProxy = DC0B42211A901E59008D679A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		DC0B42141A901E59008D679A /* Main.storyboard */ = {
+		DC56BDCA1E46DEB900AAD0D9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DC0B42151A901E59008D679A /* Base */,
+				DC56BDCB1E46DEB900AAD0D9 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		DC0B42191A901E59008D679A /* LaunchScreen.xib */ = {
+		DC56BDCF1E46DEB900AAD0D9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DC0B421A1A901E59008D679A /* Base */,
+				DC56BDD01E46DEB900AAD0D9 /* Base */,
 			);
-			name = LaunchScreen.xib;
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		DC0B42281A901E59008D679A /* Debug */ = {
+		DC56BDD31E46DEB900AAD0D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -344,43 +251,49 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		DC0B42291A901E59008D679A /* Release */ = {
+		DC56BDD41E46DEB900AAD0D9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -388,124 +301,86 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		DC0B422B1A901E59008D679A /* Debug */ = {
+		DC56BDD61E46DEB900AAD0D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1E29E38530A3F94DA312C93 /* Pods-TGPControlsDemo.debug.xcconfig */;
+			baseConfigurationReference = DA8C1E8D17DDF9A4BE0D574A /* Pods-TGPControlsDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 55K7THBUV8;
 				INFOPLIST_FILE = TGPControlsDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thegothicparty.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftarchitect.TGPControlsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		DC0B422C1A901E59008D679A /* Release */ = {
+		DC56BDD71E46DEB900AAD0D9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA6AEAFB632330729C70C835 /* Pods-TGPControlsDemo.release.xcconfig */;
+			baseConfigurationReference = 92A7F603AAEAC96A55AB65B0 /* Pods-TGPControlsDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 55K7THBUV8;
 				INFOPLIST_FILE = TGPControlsDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thegothicparty.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftarchitect.TGPControlsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		DC0B422E1A901E59008D679A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TGPControlsDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thegothicparty.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TGPControlsDemo.app/TGPControlsDemo";
-			};
-			name = Debug;
-		};
-		DC0B422F1A901E59008D679A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TGPControlsDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thegothicparty.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TGPControlsDemo.app/TGPControlsDemo";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DC0B42061A901E59008D679A /* Build configuration list for PBXProject "TGPControlsDemo" */ = {
+		DC56BDBE1E46DEB900AAD0D9 /* Build configuration list for PBXProject "TGPControlsDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DC0B42281A901E59008D679A /* Debug */,
-				DC0B42291A901E59008D679A /* Release */,
+				DC56BDD31E46DEB900AAD0D9 /* Debug */,
+				DC56BDD41E46DEB900AAD0D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC0B422A1A901E59008D679A /* Build configuration list for PBXNativeTarget "TGPControlsDemo" */ = {
+		DC56BDD51E46DEB900AAD0D9 /* Build configuration list for PBXNativeTarget "TGPControlsDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DC0B422B1A901E59008D679A /* Debug */,
-				DC0B422C1A901E59008D679A /* Release */,
+				DC56BDD61E46DEB900AAD0D9 /* Debug */,
+				DC56BDD71E46DEB900AAD0D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DC0B422D1A901E59008D679A /* Build configuration list for PBXNativeTarget "TGPControlsDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DC0B422E1A901E59008D679A /* Debug */,
-				DC0B422F1A901E59008D679A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = DC0B42031A901E59008D679A /* Project object */;
+	rootObject = DC56BDBB1E46DEB900AAD0D9 /* Project object */;
 }

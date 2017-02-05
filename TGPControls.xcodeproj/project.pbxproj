@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC0468E31A75962E0084DE3E /* TGPCamelLabels7.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0468E01A75962E0084DE3E /* TGPCamelLabels7.m */; };
-		DC0468E41A75962E0084DE3E /* TGPDiscreteSlider7.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0468E21A75962E0084DE3E /* TGPDiscreteSlider7.m */; };
-		DC0468E71A7596690084DE3E /* TGPCamelLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0468E61A7596690084DE3E /* TGPCamelLabels.m */; };
-		DC0468EA1A7596930084DE3E /* TGPDiscreteSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0468E91A7596930084DE3E /* TGPDiscreteSlider.m */; };
 		DC101D661A75749600ECCF80 /* libTGPControls.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC101D5A1A75749600ECCF80 /* libTGPControls.a */; };
 /* End PBXBuildFile section */
 
@@ -212,10 +208,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC0468E31A75962E0084DE3E /* TGPCamelLabels7.m in Sources */,
-				DC0468E71A7596690084DE3E /* TGPCamelLabels.m in Sources */,
-				DC0468E41A75962E0084DE3E /* TGPDiscreteSlider7.m in Sources */,
-				DC0468EA1A7596930084DE3E /* TGPDiscreteSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

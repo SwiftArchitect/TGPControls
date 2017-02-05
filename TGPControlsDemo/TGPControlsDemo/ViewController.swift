@@ -1,14 +1,4 @@
-//    @file:    ViewController.swift
-//    @project: TGPControlsDemo (TGPControls)
-//
-//    @history: Created November 27, 2014 (Thanksgiving Day)
-//    @author:  Xavier Schott
-//              mailto://xschott@gmail.com
-//              http://thegothicparty.com
-//              tel://+18089383634
-//
-//    @license: http://opensource.org/licenses/MIT
-//    Copyright (c) 2014, Xavier Schott
+//    Copyright (c) 2017, Xavier Schott
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the "Software"), to deal
@@ -29,99 +19,98 @@
 //    THE SOFTWARE.
 
 import UIKit
-import TGPControls
 
 class ViewController: UIViewController {
     @IBOutlet weak var oneTo10Labels: TGPCamelLabels!
     @IBOutlet weak var oneTo10Slider: TGPDiscreteSlider!
-    
+
     @IBOutlet weak var alphabetLabels: TGPCamelLabels!
     @IBOutlet weak var alphabetSlider: TGPDiscreteSlider!
-    
+
     @IBOutlet var pictureLabels: TGPCamelLabels!
     @IBOutlet var pictureSlider: TGPDiscreteSlider!
 
     @IBOutlet weak var switch1Camel: TGPCamelLabels!
     @IBOutlet weak var switch2Camel: TGPCamelLabels!
-    
+
     @IBOutlet weak var controlEventsLabel: UILabel!
     @IBOutlet weak var dualColorSlider: TGPDiscreteSlider!
     @IBOutlet weak var stepper: UIStepper!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.alphabetLabels.names = ["A","B","C","D","E","F", "G","H","I","J","K","L","M",
-        "N","O","P","Q","R","S", "T","U","V","W","X","Y","Z"]
+                                     "N","O","P","Q","R","S", "T","U","V","W","X","Y","Z"]
         self.pictureLabels.names = ["orient", "occident", "zénith", "nadir", "septentrion", "midi"]
         self.switch1Camel.names = ["OFF", "ON"]
         self.switch2Camel.names = ["O", "l"]
-        
+
         // Automatically track tick spacing changes and UIControlEventValueChanged
         self.alphabetSlider.ticksListener = self.alphabetLabels
         self.oneTo10Slider.ticksListener = self.oneTo10Labels
         self.pictureSlider.ticksListener = self.pictureLabels
 
         // UIControlEvents
-        self.dualColorSlider.addTarget(self, action: "touchDown:event:", forControlEvents: .TouchDown)
-        self.dualColorSlider.addTarget(self, action: "touchDownRepeat:event:", forControlEvents: .TouchDownRepeat)
-        self.dualColorSlider.addTarget(self, action: "touchDragInside:event:", forControlEvents: .TouchDragInside)
-        self.dualColorSlider.addTarget(self, action: "touchDragOutside:event:", forControlEvents: .TouchDragOutside)
-        self.dualColorSlider.addTarget(self, action: "touchDragEnter:event:", forControlEvents: .TouchDragEnter)
-        self.dualColorSlider.addTarget(self, action: "touchDragExit:event:", forControlEvents: .TouchDragExit)
-        self.dualColorSlider.addTarget(self, action: "touchUpInside:event:", forControlEvents: .TouchUpInside)
-        self.dualColorSlider.addTarget(self, action: "touchUpOutside:event:", forControlEvents: .TouchUpOutside)
-        self.dualColorSlider.addTarget(self, action: "touchCancel:event:", forControlEvents: .TouchCancel)
-        self.dualColorSlider.addTarget(self, action: "valueChanged:event:", forControlEvents: .ValueChanged)
+        self.dualColorSlider.addTarget(self, action: #selector(ViewController.touchDown(_:event:)), for: .touchDown)
+        self.dualColorSlider.addTarget(self, action: #selector(ViewController.touchDownRepeat(_:event:)), for: .touchDownRepeat)
+        self.dualColorSlider.addTarget(self, action: #selector(ViewController.touchDragInside(_:event:)), for: .touchDragInside)
+        self.dualColorSlider.addTarget(self, action: #selector(ViewController.touchDragOutside(_:event:)), for: .touchDragOutside)
+        self.dualColorSlider.addTarget(self, action: #selector(ViewController.touchDragEnter(_:event:)), for: .touchDragEnter)
+        self.dualColorSlider.addTarget(self, action: #selector(ViewController.touchDragExit(_:event:)), for: .touchDragExit)
+        self.dualColorSlider.addTarget(self, action: #selector(ViewController.touchUpInside(_:event:)), for: .touchUpInside)
+        self.dualColorSlider.addTarget(self, action: #selector(ViewController.touchUpOutside(_:event:)), for: .touchUpOutside)
+        self.dualColorSlider.addTarget(self, action: #selector(ViewController.touchCancel(_:event:)), for: .touchCancel)
+        self.dualColorSlider.addTarget(self, action: #selector(ViewController.valueChanged(_:event:)), for: .valueChanged)
     }
 
     // MARK: - UISwitch
-    
-    @IBAction func switch1ValueChanged(sender: UISwitch) {
-        self.switch1Camel.value = (sender.on) ? 1 : 0
+
+    @IBAction func switch1ValueChanged(_ sender: UISwitch) {
+        self.switch1Camel.value = (sender.isOn) ? 1 : 0
     }
-    
-    @IBAction func switch2TouchUpInside(sender: UISwitch) {
-        self.switch2Camel.value = (sender.on) ? 1 : 0
+
+    @IBAction func switch2TouchUpInside(_ sender: UISwitch) {
+        self.switch2Camel.value = (sender.isOn) ? 1 : 0
     }
 
     // MARK: - UIControlEvents
 
-    func touchDown(sender: UIControl, event:UIEvent) {
+    func touchDown(_ sender: UIControl, event:UIEvent) {
         self.controlEventsLabel.text = "touchDown"
     }
-    func touchDownRepeat(sender: UIControl, event:UIEvent) {
+    func touchDownRepeat(_ sender: UIControl, event:UIEvent) {
         self.controlEventsLabel.text = "touchDownRepeat"
     }
-    func touchDragInside(sender: UIControl, event:UIEvent) {
+    func touchDragInside(_ sender: UIControl, event:UIEvent) {
         self.controlEventsLabel.text = "touchDragInside"
     }
-    func touchDragOutside(sender: UIControl, event:UIEvent) {
+    func touchDragOutside(_ sender: UIControl, event:UIEvent) {
         self.controlEventsLabel.text = "touchDragOutside"
     }
-    func touchDragEnter(sender: UIControl, event:UIEvent) {
+    func touchDragEnter(_ sender: UIControl, event:UIEvent) {
         self.controlEventsLabel.text = "touchDragEnter"
     }
-    func touchDragExit(sender: UIControl, event:UIEvent) {
+    func touchDragExit(_ sender: UIControl, event:UIEvent) {
         self.controlEventsLabel.text = "touchDragExit"
     }
-    func touchUpInside(sender: UIControl, event:UIEvent) {
+    func touchUpInside(_ sender: UIControl, event:UIEvent) {
         self.controlEventsLabel.text = "touchUpInside"
     }
-    func touchUpOutside(sender: UIControl, event:UIEvent) {
+    func touchUpOutside(_ sender: UIControl, event:UIEvent) {
         self.controlEventsLabel.text = "touchUpOutside"
     }
-    func touchCancel(sender: UIControl, event:UIEvent) {
+    func touchCancel(_ sender: UIControl, event:UIEvent) {
         self.controlEventsLabel.text = "touchCancel"
     }
-    func valueChanged(sender: TGPDiscreteSlider, event:UIEvent) {
+    func valueChanged(_ sender: TGPDiscreteSlider, event:UIEvent) {
         self.controlEventsLabel.text = "valueChanged"
         self.stepper.value = Double(sender.value)
     }
 
     // MARK: - UIStepper
 
-    @IBAction func stepperValueChanged(sender: UIStepper) {
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
         self.dualColorSlider.value = CGFloat(sender.value)
     }
 }
