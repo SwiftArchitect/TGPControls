@@ -1,14 +1,13 @@
-//    @file:    main.m
-//    @project: TGPControlsDemo7 (TGPControls)
+//    @file:    TGPControls.h
+//    @project: TGPControls
 //
-//    @history: Created November 27, 2014 (Thanksgiving Day)
 //    @author:  Xavier Schott
 //              mailto://xschott@gmail.com
 //              http://thegothicparty.com
 //              tel://+18089383634
 //
 //    @license: http://opensource.org/licenses/MIT
-//    Copyright (c) 2014, Xavier Schott
+//    Copyright (c) 2017, Xavier Schott
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the "Software"), to deal
@@ -29,10 +28,13 @@
 //    THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 
-int main(int argc, char * argv[]) {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-    }
-}
+//! Project version number for TGPControls.
+FOUNDATION_EXPORT double TGPControlsVersionNumber;
+
+//! Project version string for TGPControls.
+FOUNDATION_EXPORT const unsigned char TGPControlsVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <TGPControls/PublicHeader.h>
+
+

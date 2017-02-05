@@ -1,7 +1,0 @@
-platform :ios, '7.0'
-source 'https://github.com/CocoaPods/Specs.git'
-
-target 'TGPControlsDemo7' do
-    #pod 'TGPControls', :path => '../../TGPControls'
-    pod 'TGPControls'
-end

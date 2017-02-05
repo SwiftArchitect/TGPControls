@@ -19,6 +19,7 @@
 //    THE SOFTWARE.
 
 import UIKit
+import TGPControls
 
 class ViewController: UIViewController {
     @IBOutlet weak var oneTo10Labels: TGPCamelLabels!

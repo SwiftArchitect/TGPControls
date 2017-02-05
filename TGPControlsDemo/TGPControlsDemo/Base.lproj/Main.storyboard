@@ -35,7 +35,7 @@
                                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me6-ut-RSP" userLabel="oneTo10Labels" customClass="TGPCamelLabels">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me6-ut-RSP" userLabel="oneTo10Labels" customClass="TGPCamelLabels" customModule="TGPControls">
                                                 <rect key="frame" x="16" y="48" width="343" height="40"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -67,7 +67,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABG-DJ-HY6" userLabel="oneTo10Slider" customClass="TGPDiscreteSlider">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABG-DJ-HY6" userLabel="oneTo10Slider" customClass="TGPDiscreteSlider" customModule="TGPControls">
                                                 <rect key="frame" x="16" y="72" width="343" height="44"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -101,7 +101,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEk-TU-odc" userLabel="pictureSlider" customClass="TGPDiscreteSlider">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEk-TU-odc" userLabel="pictureSlider" customClass="TGPDiscreteSlider" customModule="TGPControls">
                                                 <rect key="frame" x="37" y="155" width="300" height="21"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -139,7 +139,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="trackImage" value="track"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-ht-ahJ" userLabel="pictureLabels" customClass="TGPCamelLabels">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-ht-ahJ" userLabel="pictureLabels" customClass="TGPCamelLabels" customModule="TGPControls">
                                                 <rect key="frame" x="24" y="124" width="327" height="32"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -177,7 +177,7 @@
                                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BhH-uE-SaH" userLabel="alphabetLabels" customClass="TGPCamelLabels">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BhH-uE-SaH" userLabel="alphabetLabels" customClass="TGPCamelLabels" customModule="TGPControls">
                                                 <rect key="frame" x="16" y="248" width="343" height="40"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -209,7 +209,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-OQ-ngs" userLabel="alphabetSlider" customClass="TGPDiscreteSlider">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-OQ-ngs" userLabel="alphabetSlider" customClass="TGPDiscreteSlider" customModule="TGPControls">
                                                 <rect key="frame" x="16" y="253" width="343" height="54"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -251,7 +251,7 @@
                                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-Gd-Hq6" userLabel="switch1Camel" customClass="TGPCamelLabels">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-Gd-Hq6" userLabel="switch1Camel" customClass="TGPCamelLabels" customModule="TGPControls">
                                                 <rect key="frame" x="99" y="380" width="49" height="18"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -296,7 +296,7 @@
                                                     <action selector="switch2TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0xh-oL-8NO"/>
                                                 </connections>
                                             </switch>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zr4-IE-ENv" userLabel="switch2Camel" customClass="TGPCamelLabels">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zr4-IE-ENv" userLabel="switch2Camel" customClass="TGPCamelLabels" customModule="TGPControls">
                                                 <rect key="frame" x="225" y="401" width="49" height="20"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -335,7 +335,7 @@
                                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndg-v1-Tx3" userLabel="customSlider1" customClass="TGPDiscreteSlider">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndg-v1-Tx3" userLabel="customSlider1" customClass="TGPDiscreteSlider" customModule="TGPControls">
                                                 <rect key="frame" x="16" y="551" width="343" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="0.5" green="0.5" blue="0.5" alpha="0.46000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
@@ -364,10 +364,10 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="thumbTintColor">
                                                         <color key="value" red="1" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbSRadius">
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbShadowRadius">
                                                         <real key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="size" keyPath="thumbSOffset">
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="thumbShadowOffset">
                                                         <size key="value" width="0.0" height="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
@@ -384,7 +384,7 @@
                                                     <action selector="stepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="CZT-vS-FyY"/>
                                                 </connections>
                                             </stepper>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-pU-ocw" userLabel="customSlider4" customClass="TGPDiscreteSlider">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-pU-ocw" userLabel="customSlider4" customClass="TGPDiscreteSlider" customModule="TGPControls">
                                                 <rect key="frame" x="16" y="499" width="241" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
