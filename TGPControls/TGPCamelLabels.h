@@ -45,4 +45,7 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable CGFloat downFontSize;
 @property (nonatomic) IBInspectable UIColor * downFontColor;
 
+@property (nonatomic) IBInspectable CGFloat offCenter;
+@property (nonatomic) IBInspectable NSInteger insets;
+
 @end

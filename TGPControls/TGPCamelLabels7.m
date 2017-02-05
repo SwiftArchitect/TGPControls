@@ -157,6 +157,8 @@
     _animationDuration = 0.15;
     
     _animate = YES;
+    _offCenter = 0.0;
+    _insets = 0;
 
     [self layoutTrack];
 }
@@ -171,13 +173,13 @@
 }
 
 - (void)layoutTrack {
-    [self.upLabels enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL *stop) {
+    for( UIView * view in self.upLabels) {
         [view removeFromSuperview];
-    }];
+    }
     [self.upLabels removeAllObjects];
-    [self.dnLabels enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL *stop) {
+    for( UIView * view in self.dnLabels) {
         [view removeFromSuperview];
-    }];
+    }
     [self.dnLabels removeAllObjects];
 
     const NSUInteger count = self.names.count;
@@ -198,7 +200,6 @@
             upLabel.center = CGPointMake(centerX, centerY);
             upLabel.frame = ({
                 CGRect frame = upLabel.frame;
-                // frame.origin.y = 0;
                 frame.origin.y = self.bounds.size.height - frame.size.height;
                 frame;
             });
@@ -225,8 +226,26 @@
 
             centerX += self.ticksDistance;
         }
+
+        // Fix left and right label, if there are at least 2 labels
+        if( [self.names count] > 1) {
+            [self insetView:[self.upLabels firstObject] withInset:self.insets withMultiplier:self.offCenter];
+            [self insetView:[self.upLabels lastObject] withInset:-self.insets withMultiplier:-self.offCenter];
+            [self insetView:[self.dnLabels firstObject] withInset:self.insets withMultiplier:self.offCenter];
+            [self insetView:[self.dnLabels lastObject] withInset:-self.insets withMultiplier:-self.offCenter];
+        }
+
         [self dockEffect:0.0];
     }
+}
+
+- (void) insetView:(UIView*)view withInset:(NSInteger)inset withMultiplier:(CGFloat)multiplier {
+    view.frame = ({
+        CGRect frame = view.frame;
+        frame.origin.x += frame.size.width * multiplier;
+        frame.origin.x += inset;
+        frame;
+    });
 }
 
 - (void)dockEffect:(NSTimeInterval)duration

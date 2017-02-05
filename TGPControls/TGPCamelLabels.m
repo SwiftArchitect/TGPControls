@@ -41,5 +41,7 @@
 @dynamic downFontName;
 @dynamic downFontSize;
 @dynamic downFontColor;
+@dynamic offCenter;
+@dynamic insets;
 
 @end

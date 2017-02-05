@@ -50,4 +50,10 @@
 
 @property (nonatomic, assign) BOOL animate; // Make the labels animate when selected
 
+// Label off-center to the left and right of the slider, expressed in label width. 0: none, -1/2 half out, 1/2 half in
+@property (nonatomic, assign) CGFloat offCenter;
+
+// Label margins to the left and right of the slider
+@property (nonatomic, assign) NSInteger insets;
+
 @end
