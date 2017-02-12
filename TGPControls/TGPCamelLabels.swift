@@ -29,8 +29,13 @@
 
 import UIKit
 
+
 @IBDesignable
 public class TGPCamelLabels: UIControl {
+
+    let validAttributes = [NSLayoutAttribute.top.rawValue,      //  3
+                           NSLayoutAttribute.centerY.rawValue,  // 10
+                           NSLayoutAttribute.bottom.rawValue]   //  4
 
     // Only used if labels.count < 1
     @IBInspectable public var tickCount:Int {
@@ -109,6 +114,52 @@ public class TGPCamelLabels: UIControl {
         }
     }
 
+    // Where should emphasized labels be drawn (10: centerY, 3: top, 4: bottom)
+    // By default, emphasized labels are animated towards the top of the frame.
+    // This creates the dock effect (camel). They can also be centered vertically, or move down (reverse effect).
+    @IBInspectable public var emphasisLayout:Int = NSLayoutAttribute.top.rawValue {
+        didSet {
+            if !validAttributes.contains(emphasisLayout) {
+                emphasisLayout = NSLayoutAttribute.top.rawValue
+            }
+            layoutTrack()
+        }
+    }
+
+    // Where should regular labels be drawn (10: centerY, 3: top, 4: bottom)
+    // By default, emphasized labels are animated towards the bottom of the frame.
+    // This creates the dock effect (camel). They can also be centered vertically, or move up (reverse effect).
+    @IBInspectable public var regularLayout:Int = NSLayoutAttribute.bottom.rawValue {
+        didSet {
+            if !validAttributes.contains(regularLayout) {
+                regularLayout = NSLayoutAttribute.bottom.rawValue
+            }
+            layoutTrack()
+        }
+    }
+
+    // MARK: @IBInspectable adapters
+
+    public var emphasisLayoutAttribute:NSLayoutAttribute {
+        get {
+            return NSLayoutAttribute(rawValue: emphasisLayout) ?? .top
+        }
+        set {
+            emphasisLayout = newValue.rawValue
+        }
+    }
+
+    public var regularLayoutAttribute:NSLayoutAttribute {
+        get {
+            return NSLayoutAttribute(rawValue: regularLayout) ?? .bottom
+        }
+        set {
+            regularLayout = newValue.rawValue
+        }
+    }
+
+    // MARK: Properties
+    
     public var names:[String] = [] { // Will dictate the number of ticks
         didSet {
             assert(names.count > 0)
@@ -126,13 +177,10 @@ public class TGPCamelLabels: UIControl {
 
     public var animationDuration:TimeInterval = 0.15
 
-    // Fishy
-    var animate = true
-
     // Private
     var lastValue = NSNotFound
-    var upLabels:[UILabel] = []
-    var dnLabels:[UILabel] = []
+    var emphasizedLabels:[UILabel] = []
+    var regularLabels:[UILabel] = []
 
     // MARK: UIView
 
@@ -189,14 +237,14 @@ public class TGPCamelLabels: UIControl {
             }
         }
 
-        for label in upLabels {
+        for label in emphasizedLabels {
             label.removeFromSuperview()
         }
-        upLabels = []
-        for label in dnLabels {
+        emphasizedLabels = []
+        for label in regularLabels {
             label.removeFromSuperview()
         }
-        dnLabels = []
+        regularLabels = []
 
         let count = names.count
         if count > 0 {
@@ -204,7 +252,7 @@ public class TGPCamelLabels: UIControl {
             let centerY = bounds.height / 2.0
             for name in names {
                 let upLabel = UILabel.init()
-                upLabels.append(upLabel)
+                emphasizedLabels.append(upLabel)
                 upLabel.text = name
                 if let upFontName = upFontName {
                     upLabel.font = UIFont.init(name: upFontName, size: upFontSize)
@@ -227,7 +275,7 @@ public class TGPCamelLabels: UIControl {
                 addSubview(upLabel)
 
                 let dnLabel = UILabel.init()
-                dnLabels.append(dnLabel)
+                regularLabels.append(dnLabel)
                 dnLabel.text = name
                 if let downFontName = downFontName {
                     dnLabel.font = UIFont.init(name:downFontName, size:downFontSize)
@@ -249,10 +297,10 @@ public class TGPCamelLabels: UIControl {
 
             // Fix left and right label, if there are at least 2 labels
             if names.count > 1 {
-                insetLabel(upLabels.first, withInset: insets, andMultiplier: offCenter)
-                insetLabel(upLabels.last, withInset: -insets, andMultiplier: -offCenter)
-                insetLabel(dnLabels.first, withInset: insets, andMultiplier: offCenter)
-                insetLabel(dnLabels.last, withInset: -insets, andMultiplier: -offCenter)
+                insetLabel(emphasizedLabels.first, withInset: insets, andMultiplier: offCenter)
+                insetLabel(emphasizedLabels.last, withInset: -insets, andMultiplier: -offCenter)
+                insetLabel(regularLabels.first, withInset: insets, andMultiplier: offCenter)
+                insetLabel(regularLabels.last, withInset: -insets, andMultiplier: -offCenter)
             }
 
             dockEffect(duration:0.0)
@@ -262,7 +310,7 @@ public class TGPCamelLabels: UIControl {
 
     func dockEffect(duration:TimeInterval)
     {
-        let up = Int(value)
+        let emphasized = Int(value)
 
         // Unlike the National Parks from which it is inspired, this Dock Effect
         // does not abruptly change from BOLD to plain. Instead, we have 2 sets of
@@ -272,25 +320,33 @@ public class TGPCamelLabels: UIControl {
         // - high to low
         // Each animation picks up where the previous left off
         let moveBlock:() -> Void = {
-            let x = self.upLabels
-            // Bring almost all down
-            for (idx, label) in self.upLabels.enumerated() {
-                if up != idx {
-                    self.moveDown(aView: label, withAlpha: 0)
+            let x = self.emphasizedLabels
+            // De-emphasize almost all
+            for (idx, label) in self.emphasizedLabels.enumerated() {
+                if emphasized != idx {
+                    self.verticalAlign(aView: label,
+                                       alpha: 0,
+                                       attribute: self.regularLayoutAttribute)
                 }
             }
-            for (idx, label) in self.dnLabels.enumerated() {
-                if up != idx {
-                    self.moveDown(aView: label, withAlpha: 1)
+            for (idx, label) in self.regularLabels.enumerated() {
+                if emphasized != idx {
+                    self.verticalAlign(aView: label,
+                                       alpha: 1,
+                                       attribute: self.regularLayoutAttribute)
                 }
             }
 
-            // Bring the selection up
-            if up < self.upLabels.count {
-                self.moveUp(aView: self.upLabels[up], withAlpha:1)
+            // Emphasize the selection
+            if emphasized < self.emphasizedLabels.count {
+                self.verticalAlign(aView: self.emphasizedLabels[emphasized],
+                                   alpha:1,
+                                   attribute: self.emphasisLayoutAttribute)
             }
-            if up < self.dnLabels.count {
-                self.moveUp(aView: self.dnLabels[up], withAlpha:0)
+            if emphasized < self.regularLabels.count {
+                self.verticalAlign(aView: self.regularLabels[emphasized],
+                                   alpha:0,
+                                   attribute: self.emphasisLayoutAttribute)
             }
         }
 
@@ -305,30 +361,31 @@ public class TGPCamelLabels: UIControl {
         }
     }
     
-    func moveDown(aView:UIView, withAlpha alpha:CGFloat)
-    {
-        if animate {
-            aView.frame = {
-                var frame = aView.frame
-                frame.origin.y = bounds.height - frame.height
-                return frame
-            }()
-        }
-        aView.alpha = alpha
-    }
-    
-    func moveUp(aView:UIView, withAlpha alpha:CGFloat)
-    {
-        if animate {
+    func verticalAlign(aView:UIView, alpha alpha:CGFloat, attribute layout:NSLayoutAttribute) {
+        switch layout {
+        case .top:
             aView.frame = {
                 var frame = aView.frame
                 frame.origin.y = 0
                 return frame
             }()
+
+        case .bottom:
+            aView.frame = {
+                var frame = aView.frame
+                frame.origin.y = bounds.height - frame.height
+                return frame
+            }()
+
+        default: // .center
+            aView.frame = {
+                var frame = aView.frame
+                frame.origin.y = (bounds.height - frame.height) / 2
+                return frame
+            }()
         }
         aView.alpha = alpha
     }
-    
 }
 
 extension TGPCamelLabels : TGPControlsTicksProtocol {
