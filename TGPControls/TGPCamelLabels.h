@@ -48,4 +48,7 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable CGFloat offCenter;
 @property (nonatomic) IBInspectable NSInteger insets;
 
+@property (nonatomic) IBInspectable NSInteger emphasisLayout;
+@property (nonatomic) IBInspectable NSInteger regularLayout;
+
 @end

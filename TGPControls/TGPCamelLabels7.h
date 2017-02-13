@@ -48,12 +48,25 @@
 @property (nonatomic, strong) NSArray * names; // Will dictate the number of ticks
 @property (nonatomic, assign) NSTimeInterval animationDuration;
 
-@property (nonatomic, assign) BOOL animate; // Make the labels animate when selected
-
 // Label off-center to the left and right of the slider, expressed in label width. 0: none, -1/2 half out, 1/2 half in
 @property (nonatomic, assign) CGFloat offCenter;
 
 // Label margins to the left and right of the slider
 @property (nonatomic, assign) NSInteger insets;
+
+// Where should emphasized labels be drawn (10: centerY, 3: top, 4: bottom)
+// By default, emphasized labels are animated towards the top of the frame.
+// This creates the dock effect (camel). They can also be centered vertically, or move down (reverse effect).
+@property (nonatomic) IBInspectable NSInteger emphasisLayout;
+
+// Where should regular labels be drawn (10: centerY, 3: top, 4: bottom)
+// By default, emphasized labels are animated towards the bottom of the frame.
+// This creates the dock effect (camel). They can also be centered vertically, or move up (reverse effect).
+@property (nonatomic) IBInspectable NSInteger regularLayout;
+
+#pragma mark IBInspectable adapters
+
+@property (nonatomic) NSLayoutAttribute emphasisLayoutAttribute;
+@property (nonatomic) NSLayoutAttribute regularLayoutAttribute;
 
 @end

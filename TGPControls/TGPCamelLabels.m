@@ -43,5 +43,6 @@
 @dynamic downFontColor;
 @dynamic offCenter;
 @dynamic insets;
-
+@dynamic emphasisLayout;
+@dynamic regularLayout;
 @end

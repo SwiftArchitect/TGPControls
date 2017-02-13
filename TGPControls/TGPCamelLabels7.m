@@ -32,8 +32,8 @@
 
 @interface TGPCamelLabels7()
 @property (nonatomic, assign) NSUInteger lastValue;
-@property (nonatomic, retain) NSMutableArray * upLabels;
-@property (nonatomic, retain) NSMutableArray * dnLabels;
+@property (nonatomic, retain) NSMutableArray * emphasizedLabels;
+@property (nonatomic, retain) NSMutableArray * regularLabels;
 @end
 
 @implementation TGPCamelLabels7
@@ -103,11 +103,47 @@
     [self layoutTrack];
 }
 
+- (void)setEmphasisLayout:(NSInteger)emphasisLayout {
+    _emphasisLayout = ([self validAttribute:emphasisLayout]
+                       ? emphasisLayout
+                       : NSLayoutAttributeTop);
+    [self layoutTrack];
+}
+
+- (void)setRegularLayout:(NSInteger)regularLayout {
+    _regularLayout = ([self validAttribute:regularLayout]
+                      ? regularLayout
+                      : NSLayoutAttributeBottom);
+    [self layoutTrack];
+}
+
 // NSArray<NSString*>
 - (void)setNames:(NSArray *)names {
     NSAssert(names.count > 0, @"names.count");
     _names = names;
     [self layoutTrack];
+}
+
+#pragma mark IBInspectable adapters
+
+- (NSLayoutAttribute)emphasisLayoutAttribute {
+    return ([self validAttribute:_emphasisLayout]
+            ? _emphasisLayout
+            : NSLayoutAttributeTop);
+}
+
+- (void)setEmphasisLayoutAttribute:(NSLayoutAttribute)emphasisLayoutAttribute {
+    self.emphasisLayout = emphasisLayoutAttribute;
+}
+
+- (NSLayoutAttribute)regularLayoutAttribute {
+    return ([self validAttribute:_regularLayout]
+            ? _regularLayout
+            : NSLayoutAttributeBottom);
+}
+
+- (void)setRegularLayoutAttribute:(NSLayoutAttribute)regularLayoutAttribute {
+    self.regularLayout = regularLayoutAttribute;
 }
 
 #pragma mark UIView
@@ -160,15 +196,17 @@
     _downFontSize = 12;
     _downFontColor = nil;
 
-    _upLabels = [NSMutableArray array];
-    _dnLabels = [NSMutableArray array];
+    _emphasizedLabels = [NSMutableArray array];
+    _regularLabels = [NSMutableArray array];
 
     _lastValue = NSNotFound;    // Never tapped
     _animationDuration = 0.15;
     
-    _animate = YES;
     _offCenter = 0.0;
     _insets = 0;
+
+    _emphasisLayout = NSLayoutAttributeTop;
+    _regularLayout = NSLayoutAttributeBottom;
 
     [self layoutTrack];
 }
@@ -183,14 +221,14 @@
 }
 
 - (void)layoutTrack {
-    for( UIView * view in self.upLabels) {
+    for( UIView * view in self.emphasizedLabels) {
         [view removeFromSuperview];
     }
-    [self.upLabels removeAllObjects];
-    for( UIView * view in self.dnLabels) {
+    [self.emphasizedLabels removeAllObjects];
+    for( UIView * view in self.regularLabels) {
         [view removeFromSuperview];
     }
-    [self.dnLabels removeAllObjects];
+    [self.regularLabels removeAllObjects];
 
     const NSUInteger count = self.names.count;
     if( count > 0) {
@@ -198,7 +236,7 @@
         const CGFloat centerY = self.bounds.size.height / 2.0;
         for(NSString * name in self.names) {
             UILabel * upLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-            [self.upLabels addObject:upLabel];
+            [self.emphasizedLabels addObject:upLabel];
             upLabel.text = name;
             upLabel.font = ((self.upFontName != nil)
                             ? [UIFont fontWithName:self.upFontName size:self.upFontSize]
@@ -217,7 +255,7 @@
             [self addSubview:upLabel];
 
             UILabel * dnLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-            [self.dnLabels addObject:dnLabel];
+            [self.regularLabels addObject:dnLabel];
             dnLabel.text = name;
             dnLabel.font = ((self.downFontName != nil)
                             ? [UIFont fontWithName:self.downFontName size:self.downFontSize]
@@ -239,10 +277,10 @@
 
         // Fix left and right label, if there are at least 2 labels
         if( [self.names count] > 1) {
-            [self insetView:[self.upLabels firstObject] withInset:self.insets withMultiplier:self.offCenter];
-            [self insetView:[self.upLabels lastObject] withInset:-self.insets withMultiplier:-self.offCenter];
-            [self insetView:[self.dnLabels firstObject] withInset:self.insets withMultiplier:self.offCenter];
-            [self insetView:[self.dnLabels lastObject] withInset:-self.insets withMultiplier:-self.offCenter];
+            [self insetView:[self.emphasizedLabels firstObject] withInset:self.insets withMultiplier:self.offCenter];
+            [self insetView:[self.emphasizedLabels lastObject] withInset:-self.insets withMultiplier:-self.offCenter];
+            [self insetView:[self.regularLabels firstObject] withInset:self.insets withMultiplier:self.offCenter];
+            [self insetView:[self.regularLabels lastObject] withInset:-self.insets withMultiplier:-self.offCenter];
         }
 
         [self dockEffect:0.0];
@@ -260,7 +298,7 @@
 
 - (void)dockEffect:(NSTimeInterval)duration
 {
-    const NSUInteger up = self.value;
+    const NSUInteger emphasized = self.value;
 
     // Unlike the National Parks from which it is inspired, this Dock Effect
     // does not abruptly change from BOLD to plain. Instead, we have 2 sets of
@@ -270,24 +308,32 @@
     // - high to low
     // Each animation picks up where the previous left off
     void (^moveBlock)() = ^void() {
-        // Bring almost all down
-        [self.upLabels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if( up != idx) {
-                [self moveDown:obj withAlpha:0.f];
+        // De-emphasize almost all
+        [self.emphasizedLabels enumerateObjectsUsingBlock:^(UILabel * label, NSUInteger idx, BOOL *stop) {
+            if( emphasized != idx) {
+                [self verticalAlign:label
+                              alpha:0
+                          attribute:self.regularLayoutAttribute];
             }
         }];
-        [self.dnLabels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if( up != idx) {
-                [self moveDown:obj withAlpha:1.f];
+        [self.regularLabels enumerateObjectsUsingBlock:^(UILabel * label, NSUInteger idx, BOOL *stop) {
+            if( emphasized != idx) {
+                [self verticalAlign:label
+                              alpha:1
+                          attribute:self.regularLayoutAttribute];
             }
         }];
 
-        // Bring the selection up
-        if(up < [self.upLabels count]) {
-            [self moveUp:[self.upLabels objectAtIndex:up] withAlpha:1.f];
+        // Emphasize the selection
+        if(emphasized < [self.emphasizedLabels count]) {
+            [self verticalAlign:[self.emphasizedLabels objectAtIndex:emphasized]
+                          alpha:1
+                      attribute:self.emphasisLayoutAttribute];
         }
-        if(up < [self.dnLabels count]) {
-            [self moveUp:[self.dnLabels objectAtIndex:up] withAlpha:0.f];
+        if(emphasized < [self.regularLabels count]) {
+            [self verticalAlign:[self.regularLabels objectAtIndex:emphasized]
+                          alpha:0
+                      attribute:self.emphasisLayoutAttribute];
         }
     };
 
@@ -303,28 +349,42 @@
     }
 }
 
-- (void)moveDown:(UIView*)aView withAlpha:(CGFloat) alpha
-{
-    if (self.animate) {
-        aView.frame = ({
-            CGRect frame = aView.frame;
-            frame.origin.y = self.bounds.size.height - frame.size.height;
-            frame;
-        });
-    }
-    [aView setAlpha:alpha];
+- (BOOL)validAttribute:(NSLayoutAttribute)attribute {
+    NSArray * validAttributes = @[
+                                  @(NSLayoutAttributeTop),      // 3
+                                  @(NSLayoutAttributeCenterY),  // 10
+                                  @(NSLayoutAttributeBottom)    // 4
+                                  ];
+    BOOL valid = [validAttributes containsObject:@(attribute)];
+    return valid;
 }
 
-- (void)moveUp:(UIView*)aView withAlpha:(CGFloat) alpha
-{
-    if (self.animate) {
-        aView.frame = ({
-            CGRect frame = aView.frame;
-            frame.origin.y = 0;
-            frame;
-        });
+- (void)verticalAlign:(UIView *)aView alpha:(CGFloat) alpha attribute:(NSLayoutAttribute) layout {
+    switch(layout) {
+        case NSLayoutAttributeTop:
+            aView.frame = ({
+                CGRect frame = aView.frame;
+                frame.origin.y = 0;
+                frame;
+            });
+            break;
+
+        case NSLayoutAttributeBottom:
+            aView.frame = ({
+                CGRect frame = aView.frame;
+                frame.origin.y = self.bounds.size.height - frame.size.height;
+                frame;
+            });
+            break;
+
+        default: // NSLayoutAttributeCenterY
+            aView.frame = ({
+                CGRect frame = aView.frame;
+                frame.origin.y = (self.bounds.size.height - frame.size.height) / 2;
+                frame;
+            });
     }
-    [aView setAlpha:alpha];
+    aView.alpha = alpha;
 }
 
 #pragma mark - TGPControlsTicksProtocol
