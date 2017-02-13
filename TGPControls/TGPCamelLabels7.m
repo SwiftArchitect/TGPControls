@@ -93,6 +93,16 @@
     [self layoutTrack];
 }
 
+- (void)setOffCenter:(CGFloat)offCenter {
+    _offCenter = offCenter;
+    [self layoutTrack];
+}
+
+- (void)setInsets:(NSInteger)insets {
+    _insets = insets;
+    [self layoutTrack];
+}
+
 // NSArray<NSString*>
 - (void)setNames:(NSArray *)names {
     NSAssert(names.count > 0, @"names.count");
