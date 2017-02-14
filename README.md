@@ -127,16 +127,16 @@ Most of the customization can be done inside **Interface Builder**.
 
 **Properties:**
 
-| Property |  |
-| ---------|--|
+| Property |       |
+|:---------| ----- |
 | `ticksListener` | ties a discrete slider to its camel labels. This is your most robust method to not only ensure that the layout of both controls match exactly, but also adjust this spacing when orientation changes. A typical use may be `self.discreteSlider.ticksListener = self.camelLabels` |
 | `names` | supplies a new set of labels ; supersedes the `tickCount` property, which will return the number of labels. A typical use may be `self.camelLabels.names = @[@"OFF", @"ON"]` |
 | `ticksDistance` | _override_ the labels spacing entirely ; **prefer** the `ticksListener` mechanism if it is available to you. A typical use may be `self.camelLabels.ticksDistance = 15` |
 | `value` | which label is emphasized (_selected_) |
 | `backgroundColor` | labels become  *tap-through* (**click-through**) when set to `clearColor` ; use TGPCamelLabels *on top of* other UI elements, **even native iOS objects**!:![uiswitch](https://cloud.githubusercontent.com/assets/4073988/11609813/a3b63526-9b45-11e5-9562-34fc2c9b134d.gif) |
 
-| Edges & Animation |  |
-| ---------|--|
+| Edges & Animation |       |
+|:------------------| ----- |
 | `offCenter` | **leftmost and righmost labels only**: relative inset expressed as a proportion of individual label width: 0: none, +0.5: nudge in by a half width (fully fit) or -0.5: draw completely outside |
 | `insets` | **leftmost and righmost labels only**: absolute inset expressed in pixels |
 | `emphasisLayout` | emphasized (_selected_) labels vertical alignment ; `top`, `centerY` or `bottom`. Default is `top` (†) |
@@ -144,14 +144,14 @@ Most of the customization can be done inside **Interface Builder**.
 
 (†) No camel animation will occur when `emphasisLayout` = `regularLayout`, i.e. `centerY`.
 
-| Emphasized labels |  |
-| ---------|--|
+| Emphasized labels |       |
+|:------------------| ----- |
 | `upFontName` | font |
 | `upFontSize` | size |
 | `upFontColor` | color |
 
-| Regular labels |  |
-| ---------|--|
+| Regular labels |       |
+|:---------------| ----- |
 | `dnFontName` | font |
 | `dnFontSize` | size |
 | `dnFontColor` | color |
