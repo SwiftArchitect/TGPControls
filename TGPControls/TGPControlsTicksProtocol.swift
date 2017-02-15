@@ -1,14 +1,13 @@
-//    @file:    AppDelegate.h
-//    @project: TGPControlsDemo7 (TGPControls)
+//    @file:    TGPControlsTicksProtocol.swift
+//    @project: TGPControls
 //
-//    @history: Created November 27, 2014 (Thanksgiving Day)
 //    @author:  Xavier Schott
 //              mailto://xschott@gmail.com
 //              http://thegothicparty.com
 //              tel://+18089383634
 //
 //    @license: http://opensource.org/licenses/MIT
-//    Copyright (c) 2014, Xavier Schott
+//    Copyright (c) 2017, Xavier Schott
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the "Software"), to deal
@@ -28,12 +27,10 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+import Foundation
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
-
-@end
-
+public protocol TGPControlsTicksProtocol
+{
+    func tgpTicksDistanceChanged(ticksDistance:CGFloat, sender:AnyObject)
+    func tgpValueChanged(value:UInt)
+}
