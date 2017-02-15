@@ -360,7 +360,7 @@ public class TGPCamelLabels: UIControl {
         }
     }
     
-    func verticalAlign(aView:UIView, alpha alpha:CGFloat, attribute layout:NSLayoutAttribute) {
+    func verticalAlign(aView:UIView, alpha:CGFloat, attribute layout:NSLayoutAttribute) {
         switch layout {
         case .top:
             aView.frame = {
