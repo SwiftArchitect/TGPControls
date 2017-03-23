@@ -71,7 +71,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         }
     }
 
-    @IBInspectable public var tickImage:String? = nil {
+    @IBInspectable public var tickImage:UIImage? = nil {
         didSet {
             layoutTrack()
         }
@@ -90,7 +90,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         }
     }
 
-    @IBInspectable public var trackImage:String? = nil {
+    @IBInspectable public var trackImage:UIImage? = nil {
         didSet {
             layoutTrack()
         }
@@ -339,8 +339,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
 
                 case .image:
                     // Draw image if exists
-                    if let tickImage = tickImage,
-                        let image = UIImage(named: tickImage),
+                    if let image = tickImage,
                         let cgImage = image.cgImage,
                         let ctx = UIGraphicsGetCurrentContext() {
                         let centered = CGRect(x: rectangle.origin.x + (rectangle.width/2) - (image.size.width/2),
@@ -392,8 +391,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
             trackLayer.frame = CGRect.zero
 
             // Draw image if exists
-            if let trackImage = trackImage,
-                let image = UIImage(named: trackImage),
+            if let image = trackImage,
                 let cgImage = image.cgImage,
                 let ctx = UIGraphicsGetCurrentContext() {
                 let centered = CGRect(x: (frame.width/2) - (image.size.width/2),
@@ -531,8 +529,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         var trackSize = CGSize(width: frame.width - thumbWidth,
                                height: trackHeight)
         if(.image == trackComponentStyle) {
-            if let trackImage = trackImage,
-                let image = UIImage(named: trackImage) {
+            if let image = trackImage {
                 trackSize.width = image.size.width - thumbWidth
             }
         }
