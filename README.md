@@ -1,3 +1,6 @@
+
+![Demo Project](TGPControlDemo.gif)
+
 # Slider with _ticks_ & animated Label (Swift)
 TGPControls are drop-in replacement of `UISlider` & `UILabel`, with visual preview in **Interface Builder**, single liner instrumentation, smooth animations, simple API,  powerful customization.  
 
@@ -16,7 +19,7 @@ Ideal to represent steps. *The discrete slider and the camel labels can work in 
 ## Compatibility
 1. Written in **Swift 3**, can be integrated with **Swift** or **Obj-C**
 2. `TGPControls` are **AutoLayout**, `IB Designable` and `IB Inspectable` ready (†)
-3. Version 3.0.0 comes with a **Swift 3** demo application, for **iOS 10** down to **8**. 
+3. Version 3.0.0 comes with a **Swift 3** demo application, for **iOS 10** down to **8**.
 (†) Earlier 2.x versions provide **iOS 7** support
 
 ![imagessliderdemo](https://cloud.githubusercontent.com/assets/4073988/6628373/183c7452-c8c2-11e4-9a63-107805bc0cc4.gif)
@@ -146,7 +149,7 @@ Most of the customization can be done inside **Interface Builder**.
 | `offCenter` | **leftmost and righmost labels only**: relative inset expressed as a proportion of individual label width: 0: none, +0.5: nudge in by a half width (fully fit) or -0.5: draw completely outside |
 | `insets` | **leftmost and righmost labels only**: absolute inset expressed in pixels |
 | `emphasisLayout` | emphasized (_selected_) labels vertical alignment ; `.top`, `.centerY` or `.bottom`. Default is `.top` (†) |
-| `regularLayout` | regular labels vertical alignment ; `.top`, `.centerY` or `.bottom`. Default is `.bottom` (†) | 
+| `regularLayout` | regular labels vertical alignment ; `.top`, `.centerY` or `.bottom`. Default is `.bottom` (†) |
 
 (†) No camel animation will occur when `emphasisLayout` = `regularLayout`, i.e. `.centerY`.
 
