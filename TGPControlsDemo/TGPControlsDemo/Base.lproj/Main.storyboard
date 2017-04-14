@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TGPControlsDemo" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TGPControlsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -27,15 +27,15 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWu-CK-FWW" userLabel="Content">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="615"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DiscreteSlider + CamelLabels" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hED-uQ-kcm" userLabel="L1">
                                                 <rect key="frame" x="8" y="20" width="225" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me6-ut-RSP" userLabel="oneTo10Labels" customClass="TGPCamelLabels">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me6-ut-RSP" userLabel="oneTo10Labels" customClass="TGPCamelLabels" customModule="TGPControls">
                                                 <rect key="frame" x="16" y="48" width="343" height="40"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -67,7 +67,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABG-DJ-HY6" userLabel="oneTo10Slider" customClass="TGPDiscreteSlider">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABG-DJ-HY6" userLabel="oneTo10Slider" customClass="TGPDiscreteSlider" customModule="TGPControls">
                                                 <rect key="frame" x="16" y="72" width="343" height="44"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -101,7 +101,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEk-TU-odc" userLabel="pictureSlider" customClass="TGPDiscreteSlider">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEk-TU-odc" userLabel="pictureSlider" customClass="TGPDiscreteSlider" customModule="TGPControls">
                                                 <rect key="frame" x="37" y="155" width="300" height="21"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -139,7 +139,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="trackImage" value="track"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-ht-ahJ" userLabel="pictureLabels" customClass="TGPCamelLabels">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-ht-ahJ" userLabel="pictureLabels" customClass="TGPCamelLabels" customModule="TGPControls">
                                                 <rect key="frame" x="24" y="124" width="327" height="32"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -183,10 +183,10 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Layers and transparency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wG-kf-nie" userLabel="L2">
                                                 <rect key="frame" x="8" y="220" width="188.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BhH-uE-SaH" userLabel="alphabetLabels" customClass="TGPCamelLabels">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BhH-uE-SaH" userLabel="alphabetLabels" customClass="TGPCamelLabels" customModule="TGPControls">
                                                 <rect key="frame" x="16" y="248" width="343" height="40"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -218,7 +218,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-OQ-ngs" userLabel="alphabetSlider" customClass="TGPDiscreteSlider">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-OQ-ngs" userLabel="alphabetSlider" customClass="TGPDiscreteSlider" customModule="TGPControls">
                                                 <rect key="frame" x="16" y="253" width="343" height="54"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -257,10 +257,10 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CamelLabels + Switch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6t-OF-SSy" userLabel="L3">
                                                 <rect key="frame" x="8" y="351" width="169.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-Gd-Hq6" userLabel="switch1Camel" customClass="TGPCamelLabels">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-Gd-Hq6" userLabel="switch1Camel" customClass="TGPCamelLabels" customModule="TGPControls">
                                                 <rect key="frame" x="99" y="380" width="49" height="18"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -305,7 +305,7 @@
                                                     <action selector="switch2TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0xh-oL-8NO"/>
                                                 </connections>
                                             </switch>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zr4-IE-ENv" userLabel="switch2Camel" customClass="TGPCamelLabels">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zr4-IE-ENv" userLabel="switch2Camel" customClass="TGPCamelLabels" customModule="TGPControls">
                                                 <rect key="frame" x="225" y="401" width="49" height="20"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -341,10 +341,10 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Variations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPd-Af-CYy" userLabel="L4">
                                                 <rect key="frame" x="8" y="471" width="76" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndg-v1-Tx3" userLabel="customSlider1" customClass="TGPDiscreteSlider">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndg-v1-Tx3" userLabel="customSlider1" customClass="TGPDiscreteSlider" customModule="TGPControls">
                                                 <rect key="frame" x="16" y="551" width="343" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="0.5" green="0.5" blue="0.5" alpha="0.46000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
@@ -371,7 +371,7 @@
                                                         <size key="value" width="44" height="44"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="thumbTintColor">
-                                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="thumbShadowRadius">
                                                         <real key="value" value="4"/>
@@ -384,7 +384,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UIControlActions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gID-5d-KDe">
                                                 <rect key="frame" x="231" y="471" width="128" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
-                                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.26274509800000001" green="0.83137254900000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" minimumValue="-5" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="RC6-fY-lah">
@@ -393,7 +393,7 @@
                                                     <action selector="stepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="CZT-vS-FyY"/>
                                                 </connections>
                                             </stepper>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-pU-ocw" userLabel="customSlider4" customClass="TGPDiscreteSlider">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-pU-ocw" userLabel="customSlider4" customClass="TGPDiscreteSlider" customModule="TGPControls">
                                                 <rect key="frame" x="16" y="499" width="241" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -409,7 +409,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="gID-5d-KDe" secondAttribute="trailing" constant="8" id="0WQ-p6-iER"/>
                                             <constraint firstItem="qag-Wb-5DJ" firstAttribute="top" secondItem="cr3-Gd-Hq6" secondAttribute="bottom" constant="-2" id="1vB-p3-UJF"/>
@@ -424,7 +424,7 @@
                                             <constraint firstItem="qEk-TU-odc" firstAttribute="centerX" secondItem="eWu-CK-FWW" secondAttribute="centerX" id="KUF-EC-cLO"/>
                                             <constraint firstItem="QFe-pU-ocw" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" constant="8" id="LlO-Vk-bA7"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="Ndg-v1-Tx3" secondAttribute="trailing" constant="8" id="NW0-4E-i8E"/>
-                                            <constraint firstAttribute="height" constant="647" id="Nwm-xh-vZf"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ndg-v1-Tx3" secondAttribute="bottom" constant="20" symbolic="YES" id="NdV-zN-Xom"/>
                                             <constraint firstItem="ABG-DJ-HY6" firstAttribute="trailing" secondItem="eWu-CK-FWW" secondAttribute="trailingMargin" constant="-8" id="OAO-EM-NPL"/>
                                             <constraint firstItem="hED-uQ-kcm" firstAttribute="leading" secondItem="eWu-CK-FWW" secondAttribute="leadingMargin" id="P9g-je-5Du"/>
                                             <constraint firstItem="qag-Wb-5DJ" firstAttribute="centerX" secondItem="eWu-CK-FWW" secondAttribute="centerX" multiplier="0.66" id="Qzg-UZ-6cQ"/>
@@ -464,6 +464,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="eWu-CK-FWW" firstAttribute="leading" secondItem="DiV-DE-SKA" secondAttribute="leading" id="6Iw-8k-BNJ"/>
                                     <constraint firstItem="eWu-CK-FWW" firstAttribute="top" secondItem="DiV-DE-SKA" secondAttribute="top" id="EhX-oU-vfq"/>
@@ -473,7 +474,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.90082589290000004" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DiV-DE-SKA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Dcr-Df-pfx"/>
                             <constraint firstItem="DiV-DE-SKA" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="P5R-SH-hrO"/>
