@@ -49,6 +49,12 @@ Using [CocoaPods](http://cocoapods.org/?q=TGPControls)
 - **iOS 10 and later down to iOS 8**: install CocoaPods 1.2.0+ [CocoaPods-Frameworks](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/), add `use_frameworks!` to your podfile.
 - **iOS 7**: Use TGPControls version 2.1.0
 
+Using [Carthage](https://github.com/Carthage/Carthage)
+```
+github "SwiftArchitect/TGPControls"
+```
+Please note that Carthage is available only for **iOS 8 or higher**
+
 Besides customization, which you can do entirely under Interface Builder in iOS 8 and later, both `TGPDiscreteSlider` and `TGPCamelLabels` require surprisingly little code to integrate.
 
 ### DiscreteSlider
