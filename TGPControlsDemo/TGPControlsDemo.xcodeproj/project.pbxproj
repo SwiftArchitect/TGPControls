@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		803A99D2DE444E51D1C80154 /* Pods_TGPControlsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F81ED809FBD1E88B2963FDC /* Pods_TGPControlsDemo.framework */; };
+		DC4FF6431EA2E08C00BBF8E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56BDC81E46DEB900AAD0D9 /* ViewController.swift */; };
+		DC4FF6441EA2E08C00BBF8E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56BDC61E46DEB900AAD0D9 /* AppDelegate.swift */; };
+		DC4FF6481EA2E08C00BBF8E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCF1E46DEB900AAD0D9 /* LaunchScreen.storyboard */; };
+		DC4FF6491EA2E08C00BBF8E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCD1E46DEB900AAD0D9 /* Assets.xcassets */; };
+		DC4FF64A1EA2E08C00BBF8E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCA1E46DEB900AAD0D9 /* Main.storyboard */; };
+		DC4FF6531EA2E2E700BBF8E4 /* TGPControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4FF6521EA2E2E700BBF8E4 /* TGPControls.framework */; };
+		DC4FF6541EA2E2E700BBF8E4 /* TGPControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC4FF6521EA2E2E700BBF8E4 /* TGPControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC4FF6571EA2E33800BBF8E4 /* Pods_TGPControlsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F81ED809FBD1E88B2963FDC /* Pods_TGPControlsDemo.framework */; };
 		DC56BDC71E46DEB900AAD0D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56BDC61E46DEB900AAD0D9 /* AppDelegate.swift */; };
 		DC56BDC91E46DEB900AAD0D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56BDC81E46DEB900AAD0D9 /* ViewController.swift */; };
 		DC56BDCC1E46DEB900AAD0D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCA1E46DEB900AAD0D9 /* Main.storyboard */; };
@@ -15,23 +22,48 @@
 		DC56BDD11E46DEB900AAD0D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCF1E46DEB900AAD0D9 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DC4FF6551EA2E2E700BBF8E4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DC4FF6541EA2E2E700BBF8E4 /* TGPControls.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5F81ED809FBD1E88B2963FDC /* Pods_TGPControlsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TGPControlsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC56BDC31E46DEB900AAD0D9 /* TGPControlsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TGPControlsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC4FF6501EA2E08C00BBF8E4 /* TGPControlsDemo-Cart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TGPControlsDemo-Cart.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC4FF6511EA2E08C00BBF8E4 /* TGPControlsDemo-Cart-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TGPControlsDemo-Cart-Info.plist"; sourceTree = "<group>"; };
+		DC4FF6521EA2E2E700BBF8E4 /* TGPControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TGPControls.framework; path = Carthage/Build/iOS/TGPControls.framework; sourceTree = "<group>"; };
+		DC56BDC31E46DEB900AAD0D9 /* TGPControlsDemo-Pods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TGPControlsDemo-Pods.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC56BDC61E46DEB900AAD0D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC56BDC81E46DEB900AAD0D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DC56BDCB1E46DEB900AAD0D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC56BDCD1E46DEB900AAD0D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC56BDD01E46DEB900AAD0D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DC56BDD21E46DEB900AAD0D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC56BDD21E46DEB900AAD0D9 /* TGPControlsDemo-Pods-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TGPControlsDemo-Pods-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DC4FF6451EA2E08C00BBF8E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC4FF6531EA2E2E700BBF8E4 /* TGPControls.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC56BDC01E46DEB900AAD0D9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				803A99D2DE444E51D1C80154 /* Pods_TGPControlsDemo.framework in Frameworks */,
+				DC4FF6571EA2E33800BBF8E4 /* Pods_TGPControlsDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +73,7 @@
 		10EC92099730DF4A939701BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC4FF6521EA2E2E700BBF8E4 /* TGPControls.framework */,
 				5F81ED809FBD1E88B2963FDC /* Pods_TGPControlsDemo.framework */,
 			);
 			name = Frameworks;
@@ -58,7 +91,8 @@
 		DC56BDC41E46DEB900AAD0D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC56BDC31E46DEB900AAD0D9 /* TGPControlsDemo.app */,
+				DC56BDC31E46DEB900AAD0D9 /* TGPControlsDemo-Pods.app */,
+				DC4FF6501EA2E08C00BBF8E4 /* TGPControlsDemo-Cart.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,7 +105,8 @@
 				DC56BDCA1E46DEB900AAD0D9 /* Main.storyboard */,
 				DC56BDCD1E46DEB900AAD0D9 /* Assets.xcassets */,
 				DC56BDCF1E46DEB900AAD0D9 /* LaunchScreen.storyboard */,
-				DC56BDD21E46DEB900AAD0D9 /* Info.plist */,
+				DC56BDD21E46DEB900AAD0D9 /* TGPControlsDemo-Pods-Info.plist */,
+				DC4FF6511EA2E08C00BBF8E4 /* TGPControlsDemo-Cart-Info.plist */,
 			);
 			path = TGPControlsDemo;
 			sourceTree = "<group>";
@@ -79,9 +114,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DC56BDC21E46DEB900AAD0D9 /* TGPControlsDemo */ = {
+		DC4FF6401EA2E08C00BBF8E4 /* TGPControlsDemo-Cart */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC56BDD51E46DEB900AAD0D9 /* Build configuration list for PBXNativeTarget "TGPControlsDemo" */;
+			buildConfigurationList = DC4FF64D1EA2E08C00BBF8E4 /* Build configuration list for PBXNativeTarget "TGPControlsDemo-Cart" */;
+			buildPhases = (
+				DC4FF6421EA2E08C00BBF8E4 /* Sources */,
+				DC4FF6451EA2E08C00BBF8E4 /* Frameworks */,
+				DC4FF6471EA2E08C00BBF8E4 /* Resources */,
+				DC4FF6551EA2E2E700BBF8E4 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TGPControlsDemo-Cart";
+			productName = TGPControlsDemo;
+			productReference = DC4FF6501EA2E08C00BBF8E4 /* TGPControlsDemo-Cart.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC56BDC21E46DEB900AAD0D9 /* TGPControlsDemo-Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC56BDD51E46DEB900AAD0D9 /* Build configuration list for PBXNativeTarget "TGPControlsDemo-Pods" */;
 			buildPhases = (
 				1934555AC11CDE41167D1F71 /* [CP] Check Pods Manifest.lock */,
 				DC56BDBF1E46DEB900AAD0D9 /* Sources */,
@@ -94,9 +147,9 @@
 			);
 			dependencies = (
 			);
-			name = TGPControlsDemo;
+			name = "TGPControlsDemo-Pods";
 			productName = TGPControlsDemo;
-			productReference = DC56BDC31E46DEB900AAD0D9 /* TGPControlsDemo.app */;
+			productReference = DC56BDC31E46DEB900AAD0D9 /* TGPControlsDemo-Pods.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -128,12 +181,23 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC56BDC21E46DEB900AAD0D9 /* TGPControlsDemo */,
+				DC56BDC21E46DEB900AAD0D9 /* TGPControlsDemo-Pods */,
+				DC4FF6401EA2E08C00BBF8E4 /* TGPControlsDemo-Cart */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DC4FF6471EA2E08C00BBF8E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC4FF6481EA2E08C00BBF8E4 /* LaunchScreen.storyboard in Resources */,
+				DC4FF6491EA2E08C00BBF8E4 /* Assets.xcassets in Resources */,
+				DC4FF64A1EA2E08C00BBF8E4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC56BDC11E46DEB900AAD0D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -195,6 +259,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DC4FF6421EA2E08C00BBF8E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC4FF6431EA2E08C00BBF8E4 /* ViewController.swift in Sources */,
+				DC4FF6441EA2E08C00BBF8E4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC56BDBF1E46DEB900AAD0D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,6 +299,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DC4FF64E1EA2E08C00BBF8E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/TGPControlsDemo/TGPControlsDemo-Cart-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftarchitect.TGPControlsDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DC4FF64F1EA2E08C00BBF8E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/TGPControlsDemo/TGPControlsDemo-Cart-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftarchitect.TGPControlsDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		DC56BDD31E46DEB900AAD0D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -327,7 +436,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = TGPControlsDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TGPControlsDemo/TGPControlsDemo-Pods-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftarchitect.TGPControlsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -341,7 +450,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = TGPControlsDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TGPControlsDemo/TGPControlsDemo-Pods-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftarchitect.TGPControlsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +461,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DC4FF64D1EA2E08C00BBF8E4 /* Build configuration list for PBXNativeTarget "TGPControlsDemo-Cart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC4FF64E1EA2E08C00BBF8E4 /* Debug */,
+				DC4FF64F1EA2E08C00BBF8E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DC56BDBE1E46DEB900AAD0D9 /* Build configuration list for PBXProject "TGPControlsDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -361,7 +479,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC56BDD51E46DEB900AAD0D9 /* Build configuration list for PBXNativeTarget "TGPControlsDemo" */ = {
+		DC56BDD51E46DEB900AAD0D9 /* Build configuration list for PBXNativeTarget "TGPControlsDemo-Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC56BDD61E46DEB900AAD0D9 /* Debug */,

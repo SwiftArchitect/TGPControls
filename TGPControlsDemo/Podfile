@@ -2,7 +2,7 @@ platform :ios, '8.0'
 
 use_frameworks!
 
-target 'TGPControlsDemo' do
+target 'TGPControlsDemo-Pods' do
     #pod 'TGPControls', :path => '../../TGPControls'
     pod 'TGPControls'
 end
