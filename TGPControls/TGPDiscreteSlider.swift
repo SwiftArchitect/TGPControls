@@ -230,7 +230,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
     public var ticksDistance:CGFloat {
         get {
             assert(tickCount > 1, "2 ticks minimum \(tickCount)")
-            let segments = CGFloat(max(1, self.tickCount - 1))
+            let segments = CGFloat(max(1, tickCount - 1))
             return trackRectangle.width / segments
         }
         set {}
@@ -543,7 +543,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
                                 height: trackSize.height)
         let trackY = frame.height / 2
         ticksAbscisses = []
-        for iterate in 0 ..< segments {
+        for iterate in 0 ... segments {
             let ratio = Double(iterate) / Double(segments)
             let originX = trackRectangle.origin.x + (CGFloat)(trackSize.width * CGFloat(ratio))
             ticksAbscisses.append(CGPoint(x: originX, y: trackY))
