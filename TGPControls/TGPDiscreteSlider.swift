@@ -128,18 +128,15 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         }
     }
 
-    @IBInspectable public var thumbImage:String? = nil {
+    @IBInspectable public var thumbImage:UIImage? = nil {
         didSet {
-            // Associate image to layer NSBundle.bundleForClass(class)
-            if let imageName = thumbImage,
-                let image = UIImage(named: imageName) {
-                thumbLayer.contents = image.cgImage
+            if let thumbImage = thumbImage {
+                thumbLayer.contents = thumbImage.cgImage
             }
-
             layoutTrack()
         }
     }
-    
+
     @IBInspectable public var thumbShadowRadius:CGFloat = 0 {
         didSet {
             layoutTrack()
@@ -590,9 +587,8 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
                                 + (iOSThumbShadowOffset.height * 2))
 
         case .image:
-            if let thumbImage = thumbImage,
-                let image = UIImage(named: thumbImage) {
-                return image.size
+            if let thumbImage = thumbImage {
+                return thumbImage.size
             }
             fallthrough
 

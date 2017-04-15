@@ -134,9 +134,9 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="incrementValue">
                                                         <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="thumbImage" value="thumb"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="tickImage" value="tick"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="trackImage" value="track"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="trackImage" value="track"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="tickImage" value="tick"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="thumb"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-ht-ahJ" userLabel="pictureLabels" customClass="TGPCamelLabels" customModule="TGPControls">
@@ -374,7 +374,7 @@
                                                         <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="thumbShadowRadius">
-                                                        <real key="value" value="4"/>
+                                                        <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="size" keyPath="thumbShadowOffset">
                                                         <size key="value" width="0.0" height="0.0"/>
@@ -501,4 +501,9 @@
             <point key="canvasLocation" x="344.5" y="332.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="thumb" width="11" height="11"/>
+        <image name="tick" width="2" height="7"/>
+        <image name="track" width="300" height="21"/>
+    </resources>
 </document>
