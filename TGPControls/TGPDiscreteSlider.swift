@@ -71,7 +71,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         }
     }
 
-    @IBInspectable public var tickImage:String? = nil {
+    @IBInspectable public var tickImage:UIImage? = nil {
         didSet {
             layoutTrack()
         }
@@ -90,7 +90,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         }
     }
 
-    @IBInspectable public var trackImage:String? = nil {
+    @IBInspectable public var trackImage:UIImage? = nil {
         didSet {
             layoutTrack()
         }
@@ -128,18 +128,15 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         }
     }
 
-    @IBInspectable public var thumbImage:String? = nil {
+    @IBInspectable public var thumbImage:UIImage? = nil {
         didSet {
-            // Associate image to layer NSBundle.bundleForClass(class)
-            if let imageName = thumbImage,
-                let image = UIImage(named: imageName) {
-                thumbLayer.contents = image.cgImage
+            if let thumbImage = thumbImage {
+                thumbLayer.contents = thumbImage.cgImage
             }
-
             layoutTrack()
         }
     }
-    
+
     @IBInspectable public var thumbShadowRadius:CGFloat = 0 {
         didSet {
             layoutTrack()
@@ -339,8 +336,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
 
                 case .image:
                     // Draw image if exists
-                    if let tickImage = tickImage,
-                        let image = UIImage(named: tickImage),
+                    if let image = tickImage,
                         let cgImage = image.cgImage,
                         let ctx = UIGraphicsGetCurrentContext() {
                         let centered = CGRect(x: rectangle.origin.x + (rectangle.width/2) - (image.size.width/2),
@@ -392,8 +388,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
             trackLayer.frame = CGRect.zero
 
             // Draw image if exists
-            if let trackImage = trackImage,
-                let image = UIImage(named: trackImage),
+            if let image = trackImage,
                 let cgImage = image.cgImage,
                 let ctx = UIGraphicsGetCurrentContext() {
                 let centered = CGRect(x: (frame.width/2) - (image.size.width/2),
@@ -531,8 +526,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         var trackSize = CGSize(width: frame.width - thumbWidth,
                                height: trackHeight)
         if(.image == trackComponentStyle) {
-            if let trackImage = trackImage,
-                let image = UIImage(named: trackImage) {
+            if let image = trackImage {
                 trackSize.width = image.size.width - thumbWidth
             }
         }
@@ -593,9 +587,8 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
                                 + (iOSThumbShadowOffset.height * 2))
 
         case .image:
-            if let thumbImage = thumbImage,
-                let image = UIImage(named: thumbImage) {
-                return image.size
+            if let thumbImage = thumbImage {
+                return thumbImage.size
             }
             fallthrough
 
