@@ -16,8 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2ED040B4FCE5A995907CE089 /* Pods-TGPControlsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo/Pods-TGPControlsDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		2F4F0B11EC6CA5DCEA1DB883 /* Pods-TGPControlsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo/Pods-TGPControlsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		5F81ED809FBD1E88B2963FDC /* Pods_TGPControlsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TGPControlsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC56BDC31E46DEB900AAD0D9 /* TGPControlsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TGPControlsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC56BDC61E46DEB900AAD0D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,21 +46,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5B4B1FA5E4029B453F087869 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2ED040B4FCE5A995907CE089 /* Pods-TGPControlsDemo.debug.xcconfig */,
-				2F4F0B11EC6CA5DCEA1DB883 /* Pods-TGPControlsDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		DC56BDBA1E46DEB900AAD0D9 = {
 			isa = PBXGroup;
 			children = (
 				DC56BDC51E46DEB900AAD0D9 /* TGPControlsDemo */,
 				DC56BDC41E46DEB900AAD0D9 /* Products */,
-				5B4B1FA5E4029B453F087869 /* Pods */,
 				10EC92099730DF4A939701BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -171,7 +159,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		3FF2E09CAFA7D92A488FACF7 /* [CP] Copy Pods Resources */ = {
@@ -335,7 +323,6 @@
 		};
 		DC56BDD61E46DEB900AAD0D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2ED040B4FCE5A995907CE089 /* Pods-TGPControlsDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -350,7 +337,6 @@
 		};
 		DC56BDD71E46DEB900AAD0D9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F4F0B11EC6CA5DCEA1DB883 /* Pods-TGPControlsDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
