@@ -104,26 +104,26 @@ self.stepper.value = Double(sender.value)
 | Tick |       |
 |:-----| ----- |
 | `tickSize` | absolute dimension |
-| `tickImage` | Resource name as string, fits in `tickSize` |
+| `tickImage` | a `UIImage`, fits in `tickSize` (†) |
 | `tickCount` | discrete steps, must be 2 or greater |
 | `ticksDistance` | horizontal spacing _(calculated)_ |
 
 | Track |       |
 |:------| ----- |
 | `trackThickness` | height |
-| `trackImage` | resource name as string, ignores `trackThickness` |
+| `trackImage` | a `UIImage`, ignores `trackThickness` (†) |
 | `minimumTrackTintColor` | track lower side |
 | `maximumTrackTintColor` | track higher side |
 
 | Thumb |       |
 |:------| ----- |
 | `thumbSize` | absolute size |
-| `thumbImage` | dictates `thumbSize` |
+| `thumbImage` | a`UIImage`, dictates `thumbSize` (†) |
 | `thumbTintColor` | background |
 | `thumbShadowRadius` | breaking the _flat design concept_ |
 | `thumbShadowOffset` | applied to `thumbShadowRadius`, may affect control bounds |
 
-
+(†) Introduced in version 4.0.0. Former versions used a resource name as a `string`.
 
 ![image](https://cloud.githubusercontent.com/assets/4073988/5910789/e102af28-a572-11e4-9169-b18555e20eab.png)
 
@@ -154,10 +154,10 @@ Most of the customization can be done inside **Interface Builder**.
 |:------------------| ----- |
 | `offCenter` | **leftmost and righmost labels only**: relative inset expressed as a proportion of individual label width: 0: none, +0.5: nudge in by a half width (fully fit) or -0.5: draw completely outside |
 | `insets` | **leftmost and righmost labels only**: absolute inset expressed in pixels |
-| `emphasisLayout` | emphasized (_selected_) labels vertical alignment ; `.top`, `.centerY` or `.bottom`. Default is `.top` (†) |
-| `regularLayout` | regular labels vertical alignment ; `.top`, `.centerY` or `.bottom`. Default is `.bottom` (†) |
+| `emphasisLayout` | emphasized (_selected_) labels vertical alignment ; `.top`, `.centerY` or `.bottom`. Default is `.top` (‡) |
+| `regularLayout` | regular labels vertical alignment ; `.top`, `.centerY` or `.bottom`. Default is `.bottom` (‡) |
 
-(†) No camel animation will occur when `emphasisLayout` = `regularLayout`, i.e. `.centerY`.
+(‡) No camel animation will occur when `emphasisLayout` = `regularLayout`, i.e. `.centerY`.
 
 | Emphasized labels |       |
 |:------------------| ----- |
