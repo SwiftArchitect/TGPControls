@@ -14,7 +14,6 @@
 		DC4FF64A1EA2E08C00BBF8E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCA1E46DEB900AAD0D9 /* Main.storyboard */; };
 		DC4FF6531EA2E2E700BBF8E4 /* TGPControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4FF6521EA2E2E700BBF8E4 /* TGPControls.framework */; };
 		DC4FF6541EA2E2E700BBF8E4 /* TGPControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC4FF6521EA2E2E700BBF8E4 /* TGPControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC4FF6571EA2E33800BBF8E4 /* Pods_TGPControlsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F81ED809FBD1E88B2963FDC /* Pods_TGPControlsDemo.framework */; };
 		DC56BDC71E46DEB900AAD0D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56BDC61E46DEB900AAD0D9 /* AppDelegate.swift */; };
 		DC56BDC91E46DEB900AAD0D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56BDC81E46DEB900AAD0D9 /* ViewController.swift */; };
 		DC56BDCC1E46DEB900AAD0D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCA1E46DEB900AAD0D9 /* Main.storyboard */; };
@@ -37,7 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5F81ED809FBD1E88B2963FDC /* Pods_TGPControlsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TGPControlsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC8B6A62AC80D5AA9C78FD5 /* Pods-TGPControlsDemo-Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo-Pods.release.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo-Pods/Pods-TGPControlsDemo-Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AC5A730919678470F6218420 /* Pods-TGPControlsDemo-Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo-Pods.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo-Pods/Pods-TGPControlsDemo-Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DC4FF6501EA2E08C00BBF8E4 /* TGPControlsDemo-Cart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TGPControlsDemo-Cart.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC4FF6511EA2E08C00BBF8E4 /* TGPControlsDemo-Cart-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TGPControlsDemo-Cart-Info.plist"; sourceTree = "<group>"; };
 		DC4FF6521EA2E2E700BBF8E4 /* TGPControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TGPControls.framework; path = Carthage/Build/iOS/TGPControls.framework; sourceTree = "<group>"; };
@@ -63,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC4FF6571EA2E33800BBF8E4 /* Pods_TGPControlsDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,9 +73,17 @@
 			isa = PBXGroup;
 			children = (
 				DC4FF6521EA2E2E700BBF8E4 /* TGPControls.framework */,
-				5F81ED809FBD1E88B2963FDC /* Pods_TGPControlsDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CAD470F3B93952B4FF7CBB0A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC5A730919678470F6218420 /* Pods-TGPControlsDemo-Pods.debug.xcconfig */,
+				AAC8B6A62AC80D5AA9C78FD5 /* Pods-TGPControlsDemo-Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		DC56BDBA1E46DEB900AAD0D9 = {
@@ -85,6 +92,7 @@
 				DC56BDC51E46DEB900AAD0D9 /* TGPControlsDemo */,
 				DC56BDC41E46DEB900AAD0D9 /* Products */,
 				10EC92099730DF4A939701BE /* Frameworks */,
+				CAD470F3B93952B4FF7CBB0A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,7 +246,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TGPControlsDemo/Pods-TGPControlsDemo-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TGPControlsDemo-Pods/Pods-TGPControlsDemo-Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A772C50843047EE677ADAF15 /* [CP] Embed Pods Frameworks */ = {
@@ -253,7 +261,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TGPControlsDemo/Pods-TGPControlsDemo-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TGPControlsDemo-Pods/Pods-TGPControlsDemo-Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -432,6 +440,7 @@
 		};
 		DC56BDD61E46DEB900AAD0D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC5A730919678470F6218420 /* Pods-TGPControlsDemo-Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -446,6 +455,7 @@
 		};
 		DC56BDD71E46DEB900AAD0D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAC8B6A62AC80D5AA9C78FD5 /* Pods-TGPControlsDemo-Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
