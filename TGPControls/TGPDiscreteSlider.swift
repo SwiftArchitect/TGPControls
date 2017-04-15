@@ -132,6 +132,8 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         didSet {
             if let thumbImage = thumbImage {
                 thumbLayer.contents = thumbImage.cgImage
+            } else {
+                thumbLayer.contents = nil
             }
             layoutTrack()
         }
