@@ -18,9 +18,9 @@ Ideal to represent steps. *The discrete slider and the camel labels can work in 
 
 ## Compatibility
 1. Written in **Swift 3**, can be integrated with **Swift** or **Obj-C**
-2. `TGPControls` are **AutoLayout**, `IB Designable` and `IB Inspectable` ready (†)
-3. Version 3.0.0 comes with a **Swift 3** demo application, for **iOS 10** down to **8**.
-(†) Earlier 2.x versions provide **iOS 7** support
+2. `TGPControls` are **AutoLayout**, `IB Designable` and `IB Inspectable` ready
+3. Version **4.0.0** comes with a **Swift 3** demo application for **iOS 8** and above.  
+_**iOS 7** supported in versions 2.1.0 and earlier_
 
 ![imagessliderdemo](https://cloud.githubusercontent.com/assets/4073988/6628373/183c7452-c8c2-11e4-9a63-107805bc0cc4.gif)
 
@@ -43,17 +43,27 @@ Use the two classes in tandem to create stunning new controls, which can be resi
 
 Most customization can be done in **Interface Builder** and require **zero coding**.
 
+---
 
-## How to integrate
-Using [CocoaPods](http://cocoapods.org/?q=TGPControls)
-- **iOS 10 and later down to iOS 8**: install CocoaPods 1.2.0+ [CocoaPods-Frameworks](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/), add `use_frameworks!` to your podfile.
-- **iOS 7**: Use TGPControls version 2.1.0
+## How to integrate (iOS 8 and higher)
 
-Using [Carthage](https://github.com/Carthage/Carthage)
+#### Using [CocoaPods](http://cocoapods.org/?q=TGPControls)
+
+```
+platform :ios, '8.0'
+use_frameworks!
+target 'TGPControlsDemo' do
+pod 'TGPControls'
+end
+```
+
+#### Using [Carthage](https://github.com/Carthage/Carthage)
+
 ```
 github "SwiftArchitect/TGPControls"
 ```
-Please note that Carthage is available only for **iOS 8 or higher**
+
+---
 
 Besides customization, which you can do entirely under Interface Builder in iOS 8 and later, both `TGPDiscreteSlider` and `TGPCamelLabels` require surprisingly little code to integrate.
 
@@ -148,7 +158,10 @@ Most of the customization can be done inside **Interface Builder**.
 | `names` | supplies a new set of labels ; supersedes the `tickCount` property, which will return the number of labels. A typical use may be `camelLabels.names = ["OFF", "ON"]` |
 | `ticksDistance` | _override_ the labels spacing entirely ; **prefer** the `ticksListener` mechanism if it is available to you. A typical use may be `camelLabels.ticksDistance = 15` |
 | `value` | which label is emphasized (_selected_) |
-| `backgroundColor` | labels become  *tap-through* (**click-through**) when set to `UIColor.clear` ; use TGPCamelLabels *on top of* other UI elements, **even native iOS objects**!:![uiswitch](https://cloud.githubusercontent.com/assets/4073988/11609813/a3b63526-9b45-11e5-9562-34fc2c9b134d.gif) |
+| `backgroundColor` | labels become  *tap-through* (**click-through**) when set to `UIColor.clear` ; use TGPCamelLabels *on top of* other UI elements, **even native iOS objects**!(*) |
+
+(*)  _You can tap on the `UISwitch` laid out either under or below the camel labels:_
+![uiswitch](https://cloud.githubusercontent.com/assets/4073988/11609813/a3b63526-9b45-11e5-9562-34fc2c9b134d.gif)
 
 | Edges & Animation |       |
 |:------------------| ----- |
@@ -171,9 +184,27 @@ Most of the customization can be done inside **Interface Builder**.
 | `dnFontSize` | size |
 | `dnFontColor` | color |
 
-### Code example
+---
+
+### Code example (Swift 3)
 
 See **TGPControlsDemo** project: `TGPControlsDemo` (Modern Swift syntax + IBInspectable)
+
+**Running the demo using Carthage**
+
+1. `cd TGPControlsDemo`
+2. `carthage update`
+3. open TGPControlsDemo.xcodeproj
+4. Select scheme **TGPControlsDemo Cart**
+5. Build & run
+
+**Running the demo using Cocoapods**
+
+1. `cd TGPControlsDemo`
+2. `pod install`
+3. open TGPControlsDemo.xcworkspace
+4. Select scheme **TGPControlsDemo Pods**
+5. Build & run
 
 ```
 import UIKit
@@ -189,10 +220,9 @@ class ViewController: UIViewController {
 override func viewDidLoad() {
 super.viewDidLoad()
 
-alphabetLabels.names = ["A","B","C","D","E","F",
-"G","H","I","J","K","L","M",
-"N","O","P","Q","R","S",
-"T","U","V","W","X","Y","Z"]
+alphabetLabels.names = [
+"A","B","C","D","E","F","G","H","I","J","K","L","M",
+"N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 switch1Camel.names = ["OFF", "ON"]
 
 // Automatically track tick spacing and value changes
@@ -201,7 +231,6 @@ oneTo10Slider.ticksListener = oneTo10Labels
 }
 
 // MARK: - UISwitch
-
 @IBAction func switch1ValueChanged(_ sender: UISwitch) {
 switch1Camel.value = (sender.isOn) ? 1 : 0
 }
