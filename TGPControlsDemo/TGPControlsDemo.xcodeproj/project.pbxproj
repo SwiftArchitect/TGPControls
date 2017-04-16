@@ -36,8 +36,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AAC8B6A62AC80D5AA9C78FD5 /* Pods-TGPControlsDemo-Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo-Pods.release.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo-Pods/Pods-TGPControlsDemo-Pods.release.xcconfig"; sourceTree = "<group>"; };
-		AC5A730919678470F6218420 /* Pods-TGPControlsDemo-Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGPControlsDemo-Pods.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TGPControlsDemo-Pods/Pods-TGPControlsDemo-Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DC4FF6501EA2E08C00BBF8E4 /* TGPControlsDemo-Cart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TGPControlsDemo-Cart.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC4FF6511EA2E08C00BBF8E4 /* TGPControlsDemo-Cart-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TGPControlsDemo-Cart-Info.plist"; sourceTree = "<group>"; };
 		DC4FF6521EA2E2E700BBF8E4 /* TGPControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TGPControls.framework; path = Carthage/Build/iOS/TGPControls.framework; sourceTree = "<group>"; };
@@ -77,22 +75,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CAD470F3B93952B4FF7CBB0A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AC5A730919678470F6218420 /* Pods-TGPControlsDemo-Pods.debug.xcconfig */,
-				AAC8B6A62AC80D5AA9C78FD5 /* Pods-TGPControlsDemo-Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		DC56BDBA1E46DEB900AAD0D9 = {
 			isa = PBXGroup;
 			children = (
 				DC56BDC51E46DEB900AAD0D9 /* TGPControlsDemo */,
 				DC56BDC41E46DEB900AAD0D9 /* Products */,
 				10EC92099730DF4A939701BE /* Frameworks */,
-				CAD470F3B93952B4FF7CBB0A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -440,7 +428,6 @@
 		};
 		DC56BDD61E46DEB900AAD0D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC5A730919678470F6218420 /* Pods-TGPControlsDemo-Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -455,7 +442,6 @@
 		};
 		DC56BDD71E46DEB900AAD0D9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAC8B6A62AC80D5AA9C78FD5 /* Pods-TGPControlsDemo-Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
