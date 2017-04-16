@@ -279,7 +279,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
     func sendActionsForControlEvents() {
         // Automatic UIControlEventValueChanged notification
         if let ticksListener = ticksListener {
-            ticksListener.tgpValueChanged(value: UInt(value))
+            ticksListener.tgpValueChanged(value: UInt(value-minimumValue))
         }
     }
 
