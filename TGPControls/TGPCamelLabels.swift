@@ -99,11 +99,17 @@ public class TGPCamelLabels: UIControl {
         }
     }
 
-	@IBInspectable public var textAlignment:NSTextAlignment = NSTextAlignment.left {
-		didSet {
-			layoutTrack()
-		}
-	}
+	  @IBInspectable public var numberOfLinesInLabel:Int = 1 {
+		    didSet {
+			      layoutTrack()
+		    }
+	  }
+
+	  @IBInspectable public var textAlignment:NSTextAlignment = NSTextAlignment.left {
+        didSet {
+			      layoutTrack()
+		    }
+    }
 
     // Label off-center to the left and right of the slider
     // expressed in label width. 0: none, -1/2: half outside, 1/2; half inside
@@ -258,6 +264,7 @@ public class TGPCamelLabels: UIControl {
             let centerY = bounds.height / 2.0
             for name in names {
                 let upLabel = UILabel.init()
+                upLabel.numberOfLines = self.numberOfLinesInLabel
                 upLabel.textAlignment = self.textAlignment
                 emphasizedLabels.append(upLabel)
                 upLabel.text = name
@@ -282,6 +289,7 @@ public class TGPCamelLabels: UIControl {
                 addSubview(upLabel)
 
                 let dnLabel = UILabel.init()
+                dnLabel.numberOfLines = self.numberOfLinesInLabel
                 dnLabel.textAlignment = self.textAlignment
                 regularLabels.append(dnLabel)
                 dnLabel.text = name
