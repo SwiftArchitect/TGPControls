@@ -235,7 +235,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         set {}
     }
 
-    public var ticksListener:TGPControlsTicksProtocol? = nil {
+    @objc public var ticksListener:TGPControlsTicksProtocol? = nil {
         didSet {
             ticksListener?.tgpTicksDistanceChanged(ticksDistance: ticksDistance,
                                                    sender: self)
