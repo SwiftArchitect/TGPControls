@@ -71,6 +71,12 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         }
     }
 
+    @IBInspectable public var tickTintColor:UIColor? = nil {
+        didSet {
+            layoutTrack()
+        }
+    }
+
     @IBInspectable public var tickImage:UIImage? = nil {
         didSet {
             layoutTrack()
@@ -309,8 +315,9 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
 
     func drawTicks() {
         ticksLayer.frame = bounds
-        if let backgroundColor = tintColor {
-            ticksLayer.backgroundColor = backgroundColor.cgColor
+
+        if let tickColor = tickTintColor ?? tintColor {
+            ticksLayer.backgroundColor = tickColor.cgColor
         }
 
         let path = UIBezierPath()
