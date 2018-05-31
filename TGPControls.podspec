@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => "MIT", :file => "LICENSE" }
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  spec.author             = { "Xavier Schott" => "http://swiftarchitect.com/swiftarchitect/" }
+  spec.author             = { "Xavier Schott" => "https://www.swiftarchitect.com/swiftarchitect/" }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.platform     = :ios
