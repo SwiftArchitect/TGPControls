@@ -77,34 +77,34 @@ class ViewController: UIViewController {
 
     // MARK: - UIControlEvents
 
-    func touchDown(_ sender: UIControl, event:UIEvent) {
+    @objc func touchDown(_ sender: UIControl, event:UIEvent) {
         controlEventsLabel.text = "touchDown"
     }
-    func touchDownRepeat(_ sender: UIControl, event:UIEvent) {
+    @objc func touchDownRepeat(_ sender: UIControl, event:UIEvent) {
         controlEventsLabel.text = "touchDownRepeat"
     }
-    func touchDragInside(_ sender: UIControl, event:UIEvent) {
+    @objc func touchDragInside(_ sender: UIControl, event:UIEvent) {
         controlEventsLabel.text = "touchDragInside"
     }
-    func touchDragOutside(_ sender: UIControl, event:UIEvent) {
+    @objc func touchDragOutside(_ sender: UIControl, event:UIEvent) {
         controlEventsLabel.text = "touchDragOutside"
     }
-    func touchDragEnter(_ sender: UIControl, event:UIEvent) {
+    @objc func touchDragEnter(_ sender: UIControl, event:UIEvent) {
         controlEventsLabel.text = "touchDragEnter"
     }
-    func touchDragExit(_ sender: UIControl, event:UIEvent) {
+    @objc func touchDragExit(_ sender: UIControl, event:UIEvent) {
         controlEventsLabel.text = "touchDragExit"
     }
-    func touchUpInside(_ sender: UIControl, event:UIEvent) {
+    @objc func touchUpInside(_ sender: UIControl, event:UIEvent) {
         controlEventsLabel.text = "touchUpInside"
     }
-    func touchUpOutside(_ sender: UIControl, event:UIEvent) {
+    @objc func touchUpOutside(_ sender: UIControl, event:UIEvent) {
         controlEventsLabel.text = "touchUpOutside"
     }
-    func touchCancel(_ sender: UIControl, event:UIEvent) {
+    @objc func touchCancel(_ sender: UIControl, event:UIEvent) {
         controlEventsLabel.text = "touchCancel"
     }
-    func valueChanged(_ sender: TGPDiscreteSlider, event:UIEvent) {
+    @objc func valueChanged(_ sender: TGPDiscreteSlider, event:UIEvent) {
         controlEventsLabel.text = "valueChanged"
         stepper.value = Double(sender.value)
     }

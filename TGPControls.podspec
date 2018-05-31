@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "TGPControls"
-  spec.version      = "4.0.0"
+  spec.version      = "4.0.1"
   spec.summary      = "Custom animated iOS controls: Animated discrete slider, animated labels"
 
   spec.description  = <<-DESC
@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  spec.source       = { :git => "https://github.com/SwiftArchitect/TGPControls.git", :tag => "v4.0.0" }
+  spec.source       = { :git => "https://github.com/SwiftArchitect/TGPControls.git", :tag => "v4.0.1" }
   spec.source_files = "TGPControls/**/*.{swift}"
   spec.exclude_files = "TGPControlsDemo/*"
 
