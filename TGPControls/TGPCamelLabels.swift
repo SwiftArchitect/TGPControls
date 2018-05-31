@@ -29,13 +29,21 @@
 
 import UIKit
 
+//  Interface builder hides the IBInspectable for UIControl
+#if TARGET_INTERFACE_BUILDER
+public class TGPCamelLabels_INTERFACE_BUILDER:UIView {
+}
+#else // !TARGET_INTERFACE_BUILDER
+public class TGPCamelLabels_INTERFACE_BUILDER:UIControl {
+}
+#endif // TARGET_INTERFACE_BUILDER
 
 @IBDesignable
-public class TGPCamelLabels: UIControl {
+public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
 
     let validAttributes = [NSLayoutAttribute.top.rawValue,      //  3
-                           NSLayoutAttribute.centerY.rawValue,  // 10
-                           NSLayoutAttribute.bottom.rawValue]   //  4
+        NSLayoutAttribute.centerY.rawValue,  // 10
+        NSLayoutAttribute.bottom.rawValue]   //  4
 
     // Only used if labels.count < 1
     @IBInspectable public var tickCount:Int {

@@ -41,10 +41,10 @@ public enum ComponentStyle:Int {
 //  Interface builder hides the IBInspectable for UIControl
 #if TARGET_INTERFACE_BUILDER
 public class TGPSlider_INTERFACE_BUILDER:UIView {
-    }
+}
 #else // !TARGET_INTERFACE_BUILDER
-    public class TGPSlider_INTERFACE_BUILDER:UIControl {
-    }
+public class TGPSlider_INTERFACE_BUILDER:UIControl {
+}
 #endif // TARGET_INTERFACE_BUILDER
 
 @IBDesignable
@@ -507,10 +507,10 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
             // Shadow
             if(shadowRadius != 0.0) {
                 #if TARGET_INTERFACE_BUILDER
-                    thumbLayer.shadowOffset = CGSize(width: shadowOffset.width,
-                                                     height: -shadowOffset.height)
+                thumbLayer.shadowOffset = CGSize(width: shadowOffset.width,
+                                                 height: -shadowOffset.height)
                 #else // !TARGET_INTERFACE_BUILDER
-                    thumbLayer.shadowOffset = shadowOffset
+                thumbLayer.shadowOffset = shadowOffset
                 #endif // TARGET_INTERFACE_BUILDER
 
                 thumbLayer.shadowRadius = shadowRadius
@@ -592,8 +592,8 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
                 + (iOSThumbShadowRadius * 2)
                 + (iOSThumbShadowOffset.width * 2),
                           height: 28.0
-                                + (iOSThumbShadowRadius * 2)
-                                + (iOSThumbShadowOffset.height * 2))
+                            + (iOSThumbShadowRadius * 2)
+                            + (iOSThumbShadowOffset.height * 2))
 
         case .image:
             if let thumbImage = thumbImage {
