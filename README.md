@@ -24,7 +24,7 @@ Ideal to represent steps. *The discrete slider and the camel labels can work in 
 ## Compatibility
 1. Written in **Swift 3**, can be integrated with **Swift** or **Obj-C**
 2. `TGPControls` are **AutoLayout**, `IB Designable` and `IB Inspectable` ready
-3. Version **4.0.0** comes with a **Swift 3** demo application for **iOS 8** and above.  
+3. Version **5.0.1** comes with a **Swift 4** demo application for **iOS 8** and above.  
 _**iOS 7** supported in versions 2.1.0 and earlier_
 
 ![imagessliderdemo](https://cloud.githubusercontent.com/assets/4073988/6628373/183c7452-c8c2-11e4-9a63-107805bc0cc4.gif)

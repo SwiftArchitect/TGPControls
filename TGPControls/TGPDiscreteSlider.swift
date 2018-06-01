@@ -1,32 +1,3 @@
-//    @file:    TGPDiscreteSlider.swift
-//    @project: TGPControls
-//
-//    @author:  Xavier Schott
-//              mailto://xschott@gmail.com
-//              http://thegothicparty.com
-//              tel://+18089383634
-//
-//    @license: http://opensource.org/licenses/MIT
-//    Copyright (c) 2017, Xavier Schott
-//
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the "Software"), to deal
-//    in the Software without restriction, including without limitation the rights
-//    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//    copies of the Software, and to permit persons to whom the Software is
-//    furnished to do so, subject to the following conditions:
-//
-//    The above copyright notice and this permission notice shall be included in
-//    all copies or substantial portions of the Software.
-//
-//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//    THE SOFTWARE.
-
 import UIKit
 
 public enum ComponentStyle:Int {
@@ -37,14 +8,13 @@ public enum ComponentStyle:Int {
     case image
 }
 
-
 //  Interface builder hides the IBInspectable for UIControl
 #if TARGET_INTERFACE_BUILDER
 public class TGPSlider_INTERFACE_BUILDER:UIView {
-    }
+}
 #else // !TARGET_INTERFACE_BUILDER
-    public class TGPSlider_INTERFACE_BUILDER:UIControl {
-    }
+public class TGPSlider_INTERFACE_BUILDER:UIControl {
+}
 #endif // TARGET_INTERFACE_BUILDER
 
 @IBDesignable
@@ -67,6 +37,12 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
     @IBInspectable public var tickCount:Int = 11 {
         didSet {
             tickCount = max(2, tickCount)
+            layoutTrack()
+        }
+    }
+
+    @IBInspectable public var tickTintColor:UIColor? = nil {
+        didSet {
             layoutTrack()
         }
     }
@@ -309,8 +285,9 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
 
     func drawTicks() {
         ticksLayer.frame = bounds
-        if let backgroundColor = tintColor {
-            ticksLayer.backgroundColor = backgroundColor.cgColor
+
+        if let tickColor = tickTintColor ?? tintColor {
+            ticksLayer.backgroundColor = tickColor.cgColor
         }
 
         let path = UIBezierPath()
@@ -500,10 +477,10 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
             // Shadow
             if(shadowRadius != 0.0) {
                 #if TARGET_INTERFACE_BUILDER
-                    thumbLayer.shadowOffset = CGSize(width: shadowOffset.width,
-                                                     height: -shadowOffset.height)
+                thumbLayer.shadowOffset = CGSize(width: shadowOffset.width,
+                                                 height: -shadowOffset.height)
                 #else // !TARGET_INTERFACE_BUILDER
-                    thumbLayer.shadowOffset = shadowOffset
+                thumbLayer.shadowOffset = shadowOffset
                 #endif // TARGET_INTERFACE_BUILDER
 
                 thumbLayer.shadowRadius = shadowRadius
@@ -585,8 +562,8 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
                 + (iOSThumbShadowRadius * 2)
                 + (iOSThumbShadowOffset.width * 2),
                           height: 28.0
-                                + (iOSThumbShadowRadius * 2)
-                                + (iOSThumbShadowOffset.height * 2))
+                            + (iOSThumbShadowRadius * 2)
+                            + (iOSThumbShadowOffset.height * 2))
 
         case .image:
             if let thumbImage = thumbImage {
