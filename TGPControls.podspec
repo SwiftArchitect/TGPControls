@@ -23,6 +23,7 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios
   spec.ios.deployment_target = '8.0'
   spec.requires_arc = true
+  spec.swift_version = '4.0'
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.source       = { :git => "https://github.com/SwiftArchitect/TGPControls.git", :tag => "v5.0.1" }
