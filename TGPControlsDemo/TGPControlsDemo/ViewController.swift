@@ -18,14 +18,35 @@ class ViewController: UIViewController {
     @IBOutlet weak var dualColorSlider: TGPDiscreteSlider!
     @IBOutlet weak var stepper: UIStepper!
 
+    private func localizedStrings(_ key: String) -> [String] {
+        return NSLocalizedString(key, comment: "")
+            .split(separator: " ")
+            .map({ (substring) -> String in
+                return "\(substring)"
+            })
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        alphabetLabels.names = ["A","B","C","D","E","F", "G","H","I","J","K","L","M",
-                                     "N","O","P","Q","R","S", "T","U","V","W","X","Y","Z"]
-        pictureLabels.names = ["orient", "occident", "zénith", "nadir", "septentrion", "midi"]
-        switch1Camel.names = ["OFF", "ON"]
-        switch2Camel.names = ["O", "l"]
+        oneTo10Labels.names = localizedStrings("oneTo10Labels.numbers")
+
+        alphabetLabels.names = localizedStrings("alphabetLabels.letters")
+        alphabetSlider.tickCount = alphabetLabels.names.count // Number of letters in the given alphabet
+
+        pictureLabels.names = [NSLocalizedString("pictureLabels.east", comment: ""),
+                               NSLocalizedString("pictureLabels.west", comment: ""),
+                               NSLocalizedString("pictureLabels.up", comment: ""),
+                               NSLocalizedString("pictureLabels.down", comment: ""),
+                               NSLocalizedString("pictureLabels.north", comment: ""),
+                               NSLocalizedString("pictureLabels.south", comment: "")]
+
+        switch1Camel.names = [NSLocalizedString("switch1Camel.off", comment: ""),
+                              NSLocalizedString("switch1Camel.on", comment: "")]
+
+        switch2Camel.names = [NSLocalizedString("switch2Camel.off", comment: ""),
+                              NSLocalizedString("switch2Camel.on", comment: "")]
+
 
         // Automatically track tick spacing changes and UIControlEventValueChanged
         alphabetSlider.ticksListener = alphabetLabels

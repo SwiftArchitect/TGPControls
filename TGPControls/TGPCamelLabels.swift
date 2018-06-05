@@ -78,11 +78,11 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
         }
     }
 
-	@IBInspectable public var numberOfLinesInLabel:Int = 1 {
-		didSet {
-			layoutTrack()
-		}
-	}
+    @IBInspectable public var numberOfLinesInLabel:Int = 1 {
+        didSet {
+            layoutTrack()
+        }
+    }
 
     // Label off-center to the left and right of the slider
     // expressed in label width. 0: none, -1/2: half outside, 1/2; half inside
@@ -166,6 +166,7 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
     var lastValue = NSNotFound
     var emphasizedLabels:[UILabel] = []
     var regularLabels:[UILabel] = []
+    var localeCharacterDirection = CFLocaleLanguageDirection.leftToRight
 
     // MARK: UIView
 
@@ -195,6 +196,11 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
     // MARK: TGPCamelLabels
 
     func initProperties() {
+        if let systemLocale = CFLocaleCopyCurrent(),
+            let localeIdentifier = CFLocaleGetIdentifier(systemLocale) {
+            localeCharacterDirection = CFLocaleGetLanguageCharacterDirection(localeIdentifier.rawValue)
+        }
+
         debugNames(count: 10)
         layoutTrack()
     }
@@ -234,10 +240,16 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
         let count = names.count
         if count > 0 {
             var centerX = (bounds.width - (CGFloat(count - 1) * ticksDistance))/2.0
+            if .rightToLeft == localeCharacterDirection {
+                centerX = bounds.width - centerX
+            }
+            let tickSpacing = (.rightToLeft == localeCharacterDirection)
+                ? -ticksDistance
+                : ticksDistance
             let centerY = bounds.height / 2.0
             for name in names {
                 let upLabel = UILabel.init()
-                upLabel.numberOfLines = self.numberOfLinesInLabel
+                upLabel.numberOfLines = numberOfLinesInLabel
                 emphasizedLabels.append(upLabel)
                 upLabel.text = name
                 if let upFontName = upFontName {
@@ -261,7 +273,7 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
                 addSubview(upLabel)
 
                 let dnLabel = UILabel.init()
-                dnLabel.numberOfLines = self.numberOfLinesInLabel
+                dnLabel.numberOfLines = numberOfLinesInLabel
                 regularLabels.append(dnLabel)
                 dnLabel.text = name
                 if let downFontName = downFontName {
@@ -279,15 +291,21 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
                 }()
                 addSubview(dnLabel)
 
-                centerX += ticksDistance
+                centerX += tickSpacing
             }
 
             // Fix left and right label, if there are at least 2 labels
             if names.count > 1 {
-                insetLabel(emphasizedLabels.first, withInset: insets, andMultiplier: offCenter)
-                insetLabel(emphasizedLabels.last, withInset: -insets, andMultiplier: -offCenter)
-                insetLabel(regularLabels.first, withInset: insets, andMultiplier: offCenter)
-                insetLabel(regularLabels.last, withInset: -insets, andMultiplier: -offCenter)
+                let localeInsets = (.rightToLeft == localeCharacterDirection)
+                    ? -insets
+                    : insets
+                let localeOffCenter = (.rightToLeft == localeCharacterDirection)
+                    ? -offCenter
+                    : offCenter
+                insetLabel(emphasizedLabels.first, withInset: localeInsets, andMultiplier: localeOffCenter)
+                insetLabel(emphasizedLabels.last, withInset: -localeInsets, andMultiplier: -localeOffCenter)
+                insetLabel(regularLabels.first, withInset: localeInsets, andMultiplier: localeOffCenter)
+                insetLabel(regularLabels.last, withInset: -localeInsets, andMultiplier: -localeOffCenter)
             }
 
             dockEffect(duration:0.0)

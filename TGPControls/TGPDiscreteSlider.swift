@@ -221,15 +221,18 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
     var intValue:Int = 0
     var intMinimumValue = -5
 
-    var ticksAbscisses:[CGPoint] = []
-    var thumbAbscisse:CGFloat = 0
+    var ticksAbscissae:[CGPoint] = []
+    var thumbAbscissa:CGFloat = 0
     var thumbLayer = CALayer()
     var leftTrackLayer = CALayer()
     var rightTrackLayer = CALayer()
     var trackLayer = CALayer()
+    var leadingTrackLayer: CALayer!
+    var trailingTrackLayer: CALayer!
     var ticksLayer = CALayer()
     var trackRectangle = CGRect.zero
     var touchedInside = false
+    var localeCharacterDirection = CFLocaleLanguageDirection.leftToRight
 
     let iOSThumbShadowRadius:CGFloat = 4
     let iOSThumbShadowOffset = CGSize(width:0, height:3)
@@ -262,16 +265,29 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
     // MARK: TGPDiscreteSlider
 
     func initProperties() {
+        if let systemLocale = CFLocaleCopyCurrent(),
+            let localeIdentifier = CFLocaleGetIdentifier(systemLocale) {
+            localeCharacterDirection = CFLocaleGetLanguageCharacterDirection(localeIdentifier.rawValue)
+        }
+
+        leadingTrackLayer = (.rightToLeft == localeCharacterDirection)
+            ? rightTrackLayer
+            : leftTrackLayer
+        trailingTrackLayer = (.rightToLeft == localeCharacterDirection)
+            ? leftTrackLayer
+            : rightTrackLayer
+
         // Track is a clear clipping layer, and left + right sublayers, which brings in free animation
         trackLayer.masksToBounds = true
         trackLayer.backgroundColor = UIColor.clear.cgColor
         layer.addSublayer(trackLayer)
-        if let backgroundColor = tintColor {
-            leftTrackLayer.backgroundColor = backgroundColor.cgColor
-        }
         trackLayer.addSublayer(leftTrackLayer)
-        rightTrackLayer.backgroundColor = maximumTrackTintColor.cgColor
         trackLayer.addSublayer(rightTrackLayer)
+
+        if let backgroundColor = tintColor {
+            leadingTrackLayer.backgroundColor = backgroundColor.cgColor
+        }
+        rightTrackLayer.backgroundColor = maximumTrackTintColor.cgColor
 
         // Ticks in between track and thumb
         layer.addSublayer(ticksLayer)
@@ -300,7 +316,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
             fallthrough
 
         case .image:
-            for originPoint in ticksAbscisses {
+            for originPoint in ticksAbscissae {
                 let rectangle = CGRect(x: originPoint.x-(tickSize.width/2),
                                        y: originPoint.y-(tickSize.height/2),
                                        width: tickSize.width,
@@ -391,13 +407,9 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
 
         leftTrackLayer.frame = {
             var frame = trackLayer.bounds
-            frame.size.width = thumbAbscisse - trackRectangle.minX
+            frame.size.width = thumbAbscissa - trackRectangle.minX
             return frame
         }()
-
-        if let backgroundColor = minimumTrackTintColor ?? tintColor {
-            leftTrackLayer.backgroundColor = backgroundColor.cgColor
-        }
 
         rightTrackLayer.frame = {
             var frame = trackLayer.bounds
@@ -405,7 +417,11 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
             frame.origin.x = leftTrackLayer.frame.maxX
             return frame
         }()
-        rightTrackLayer.backgroundColor = maximumTrackTintColor.cgColor
+
+        if let backgroundColor = minimumTrackTintColor ?? tintColor {
+            leadingTrackLayer.backgroundColor = backgroundColor.cgColor
+        }
+        trailingTrackLayer.backgroundColor = maximumTrackTintColor.cgColor
     }
 
     func drawThumb() {
@@ -414,7 +430,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
             let thumbSizeForStyle = thumbSizeIncludingShadow()
             let thumbWidth = thumbSizeForStyle.width
             let thumbHeight = thumbSizeForStyle.height
-            let rectangle = CGRect(x:thumbAbscisse - (thumbWidth / 2),
+            let rectangle = CGRect(x:thumbAbscissa - (thumbWidth / 2),
                                    y: (frame.height - thumbHeight)/2,
                                    width: thumbWidth,
                                    height: thumbHeight)
@@ -515,11 +531,11 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
                                 width: trackSize.width,
                                 height: trackSize.height)
         let trackY = frame.height / 2
-        ticksAbscisses = []
+        ticksAbscissae = []
         for iterate in 0 ... segments {
             let ratio = Double(iterate) / Double(segments)
             let originX = trackRectangle.origin.x + (CGFloat)(trackSize.width * CGFloat(ratio))
-            ticksAbscisses.append(CGPoint(x: originX, y: trackY))
+            ticksAbscissae.append(CGPoint(x: originX, y: trackY))
         }
         layoutThumb()
 
@@ -536,7 +552,10 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         let nonZeroIncrement = ((0 == incrementValue) ? 1 : incrementValue)
         var thumbRatio = Double(value - minimumValue) / Double(segments * nonZeroIncrement)
         thumbRatio = max(0.0, min(thumbRatio, 1.0)) // Normalized
-        thumbAbscisse = trackRectangle.origin.x + (CGFloat)(trackRectangle.width * CGFloat(thumbRatio))
+        thumbRatio = (.rightToLeft == localeCharacterDirection)
+            ? 1.0 - thumbRatio
+            : thumbRatio
+        thumbAbscissa = trackRectangle.origin.x + (CGFloat)(trackRectangle.width * CGFloat(thumbRatio))
     }
 
     func thumbSizeIncludingShadow() -> CGSize {
@@ -628,14 +647,14 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
     func touchDown(_ touches: Set<UITouch>, animationDuration duration:TimeInterval) {
         if let touch = touches.first {
             let location = touch.location(in: touch.view)
-            moveThumbTo(abscisse: location.x, animationDuration: duration)
+            moveThumbTo(abscissa: location.x, animationDuration: duration)
         }
     }
 
     func touchUp(_ touches: Set<UITouch>) {
         if let touch = touches.first {
             let location = touch.location(in: touch.view)
-            let tick = pickTickFromSliderPosition(abscisse: location.x)
+            let tick = pickTickFromSliderPosition(abscissa: location.x)
             moveThumbToTick(tick: tick)
         }
     }
@@ -665,14 +684,14 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         setNeedsDisplay()
     }
 
-    func moveThumbTo(abscisse:CGFloat, animationDuration duration:TimeInterval) {
+    func moveThumbTo(abscissa:CGFloat, animationDuration duration:TimeInterval) {
         let leftMost = trackRectangle.minX
         let rightMost = trackRectangle.maxX
 
-        thumbAbscisse = max(leftMost, min(abscisse, rightMost))
+        thumbAbscissa = max(leftMost, min(abscissa, rightMost))
         CATransaction.setAnimationDuration(duration)
 
-        let tick = pickTickFromSliderPosition(abscisse: thumbAbscisse)
+        let tick = pickTickFromSliderPosition(abscissa: thumbAbscissa)
         let nonZeroIncrement = ((0 == incrementValue) ? 1 : incrementValue)
         let intValue = Int(minimumValue) + (Int(tick) * nonZeroIncrement)
         if intValue != self.intValue {
@@ -683,11 +702,14 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         setNeedsDisplay()
     }
 
-    func pickTickFromSliderPosition(abscisse: CGFloat) -> UInt {
+    func pickTickFromSliderPosition(abscissa: CGFloat) -> UInt {
         let leftMost = trackRectangle.minX
         let rightMost = trackRectangle.maxX
-        let clampedAbscisse = max(leftMost, min(abscisse, rightMost))
-        let ratio = Double(clampedAbscisse - leftMost) / Double(rightMost - leftMost)
+        let clampedAbscissa = max(leftMost, min(abscissa, rightMost))
+        var ratio = Double(clampedAbscissa - leftMost) / Double(rightMost - leftMost)
+        ratio = (.rightToLeft == localeCharacterDirection)
+            ? 1.0 - ratio
+            : ratio
         let segments = max(1, tickCount - 1)
         return UInt(round( Double(segments) * ratio))
     }
