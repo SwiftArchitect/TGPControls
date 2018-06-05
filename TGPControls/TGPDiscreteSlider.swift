@@ -208,7 +208,6 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
             let segments = CGFloat(max(1, tickCount - 1))
             return trackRectangle.width / segments
         }
-        set {}
     }
 
     @objc public var ticksListener:TGPControlsTicksProtocol? = nil {
