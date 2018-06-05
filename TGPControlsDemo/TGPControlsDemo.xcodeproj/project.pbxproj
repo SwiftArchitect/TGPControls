@@ -20,6 +20,10 @@
 		DC56BDCC1E46DEB900AAD0D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCA1E46DEB900AAD0D9 /* Main.storyboard */; };
 		DC56BDCE1E46DEB900AAD0D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCD1E46DEB900AAD0D9 /* Assets.xcassets */; };
 		DC56BDD11E46DEB900AAD0D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC56BDCF1E46DEB900AAD0D9 /* LaunchScreen.storyboard */; };
+		DC7677B820C5C5BA006155F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7677B620C5C5BA006155F3 /* Localizable.strings */; };
+		DC7677B920C5C5BA006155F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7677B620C5C5BA006155F3 /* Localizable.strings */; };
+		DC7677BD20C5C712006155F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7677BB20C5C712006155F3 /* InfoPlist.strings */; };
+		DC7677BE20C5C712006155F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7677BB20C5C712006155F3 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +54,11 @@
 		DC56BDCD1E46DEB900AAD0D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC56BDD01E46DEB900AAD0D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC56BDD21E46DEB900AAD0D9 /* TGPControlsDemo-Pods-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TGPControlsDemo-Pods-Info.plist"; sourceTree = "<group>"; };
+		DC7677B720C5C5BA006155F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DC7677BA20C5C5E5006155F3 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DC7677BC20C5C712006155F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC7677BF20C5C769006155F3 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DCEE05AD20C20D650081CD34 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +128,8 @@
 				DC56BDCF1E46DEB900AAD0D9 /* LaunchScreen.storyboard */,
 				DC56BDD21E46DEB900AAD0D9 /* TGPControlsDemo-Pods-Info.plist */,
 				DC4FF6511EA2E08C00BBF8E4 /* TGPControlsDemo-Cart-Info.plist */,
+				DC7677B620C5C5BA006155F3 /* Localizable.strings */,
+				DC7677BB20C5C712006155F3 /* InfoPlist.strings */,
 			);
 			path = TGPControlsDemo;
 			sourceTree = "<group>";
@@ -188,6 +199,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = DC56BDBA1E46DEB900AAD0D9;
 			productRefGroup = DC56BDC41E46DEB900AAD0D9 /* Products */;
@@ -206,8 +218,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC4FF6481EA2E08C00BBF8E4 /* LaunchScreen.storyboard in Resources */,
+				DC7677B920C5C5BA006155F3 /* Localizable.strings in Resources */,
 				DC4FF6491EA2E08C00BBF8E4 /* Assets.xcassets in Resources */,
 				DC4FF64A1EA2E08C00BBF8E4 /* Main.storyboard in Resources */,
+				DC7677BE20C5C712006155F3 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,8 +230,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC56BDD11E46DEB900AAD0D9 /* LaunchScreen.storyboard in Resources */,
+				DC7677B820C5C5BA006155F3 /* Localizable.strings in Resources */,
 				DC56BDCE1E46DEB900AAD0D9 /* Assets.xcassets in Resources */,
 				DC56BDCC1E46DEB900AAD0D9 /* Main.storyboard in Resources */,
+				DC7677BD20C5C712006155F3 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +319,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DC56BDCB1E46DEB900AAD0D9 /* Base */,
+				DCEE05AD20C20D650081CD34 /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -313,6 +330,24 @@
 				DC56BDD01E46DEB900AAD0D9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DC7677B620C5C5BA006155F3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC7677B720C5C5BA006155F3 /* Base */,
+				DC7677BA20C5C5E5006155F3 /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		DC7677BB20C5C712006155F3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC7677BC20C5C712006155F3 /* Base */,
+				DC7677BF20C5C769006155F3 /* ar */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -359,6 +394,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -419,6 +455,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

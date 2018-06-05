@@ -22,10 +22,11 @@ Ideal to select individual steps, star rating, integers, rainbow colors, slices 
 Ideal to represent steps. *The discrete slider and the camel labels can work in unison.*
 
 ## Compatibility
-1. Written in **Swift 3**, can be integrated with **Swift** or **Obj-C**
+1. Written in **Swift 4**, can be integrated with **Swift** or **Obj-C**
 2. `TGPControls` are **AutoLayout**, `IB Designable` and `IB Inspectable` ready
-3. Version **5.0.1** comes with a **Swift 4** demo application for **iOS 8** and above.  
+3. Version **5.0.1** and better comes with a **Swift 4** demo application for **iOS 8** and above.  
 _**iOS 7** supported in versions 2.1.0 and earlier_
+4. Automatic support for both left-to-right and right-to-left languages
 
 ![imagessliderdemo](https://cloud.githubusercontent.com/assets/4073988/6628373/183c7452-c8c2-11e4-9a63-107805bc0cc4.gif)
 
@@ -82,7 +83,9 @@ All graphic aspects, such as physical spacing of the ticks or physical width of 
 ```
 discreteSlider.ticksListener = camelLabels
 ```
+
 ![complete](https://cloud.githubusercontent.com/assets/4073988/5912616/26cf1b0a-a58b-11e4-92f7-f9dbcd53c413.gif)
+
 That's all!  
 Through the `TGPControlsTicksProtocol`, the camelLabels listen to _value_ and _size_ changes. You may want to adopt this protocol to handle changes, or use the traditional `UIControl` notifications:
 
@@ -118,13 +121,16 @@ self.stepper.value = Double(sender.value)
 
 | Tick |       |
 |:-----| ----- |
+| `tickStyle` | See style property |
 | `tickSize` | absolute dimension |
-| `tickImage` | a `UIImage`, fits in `tickSize` (†) |
 | `tickCount` | discrete steps, must be 2 or greater |
+| `tickTintColor` | takes precedence over the control `tintColor` |
+| `tickImage` | a `UIImage`, fits in `tickSize` (†) |
 | `ticksDistance` | horizontal spacing _(calculated)_ |
 
 | Track |       |
 |:------| ----- |
+| `trackStyle` | See style property |
 | `trackThickness` | height |
 | `trackImage` | a `UIImage`, ignores `trackThickness` (†) |
 | `minimumTrackTintColor` | track lower side |
@@ -132,9 +138,10 @@ self.stepper.value = Double(sender.value)
 
 | Thumb |       |
 |:------| ----- |
+| `thumbStyle` | See style property |
 | `thumbSize` | absolute size |
-| `thumbImage` | a`UIImage`, dictates `thumbSize` (†) |
 | `thumbTintColor` | background |
+| `thumbImage` | a`UIImage`, dictates `thumbSize` (†) |
 | `thumbShadowRadius` | breaking the _flat design concept_ |
 | `thumbShadowOffset` | applied to `thumbShadowRadius`, may affect control bounds |
 
@@ -159,8 +166,9 @@ Most of the customization can be done inside **Interface Builder**.
 
 | Property |       |
 |:---------| ----- |
-| `ticksListener` | ties a discrete slider to its camel labels. This is your most robust method to not only ensure that the layout of both controls match exactly, but also adjust this spacing when orientation changes. A typical use may be `discreteSlider.ticksListener = camelLabels` |
+| `tickCount` | **design only** (_preferrably not to be used_): the number of ticks is driven by the number of elements in the `names` array |
 | `names` | supplies a new set of labels ; supersedes the `tickCount` property, which will return the number of labels. A typical use may be `camelLabels.names = ["OFF", "ON"]` |
+| `ticksListener` | ties a discrete slider to its camel labels. This is your most robust method to not only ensure that the layout of both controls match exactly, but also adjust this spacing when orientation changes. A typical use may be `discreteSlider.ticksListener = camelLabels` |
 | `ticksDistance` | _override_ the labels spacing entirely ; **prefer** the `ticksListener` mechanism if it is available to you. A typical use may be `camelLabels.ticksDistance = 15` |
 | `value` | which label is emphasized (_selected_) |
 | `backgroundColor` | labels become  *tap-through* (**click-through**) when set to `UIColor.clear` ; use TGPCamelLabels *on top of* other UI elements, **even native iOS objects**!(*) |
@@ -170,6 +178,7 @@ Most of the customization can be done inside **Interface Builder**.
 
 | Edges & Animation |       |
 |:------------------| ----- |
+| `numberOfLiness` | Support for multiple lines labels |
 | `offCenter` | **leftmost and righmost labels only**: relative inset expressed as a proportion of individual label width: 0: none, +0.5: nudge in by a half width (fully fit) or -0.5: draw completely outside |
 | `insets` | **leftmost and righmost labels only**: absolute inset expressed in pixels |
 | `emphasisLayout` | emphasized (_selected_) labels vertical alignment ; `.top`, `.centerY` or `.bottom`. Default is `.top` (‡) |

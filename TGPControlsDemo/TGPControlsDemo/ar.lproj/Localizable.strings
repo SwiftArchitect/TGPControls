@@ -1,0 +1,15 @@
+"oneTo10Labels.numbers" = "١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩ ١٠";
+"alphabetLabels.letters" = "ا ب ج د ه و ز ح ط ي ك ل م ن س ع ف ص ق ر ش ت ث خ ذ ض ظ غ";
+
+"pictureLabels.east" = "الشرق";
+"pictureLabels.west" = "غرب";
+"pictureLabels.up" = "إلى فوق";
+"pictureLabels.down" = "نزولا";
+"pictureLabels.north" = "شمال";
+"pictureLabels.south" = "جنوب";
+
+"switch1Camel.off" = "اطفاء";
+"switch1Camel.on" = "تشغيل";
+
+"switch2Camel.off" = "٠";
+"switch2Camel.on" = "١";
