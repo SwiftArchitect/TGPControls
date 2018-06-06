@@ -3,8 +3,23 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'TGPControlsDemo-Pods' do
-    pod 'TGPControls', :path => '../../TGPControls'
-    #pod 'TGPControls'
+    #pod 'TGPControls', :path => '../../TGPControls'
+    pod 'TGPControls'
 end
 
+# Failed to render and update auto layout status for UIViewController : dlopen(Cosmos.framework, 1): no suitable image found
+# https://github.com/CocoaPods/CocoaPods/issues/7606#issuecomment-381279098
+# https://stackoverflow.com/a/49936237/218152
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings.delete('CODE_SIGNING_ALLOWED')
+            config.build_settings.delete('CODE_SIGNING_REQUIRED')
+        end
+    end
+    installer.pods_project.build_configurations.each do |config|
+        config.build_settings.delete('CODE_SIGNING_ALLOWED')
+        config.build_settings.delete('CODE_SIGNING_REQUIRED')
+    end
+end
 

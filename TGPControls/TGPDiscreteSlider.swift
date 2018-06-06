@@ -41,7 +41,13 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         }
     }
 
-    @IBInspectable public var tickTintColor:UIColor? = nil {
+    @IBInspectable public var minimumTickTintColor:UIColor? = nil {
+        didSet {
+            layoutTrack()
+        }
+    }
+
+    @IBInspectable public var maximumTickTintColor:UIColor? = nil {
         didSet {
             layoutTrack()
         }
@@ -78,7 +84,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         }
     }
 
-    @IBInspectable public var maximumTrackTintColor:UIColor = UIColor(white: 0.71, alpha: 1) {
+    @IBInspectable public var maximumTrackTintColor = UIColor(white: 0.71, alpha: 1) {
         didSet {
             layoutTrack()
         }
@@ -223,12 +229,19 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
     var ticksAbscissae:[CGPoint] = []
     var thumbAbscissa:CGFloat = 0
     var thumbLayer = CALayer()
+
+    var trackLayer = CALayer()
     var leftTrackLayer = CALayer()
     var rightTrackLayer = CALayer()
-    var trackLayer = CALayer()
     var leadingTrackLayer: CALayer!
     var trailingTrackLayer: CALayer!
+
     var ticksLayer = CALayer()
+    var leftTicksLayer = CALayer()
+    var rightTicksLayer = CALayer()
+    var leadingTicksLayer: CALayer!
+    var trailingTicksLayer: CALayer!
+
     var trackRectangle = CGRect.zero
     var touchedInside = false
     var localeCharacterDirection = CFLocaleLanguageDirection.leftToRight
@@ -275,21 +288,27 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         trailingTrackLayer = (.rightToLeft == localeCharacterDirection)
             ? leftTrackLayer
             : rightTrackLayer
+        leadingTicksLayer = (.rightToLeft == localeCharacterDirection)
+            ? rightTicksLayer
+            : leftTicksLayer
+        trailingTicksLayer = (.rightToLeft == localeCharacterDirection)
+            ? leftTicksLayer
+            : rightTicksLayer
 
-        // Track is a clear clipping layer, and left + right sublayers, which brings in free animation
+        // Track and ticks are in a clear clipping layer, and left + right sublayers,
+        // which brings in free animation
         trackLayer.masksToBounds = true
         trackLayer.backgroundColor = UIColor.clear.cgColor
         layer.addSublayer(trackLayer)
         trackLayer.addSublayer(leftTrackLayer)
         trackLayer.addSublayer(rightTrackLayer)
 
-        if let backgroundColor = tintColor {
-            leadingTrackLayer.backgroundColor = backgroundColor.cgColor
-        }
-        rightTrackLayer.backgroundColor = maximumTrackTintColor.cgColor
-
         // Ticks in between track and thumb
+        ticksLayer.masksToBounds = true
+        ticksLayer.backgroundColor = UIColor.clear.cgColor
         layer.addSublayer(ticksLayer)
+        ticksLayer.addSublayer(rightTicksLayer) // reverse order, left covers right
+        ticksLayer.addSublayer(leftTicksLayer)
 
         // The thumb is its own CALayer, which brings in free animation
         layer.addSublayer(thumbLayer)
@@ -300,11 +319,6 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
 
     func drawTicks() {
         ticksLayer.frame = bounds
-
-        if let tickColor = tickTintColor ?? tintColor {
-            ticksLayer.backgroundColor = tickColor.cgColor
-        }
-
         let path = UIBezierPath()
 
         switch tickComponentStyle {
@@ -363,10 +377,35 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
             break
         }
 
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = trackLayer.bounds
-        maskLayer.path = path.cgPath
-        ticksLayer.mask = maskLayer
+        leftTicksLayer.frame = {
+            var frame = ticksLayer.bounds
+            let tickWidth = (.rightToLeft == localeCharacterDirection)
+                ? -tickSize.width/2
+                : tickSize.width/2
+            frame.size.width = tickWidth + thumbAbscissa
+
+            return frame
+        }()
+
+        leftTicksLayer.mask = {
+            let maskLayer = CAShapeLayer()
+            maskLayer.frame = ticksLayer.bounds
+            maskLayer.path = path.cgPath
+            return maskLayer
+        }()
+
+        rightTicksLayer.frame = ticksLayer.bounds
+
+        rightTicksLayer.mask = {
+            let maskLayer = CAShapeLayer()
+            maskLayer.path = path.cgPath
+            return maskLayer
+        }()
+
+        if let backgroundColor = minimumTickTintColor ?? (minimumTrackTintColor ?? tintColor) {
+            leadingTicksLayer.backgroundColor = backgroundColor.cgColor
+        }
+        trailingTicksLayer.backgroundColor = maximumTickTintColor?.cgColor ?? maximumTrackTintColor.cgColor
     }
 
     func drawTrack() {
