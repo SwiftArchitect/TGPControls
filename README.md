@@ -124,7 +124,8 @@ self.stepper.value = Double(sender.value)
 | `tickStyle` | See style property |
 | `tickSize` | absolute dimension |
 | `tickCount` | discrete steps, must be 2 or greater |
-| `tickTintColor` | takes precedence over the control `tintColor` |
+| `minimumTickTintColor` | lower side ticks ; takes precedence over `minimumTrackTintColor` (†1) |
+| `maximumTickTintColor` | higher side ticks ; takes precedence over `maximumTrackTintColor` (†1) |
 | `tickImage` | a `UIImage`, fits in `tickSize` (†) |
 | `ticksDistance` | horizontal spacing _(calculated)_ |
 
@@ -132,7 +133,7 @@ self.stepper.value = Double(sender.value)
 |:------| ----- |
 | `trackStyle` | See style property |
 | `trackThickness` | height |
-| `trackImage` | a `UIImage`, ignores `trackThickness` (†) |
+| `trackImage` | a `UIImage`, ignores `trackThickness` (†2) |
 | `minimumTrackTintColor` | track lower side |
 | `maximumTrackTintColor` | track higher side |
 
@@ -145,7 +146,8 @@ self.stepper.value = Double(sender.value)
 | `thumbShadowRadius` | breaking the _flat design concept_ |
 | `thumbShadowOffset` | applied to `thumbShadowRadius`, may affect control bounds |
 
-(†) Introduced in version 4.0.0. Former versions used a resource name as a `string`.
+(†1) Introduced in 5.1.0.
+(†2) Introduced in 4.0.0. Former versions used a resource name as a `string`.
 
 ![image](https://cloud.githubusercontent.com/assets/4073988/5910789/e102af28-a572-11e4-9169-b18555e20eab.png)
 
@@ -200,7 +202,7 @@ Most of the customization can be done inside **Interface Builder**.
 
 ---
 
-### Code example (Swift 3)
+### Code example (Swift)
 
 See **TGPControlsDemo** project: `TGPControlsDemo` (Modern Swift syntax + IBInspectable)
 
