@@ -145,7 +145,7 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
 
     // MARK: Properties
     
-    public var names:[String] = [] { // Will dictate the number of ticks
+    @objc public var names:[String] = [] { // Will dictate the number of ticks
         didSet {
             assert(names.count > 0)
             layoutTrack()
