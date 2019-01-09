@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "TGPControls"
-  spec.version      = "5.1.0"
+  spec.version      = "5.2.0"
   spec.summary      = "Custom animated iOS controls: Animated discrete slider, animated labels"
 
   spec.description  = <<-DESC

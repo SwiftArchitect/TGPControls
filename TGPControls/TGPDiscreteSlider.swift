@@ -752,7 +752,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         return UInt(round( Double(segments) * ratio))
     }
 
-    func sendActionForControlEvent(controlEvent:UIControlEvents, with event:UIEvent?) {
+    func sendActionForControlEvent(controlEvent:UIControl.Event, with event:UIEvent?) {
         for target in allTargets {
             if let caActions = actions(forTarget: target, forControlEvent: controlEvent) {
                 for actionName in caActions {
@@ -767,8 +767,8 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
     //       Interface builder hides the IBInspectable for UIControl
 
     let allTargets: Set<AnyHashable> = Set()
-    func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControlEvents) {}
-    func actions(forTarget target: Any?, forControlEvent controlEvent: UIControlEvents) -> [String]? { return nil }
+    func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {}
+    func actions(forTarget target: Any?, forControlEvent controlEvent: UIControl.Event) -> [String]? { return nil }
     func sendAction(_ action: Selector, to target: Any?, for event: UIEvent?) {}
     #endif // TARGET_INTERFACE_BUILDER    
 }
