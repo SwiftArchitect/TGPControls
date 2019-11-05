@@ -708,6 +708,13 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         return inside
     }
 
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer else {
+            return false
+        }
+        return !bounds.contains(gestureRecognizer.location(in: self))
+    }
+    
     // MARK: Notifications
 
     func moveThumbToTick(tick: UInt) {
