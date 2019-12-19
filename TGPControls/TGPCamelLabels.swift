@@ -142,6 +142,12 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
             regularLayout = newValue.rawValue
         }
     }
+    
+    public var textAlignment: NSTextAlignment = .justified {
+        didSet {
+            layoutTrack()
+        }
+    }
 
     // MARK: Properties
     
@@ -249,6 +255,7 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
             let centerY = bounds.height / 2.0
             for name in names {
                 let upLabel = UILabel.init()
+                upLabel.textAlignment = textAlignment
                 upLabel.numberOfLines = numberOfLinesInLabel
                 emphasizedLabels.append(upLabel)
                 upLabel.text = name
@@ -273,6 +280,7 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
                 addSubview(upLabel)
 
                 let dnLabel = UILabel.init()
+                dnLabel.textAlignment = textAlignment
                 dnLabel.numberOfLines = numberOfLinesInLabel
                 regularLabels.append(dnLabel)
                 dnLabel.text = name
