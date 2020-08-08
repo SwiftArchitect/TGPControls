@@ -12,9 +12,9 @@ public class TGPCamelLabels_INTERFACE_BUILDER:UIControl {
 @IBDesignable
 public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
 
-    let validAttributes = [NSLayoutAttribute.top.rawValue,      //  3
-        NSLayoutAttribute.centerY.rawValue,  // 10
-        NSLayoutAttribute.bottom.rawValue]   //  4
+    let validAttributes = [NSLayoutConstraint.Attribute.top.rawValue,      //  3
+        NSLayoutConstraint.Attribute.centerY.rawValue,  // 10
+        NSLayoutConstraint.Attribute.bottom.rawValue]   //  4
 
     // Only used if labels.count < 1
     @IBInspectable public var tickCount:Int {
@@ -102,10 +102,10 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
     // Where should emphasized labels be drawn (10: centerY, 3: top, 4: bottom)
     // By default, emphasized labels are animated towards the top of the frame.
     // This creates the dock effect (camel). They can also be centered vertically, or move down (reverse effect).
-    @IBInspectable public var emphasisLayout:Int = NSLayoutAttribute.top.rawValue {
+    @IBInspectable public var emphasisLayout:Int = NSLayoutConstraint.Attribute.top.rawValue {
         didSet {
             if !validAttributes.contains(emphasisLayout) {
-                emphasisLayout = NSLayoutAttribute.top.rawValue
+                emphasisLayout = NSLayoutConstraint.Attribute.top.rawValue
             }
             layoutTrack()
         }
@@ -114,10 +114,10 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
     // Where should regular labels be drawn (10: centerY, 3: top, 4: bottom)
     // By default, emphasized labels are animated towards the bottom of the frame.
     // This creates the dock effect (camel). They can also be centered vertically, or move up (reverse effect).
-    @IBInspectable public var regularLayout:Int = NSLayoutAttribute.bottom.rawValue {
+    @IBInspectable public var regularLayout:Int = NSLayoutConstraint.Attribute.bottom.rawValue {
         didSet {
             if !validAttributes.contains(regularLayout) {
-                regularLayout = NSLayoutAttribute.bottom.rawValue
+                regularLayout = NSLayoutConstraint.Attribute.bottom.rawValue
             }
             layoutTrack()
         }
@@ -125,18 +125,18 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
 
     // MARK: @IBInspectable adapters
 
-    public var emphasisLayoutAttribute:NSLayoutAttribute {
+    public var emphasisLayoutAttribute:NSLayoutConstraint.Attribute {
         get {
-            return NSLayoutAttribute(rawValue: emphasisLayout) ?? .top
+            return NSLayoutConstraint.Attribute(rawValue: emphasisLayout) ?? .top
         }
         set {
             emphasisLayout = newValue.rawValue
         }
     }
 
-    public var regularLayoutAttribute:NSLayoutAttribute {
+    public var regularLayoutAttribute:NSLayoutConstraint.Attribute {
         get {
-            return NSLayoutAttribute(rawValue: regularLayout) ?? .bottom
+            return NSLayoutConstraint.Attribute(rawValue: regularLayout) ?? .bottom
         }
         set {
             regularLayout = newValue.rawValue
@@ -365,7 +365,7 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
         }
     }
     
-    func verticalAlign(aView:UIView, alpha:CGFloat, attribute layout:NSLayoutAttribute) {
+    func verticalAlign(aView:UIView, alpha:CGFloat, attribute layout:NSLayoutConstraint.Attribute) {
         switch layout {
         case .top:
             aView.frame = {
