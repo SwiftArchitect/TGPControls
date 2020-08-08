@@ -752,7 +752,7 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
         return UInt(round( Double(segments) * ratio))
     }
 
-    func sendActionForControlEvent(controlEvent:UIControlEvents, with event:UIEvent?) {
+    func sendActionForControlEvent(controlEvent:UIControl.Event, with event:UIEvent?) {
         for target in allTargets {
             if let caActions = actions(forTarget: target, forControlEvent: controlEvent) {
                 for actionName in caActions {
